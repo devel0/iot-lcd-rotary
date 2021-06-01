@@ -28,7 +28,7 @@ LCD Rotary Menu for ststm32 platform, mbed os framework.
 
 ## Quickstart
 
-Install using vscode command palette `PlatformIO: New Terminal` referring to [platformio registry](https://platformio.org/lib/show/11564/iot-utils/installation) cli mode doc.
+Install using vscode command palette `PlatformIO: New Terminal` referring to [platformio registry](https://platformio.org/lib/show/12375/iot-lcd-rotary) cli mode doc.
 
 ## Examples
 
