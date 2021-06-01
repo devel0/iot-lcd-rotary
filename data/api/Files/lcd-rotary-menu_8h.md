@@ -17,8 +17,8 @@ title: include/lcd-rotary-menu.h
 
 |                | Name           |
 | -------------- | -------------- |
-| struct | **[LCDRotaryMenuOptions](https://github.com/devel0/iot-utils/tree/main/data/api/Classes/struct_l_c_d_rotary_menu_options.md)**  |
-| class | **[LCDRotaryMenu](https://github.com/devel0/iot-utils/tree/main/data/api/Classes/class_l_c_d_rotary_menu.md)** <br>LCD Rotary Menu.  |
+| struct | **[LCDRotaryMenuOptions](https://github.com/devel0/iot-lcd-rotary/tree/main/data/api/Classes/struct_l_c_d_rotary_menu_options.md)**  |
+| class | **[LCDRotaryMenu](https://github.com/devel0/iot-lcd-rotary/tree/main/data/api/Classes/class_l_c_d_rotary_menu.md)** <br>LCD Rotary Menu.  |
 
 
 

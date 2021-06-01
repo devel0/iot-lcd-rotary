@@ -8,7 +8,7 @@ title: Namespaces
 
 
 
-* **namespace [std](https://github.com/devel0/iot-utils/tree/main/data/api/Namespaces/namespacestd.md)** 
+* **namespace [std](https://github.com/devel0/iot-lcd-rotary/tree/main/data/api/Namespaces/namespacestd.md)** 
 
 
 

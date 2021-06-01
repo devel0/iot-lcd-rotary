@@ -16,19 +16,19 @@ title: include/lcd-rotary-menuitem.h
 
 | Name           |
 | -------------- |
-| **[std](https://github.com/devel0/iot-utils/tree/main/data/api/Namespaces/namespacestd.md)**  |
+| **[std](https://github.com/devel0/iot-lcd-rotary/tree/main/data/api/Namespaces/namespacestd.md)**  |
 
 ## Classes
 
 |                | Name           |
 | -------------- | -------------- |
-| class | **[LCDRotaryMenuItem](https://github.com/devel0/iot-utils/tree/main/data/api/Classes/class_l_c_d_rotary_menu_item.md)**  |
+| class | **[LCDRotaryMenuItem](https://github.com/devel0/iot-lcd-rotary/tree/main/data/api/Classes/class_l_c_d_rotary_menu_item.md)**  |
 
 ## Types
 
 |                | Name           |
 | -------------- | -------------- |
-| typedef void(*)(LCDRotaryMenuItem &) | **[LCDRotaryMenuItemCB](https://github.com/devel0/iot-utils/tree/main/data/api/Files/lcd-rotary-menuitem_8h.md#typedef-lcdrotarymenuitemcb)**  |
+| typedef void(*)(LCDRotaryMenuItem &) | **[LCDRotaryMenuItemCB](https://github.com/devel0/iot-lcd-rotary/tree/main/data/api/Files/lcd-rotary-menuitem_8h.md#typedef-lcdrotarymenuitemcb)**  |
 
 
 
