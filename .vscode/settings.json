@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "*.axaml": "xml",
+        "string": "cpp"
+    }
+}

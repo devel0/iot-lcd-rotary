@@ -32,7 +32,7 @@ class LCDRotaryMenuItem
 
     vector<LCDRotaryMenuItem *> children;
 
-    String text;
+    string text;
 
     /**
      * @brief children scroll row     
@@ -72,11 +72,11 @@ public:
      * @param tag optional user tag useful to manage callback with switch type     
      * @param custom void * custom ptr
      */
-    LCDRotaryMenuItem &append(String menuText, int tag = -1, void *custom = NULL);
+    LCDRotaryMenuItem &append(string menuText, int tag = -1, void *custom = NULL);
 
     LCDRotaryMenuItem *getParent();
 
-    void setText(String menuText);
+    void setText(string menuText);
 
     /**
      * @brief set callback on select this item
@@ -95,7 +95,7 @@ public:
      */
     void back();
 
-    const String &getText() const;
+    const string &getText() const;
 
     /**
      * @brief retrieve user tag associated to this menuitem ( useful when manage with single callback that switch on menuitem tag )

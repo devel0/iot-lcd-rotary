@@ -4,6 +4,8 @@
 
 #include "lcd-rotary-menu.h"
 
+using namespace std;
+
 void goBack(LCDRotaryMenuItem &item)
 {
     item.back();
@@ -45,7 +47,7 @@ void LCDRotaryMenuItem::clear()
     children.clear();
 }
 
-LCDRotaryMenuItem &LCDRotaryMenuItem::append(String menuText, int tag, void *custom)
+LCDRotaryMenuItem &LCDRotaryMenuItem::append(string menuText, int tag, void *custom)
 {
     auto newItem = new LCDRotaryMenuItem(menu, this, tag, custom);
     newItem->setText(menuText);
@@ -79,7 +81,7 @@ void LCDRotaryMenuItem::onSelect(void (*cb)())
     this->selectCb2 = cb;
 }
 
-void LCDRotaryMenuItem::setText(String menuText)
+void LCDRotaryMenuItem::setText(string menuText)
 {
     text = menuText;
     menu.invalidate();
@@ -116,7 +118,7 @@ void LCDRotaryMenuItem::back()
     menu.invalidate();
 }
 
-const String &LCDRotaryMenuItem::getText() const
+const string &LCDRotaryMenuItem::getText() const
 {
     return text;
 }
