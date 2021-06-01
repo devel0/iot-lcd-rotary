@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="struct_l_c_d_rotary_menu_options" kind="struct" language="C++" prot="public">
+    <compoundname>LCDRotaryMenuOptions</compoundname>
+    <includes refid="lcd-rotary-menu_8h" local="no">lcd-rotary-menu.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_l_c_d_rotary_menu_options_1a2e73220ff857ce2a95f4f1c1bdb0b02d" prot="public" static="no" mutable="no">
+        <type>char</type>
+        <definition>char LCDRotaryMenuOptions::subMenuPostChar</definition>
+        <argsstring></argsstring>
+        <name>subMenuPostChar</name>
+        <briefdescription>
+<para>if not space then the char is appended at end of menu text to inform the user that the selected item is a submenu item </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/lcd-rotary-menu.h" line="20" column="10" bodyfile="include/lcd-rotary-menu.h" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_l_c_d_rotary_menu_options_1a76958f473f0b395faa2dcad0eee66438" prot="public" static="no" mutable="no">
+        <type>const char *</type>
+        <definition>const char* LCDRotaryMenuOptions::backString</definition>
+        <argsstring></argsstring>
+        <name>backString</name>
+        <briefdescription>
+<para>text string for back menu label </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/lcd-rotary-menu.h" line="25" column="16" bodyfile="include/lcd-rotary-menu.h" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/lcd-rotary-menu.h" line="15" column="1" bodyfile="include/lcd-rotary-menu.h" bodystart="14" bodyend="26"/>
+    <listofallmembers>
+      <member refid="struct_l_c_d_rotary_menu_options_1a76958f473f0b395faa2dcad0eee66438" prot="public" virt="non-virtual"><scope>LCDRotaryMenuOptions</scope><name>backString</name></member>
+      <member refid="struct_l_c_d_rotary_menu_options_1a2e73220ff857ce2a95f4f1c1bdb0b02d" prot="public" virt="non-virtual"><scope>LCDRotaryMenuOptions</scope><name>subMenuPostChar</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

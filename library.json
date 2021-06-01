@@ -1,0 +1,54 @@
+{
+    "name": "iot-lcd-rotary",
+    "version": "1.0.0",
+    "description": "LCD Rotary Menu for ststm32 framework and mbed, arduino platforms.",
+    "keywords": "lcd,rotary,menu",
+    "authors": {
+        "name": "Lorenzo Delana",
+        "email": "lorenzo.delana@gmail.com"
+    },
+    "license": "MIT",
+    "frameworks": [
+        "mbed",
+        "arduino"
+    ],
+    "platforms": [
+        "ststm32"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/devel0/iot-lcd-rotary.git"
+    },
+    "examples": [
+        {
+            "name": "example02",
+            "base": "examples/example02",
+            "files": [
+                "example02.cpp"
+            ]
+        },
+        {
+            "name": "example03",
+            "base": "examples/example03",
+            "files": [
+                "example03.cpp"
+            ]
+        },
+        {
+            "name": "example04",
+            "base": "examples/example04",
+            "files": [
+                "example04.cpp"
+            ]
+        }
+    ],
+    "dependencies": {
+        "devel0/iot-utils": "^1.5.0*",
+        "marcoschwartz/LiquidCrystal_I2C": "^1.1.4"
+    },
+    "export": {
+        "exclude": [
+            "src/debug-main.cpp"
+        ]
+    }
+}

@@ -1,0 +1,839 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="class_l_c_d_rotary_menu" kind="class" language="C++" prot="public">
+    <compoundname>LCDRotaryMenu</compoundname>
+    <includes refid="lcd-rotary-menu_8h" local="no">lcd-rotary-menu.h</includes>
+      <sectiondef kind="friend">
+      <memberdef kind="friend" id="class_l_c_d_rotary_menu_1ae83390abf1ed9c051a14500c41acc39d" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>friend class</type>
+        <definition>friend class LCDRotaryMenuItem</definition>
+        <argsstring></argsstring>
+        <name>LCDRotaryMenuItem</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/lcd-rotary-menu.h" line="36" column="5" bodyfile="include/lcd-rotary-menu.h" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_l_c_d_rotary_menu_1ad0d601e91512fcba9a508452fc375047" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int LCDRotaryMenu::cols</definition>
+        <argsstring></argsstring>
+        <name>cols</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/lcd-rotary-menu.h" line="38" column="9" bodyfile="include/lcd-rotary-menu.h" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_l_c_d_rotary_menu_1a4af7db3466a87a6e49da5b9816ced475" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int LCDRotaryMenu::rows</definition>
+        <argsstring></argsstring>
+        <name>rows</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/lcd-rotary-menu.h" line="39" column="9" bodyfile="include/lcd-rotary-menu.h" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_l_c_d_rotary_menu_1a6b34af76b249df9b69e6eab0cafc4302" prot="private" static="no" mutable="no">
+        <type>LiquidCrystal_I2C *</type>
+        <definition>LiquidCrystal_I2C* LCDRotaryMenu::lcd</definition>
+        <argsstring></argsstring>
+        <name>lcd</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/lcd-rotary-menu.h" line="41" column="23" bodyfile="include/lcd-rotary-menu.h" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_l_c_d_rotary_menu_1a4248f52e71c280f2c22121ec2bb4a14a" prot="private" static="no" mutable="no">
+        <type>DebouncedButton *</type>
+        <definition>DebouncedButton* LCDRotaryMenu::btn</definition>
+        <argsstring></argsstring>
+        <name>btn</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/lcd-rotary-menu.h" line="42" column="21" bodyfile="include/lcd-rotary-menu.h" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_l_c_d_rotary_menu_1acfd472dc207eb53b748b1260f19d2df1" prot="private" static="no" mutable="no">
+        <type>DebouncedRotary *</type>
+        <definition>DebouncedRotary* LCDRotaryMenu::rotary</definition>
+        <argsstring></argsstring>
+        <name>rotary</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/lcd-rotary-menu.h" line="43" column="21" bodyfile="include/lcd-rotary-menu.h" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_l_c_d_rotary_menu_1a6c18938ea5e84fc5a9d4deebbd38a0b2" prot="private" static="no" mutable="no">
+        <type>void(*</type>
+        <definition>void(* LCDRotaryMenu::splCb) (LiquidCrystal_I2C &amp;lcd)</definition>
+        <argsstring>)(LiquidCrystal_I2C &amp;lcd)</argsstring>
+        <name>splCb</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/lcd-rotary-menu.h" line="45" column="5" bodyfile="include/lcd-rotary-menu.h" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_l_c_d_rotary_menu_1a6df6ca1cdb4db4f64a1c67750e05f45e" prot="private" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t LCDRotaryMenu::splTimeoutMs</definition>
+        <argsstring></argsstring>
+        <name>splTimeoutMs</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/lcd-rotary-menu.h" line="46" column="14" bodyfile="include/lcd-rotary-menu.h" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_l_c_d_rotary_menu_1aa8710a6dd4d53a21bae37a3c1d933bcd" prot="private" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t LCDRotaryMenu::menuBeginTimestamp</definition>
+        <argsstring></argsstring>
+        <name>menuBeginTimestamp</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/lcd-rotary-menu.h" line="48" column="14" bodyfile="include/lcd-rotary-menu.h" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_l_c_d_rotary_menu_1ad2623fc771e3685429f1e72341752071" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool LCDRotaryMenu::splashDisplayed</definition>
+        <argsstring></argsstring>
+        <name>splashDisplayed</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/lcd-rotary-menu.h" line="49" column="10" bodyfile="include/lcd-rotary-menu.h" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_l_c_d_rotary_menu_1a9bb53815d0d732504bfc1432a0022ee5" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int LCDRotaryMenu::rotAPin</definition>
+        <argsstring></argsstring>
+        <name>rotAPin</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/lcd-rotary-menu.h" line="51" column="9" bodyfile="include/lcd-rotary-menu.h" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_l_c_d_rotary_menu_1a0a41be9998752e9e76c61ed9ec4d1eea" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int LCDRotaryMenu::rotBPin</definition>
+        <argsstring></argsstring>
+        <name>rotBPin</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/lcd-rotary-menu.h" line="52" column="9" bodyfile="include/lcd-rotary-menu.h" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_l_c_d_rotary_menu_1a1699c2448320f404a71b6c23cfe865ea" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int LCDRotaryMenu::rotSWPin</definition>
+        <argsstring></argsstring>
+        <name>rotSWPin</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/lcd-rotary-menu.h" line="53" column="9" bodyfile="include/lcd-rotary-menu.h" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_l_c_d_rotary_menu_1aa4fd7aa604917453b1952d2974798958" prot="private" static="no" mutable="no">
+        <type><ref refid="class_l_c_d_rotary_menu_item" kindref="compound">LCDRotaryMenuItem</ref> *</type>
+        <definition>LCDRotaryMenuItem* LCDRotaryMenu::root</definition>
+        <argsstring></argsstring>
+        <name>root</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/lcd-rotary-menu.h" line="55" column="23" bodyfile="include/lcd-rotary-menu.h" bodystart="55" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_l_c_d_rotary_menu_1a5aaa6d23b186aaffe4df0a62e8db0d66" prot="private" static="no" mutable="no">
+        <type><ref refid="class_l_c_d_rotary_menu_item" kindref="compound">LCDRotaryMenuItem</ref> *</type>
+        <definition>LCDRotaryMenuItem* LCDRotaryMenu::selectedItem</definition>
+        <argsstring></argsstring>
+        <name>selectedItem</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/lcd-rotary-menu.h" line="56" column="23" bodyfile="include/lcd-rotary-menu.h" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_l_c_d_rotary_menu_1a99cf5a76a8f64dbcbe7413a20384767d" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool LCDRotaryMenu::invalidated</definition>
+        <argsstring></argsstring>
+        <name>invalidated</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/lcd-rotary-menu.h" line="57" column="10" bodyfile="include/lcd-rotary-menu.h" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_l_c_d_rotary_menu_1a5e1988d8a706e46517d176b3fd7e18b6" prot="private" static="no" mutable="no">
+        <type>char **</type>
+        <definition>char** LCDRotaryMenu::rowsBuf</definition>
+        <argsstring></argsstring>
+        <name>rowsBuf</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/lcd-rotary-menu.h" line="59" column="10" bodyfile="include/lcd-rotary-menu.h" bodystart="59" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_l_c_d_rotary_menu_1a5f6f0dd8e5d4d589257c9f1bba134e93" prot="private" static="no" mutable="no">
+        <type>char **</type>
+        <definition>char** LCDRotaryMenu::rowsBuf2</definition>
+        <argsstring></argsstring>
+        <name>rowsBuf2</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/lcd-rotary-menu.h" line="60" column="10" bodyfile="include/lcd-rotary-menu.h" bodystart="60" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_l_c_d_rotary_menu_1aac1e8ff81554992e9121ce88f58be508" prot="private" static="no" mutable="no">
+        <type>short</type>
+        <definition>short LCDRotaryMenu::customLineRow</definition>
+        <argsstring></argsstring>
+        <name>customLineRow</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/lcd-rotary-menu.h" line="61" column="11" bodyfile="include/lcd-rotary-menu.h" bodystart="61" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_l_c_d_rotary_menu_1a071bf614eea3d455f925e97120690fc3" prot="private" static="no" mutable="no">
+        <type>short</type>
+        <definition>short LCDRotaryMenu::customLineRow2</definition>
+        <argsstring></argsstring>
+        <name>customLineRow2</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/lcd-rotary-menu.h" line="62" column="11" bodyfile="include/lcd-rotary-menu.h" bodystart="62" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_l_c_d_rotary_menu_1a39641d61d541aa5c7cc715ad06ecdd4a" prot="private" static="no" mutable="no">
+        <type><ref refid="lcd-rotary-menuitem_8h_1a1fe9ce9741dcc6b7fc7051d0467ccf7e" kindref="member">LCDRotaryMenuItemCB</ref></type>
+        <definition>LCDRotaryMenuItemCB LCDRotaryMenu::defaultCb</definition>
+        <argsstring></argsstring>
+        <name>defaultCb</name>
+        <initializer>= NULL</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/lcd-rotary-menu.h" line="64" column="25" bodyfile="include/lcd-rotary-menu.h" bodystart="64" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_l_c_d_rotary_menu_1aa5f827e63af73de1cb84fb2eaca486e4" prot="private" static="no" mutable="no">
+        <type><ref refid="class_l_c_d_rotary_menu_item" kindref="compound">LCDRotaryMenuItem</ref> **</type>
+        <definition>LCDRotaryMenuItem** LCDRotaryMenu::displayedMenuItems</definition>
+        <argsstring></argsstring>
+        <name>displayedMenuItems</name>
+        <briefdescription>
+<para>for purpose of isDisplayed() fn <linebreak/>
+ </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/lcd-rotary-menu.h" line="69" column="23" bodyfile="include/lcd-rotary-menu.h" bodystart="69" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_l_c_d_rotary_menu_1ad4a97e199045c6989e16df39e4719baf" prot="private" static="no" mutable="no">
+        <type>void(*</type>
+        <definition>void(* LCDRotaryMenu::btnCb) ()</definition>
+        <argsstring>)()</argsstring>
+        <name>btnCb</name>
+        <initializer>= NULL</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/lcd-rotary-menu.h" line="71" column="5" bodyfile="include/lcd-rotary-menu.h" bodystart="71" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_l_c_d_rotary_menu_1a54f5fe8dc335283a944e6b0294ebc2b1" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool LCDRotaryMenu::busyMode</definition>
+        <argsstring></argsstring>
+        <name>busyMode</name>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/lcd-rotary-menu.h" line="73" column="10" bodyfile="include/lcd-rotary-menu.h" bodystart="73" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_l_c_d_rotary_menu_1a854dfd1512fbd600691274ac78929cad" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_l_c_d_rotary_menu_options" kindref="compound">LCDRotaryMenuOptions</ref></type>
+        <definition>LCDRotaryMenuOptions LCDRotaryMenu::options</definition>
+        <argsstring></argsstring>
+        <name>options</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/lcd-rotary-menu.h" line="98" column="26" bodyfile="include/lcd-rotary-menu.h" bodystart="98" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-func">
+      <memberdef kind="function" id="class_l_c_d_rotary_menu_1a76c308685afec31de40341f5ccd9e2ec" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void LCDRotaryMenu::displayMenu</definition>
+        <argsstring>()</argsstring>
+        <name>displayMenu</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/lcd-rotary-menu.h" line="76" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="class_l_c_d_rotary_menu_1a3a8d1058c26d1a60fabd88f208f43424" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void LCDRotaryMenu::invalidate</definition>
+        <argsstring>()</argsstring>
+        <name>invalidate</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/lcd-rotary-menu.h" line="77" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="class_l_c_d_rotary_menu_1af0e2cf5f429108a002a9979f47c56501" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void LCDRotaryMenu::move</definition>
+        <argsstring>(int diff)</argsstring>
+        <name>move</name>
+        <param>
+          <type>int</type>
+          <declname>diff</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/lcd-rotary-menu.h" line="78" column="10"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_l_c_d_rotary_menu_1a02049fd88ea5c3ac2a4f0f1631d8d27e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>LCDRotaryMenu::LCDRotaryMenu</definition>
+        <argsstring>(int addr, int cols, int rows, int rotAPin, int rotBPin, int rotSWPin, bool inverted=false, int btnDebounceMs=50, int abDebounceUs=1500)</argsstring>
+        <name>LCDRotaryMenu</name>
+        <param>
+          <type>int</type>
+          <declname>addr</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>cols</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>rows</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>rotAPin</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>rotBPin</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>rotSWPin</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>inverted</declname>
+          <defval>false</defval>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>btnDebounceMs</declname>
+          <defval>50</defval>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>abDebounceUs</declname>
+          <defval>1500</defval>
+        </param>
+        <briefdescription>
+<para>Construct a new <ref refid="class_l_c_d_rotary_menu" kindref="compound">LCDRotaryMenu</ref> object. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>addr</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>i2c lcd address </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>cols</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>nr. of lcd columns </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>rows</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>nr. of lcd rows </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>rotAPin</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>pin of rotary encoder A </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>rotBPin</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>pin of rotary encoder B </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>rotSWPin</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>pin of rotary encoder switch </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>inverted</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>if true cw/ccw generates decrement/increment in position </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>btnDebounceMs</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>debounce(ms) for rotary switch </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>btnDebounceMs</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>debounce(us) for rotary A, B </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/lcd-rotary-menu.h" line="94" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="class_l_c_d_rotary_menu_1a18422ffc4f4fa8d0b88f6a39b2d50346" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>LCDRotaryMenu::~LCDRotaryMenu</definition>
+        <argsstring>()</argsstring>
+        <name>~LCDRotaryMenu</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/lcd-rotary-menu.h" line="96" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="class_l_c_d_rotary_menu_1aabf84c1fa675f349a705d025952c1c01" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void LCDRotaryMenu::setSplashCb</definition>
+        <argsstring>(void(*splCb)(LiquidCrystal_I2C &amp;lcd), uint32_t timeoutMs)</argsstring>
+        <name>setSplashCb</name>
+        <param>
+          <type>void(*)(LiquidCrystal_I2C &amp;lcd)</type>
+          <declname>splCb</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>timeoutMs</declname>
+        </param>
+        <briefdescription>
+<para>Set splash callback before Init. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>splCb</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>callback here you can directly used lcd ( clear, setCursor, print ) </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>timeoutMs</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>time after which menu display </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/lcd-rotary-menu.h" line="106" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="class_l_c_d_rotary_menu_1a031811b8aad118429f71122c7bca8d10" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void LCDRotaryMenu::setDefaultCb</definition>
+        <argsstring>(LCDRotaryMenuItemCB cb)</argsstring>
+        <name>setDefaultCb</name>
+        <param>
+          <type><ref refid="lcd-rotary-menuitem_8h_1a1fe9ce9741dcc6b7fc7051d0467ccf7e" kindref="member">LCDRotaryMenuItemCB</ref></type>
+          <declname>cb</declname>
+        </param>
+        <briefdescription>
+<para>set default callback when select menuitem that has no custom callback </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/lcd-rotary-menu.h" line="111" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="class_l_c_d_rotary_menu_1a78530f42f079fedc140660c9b6c0b310" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void LCDRotaryMenu::setButtonCb</definition>
+        <argsstring>(void(*cb)())</argsstring>
+        <name>setButtonCb</name>
+        <param>
+          <type>void(*)()</type>
+          <declname>cb</declname>
+        </param>
+        <briefdescription>
+<para>set callback that will be called everytime button switch ; it&apos;s called before any specific onSelect callback </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>cb</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/lcd-rotary-menu.h" line="118" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="class_l_c_d_rotary_menu_1a0ee49bb239e0bb12ce4b4790ec9c8c42" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void LCDRotaryMenu::init</definition>
+        <argsstring>()</argsstring>
+        <name>init</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/lcd-rotary-menu.h" line="120" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="class_l_c_d_rotary_menu_1ae927803ed98909ed04b277f2e1a55da5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void LCDRotaryMenu::loop</definition>
+        <argsstring>()</argsstring>
+        <name>loop</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/lcd-rotary-menu.h" line="121" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="class_l_c_d_rotary_menu_1ad24ac1f3c4e2263a393b98a475e165ab" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_l_c_d_rotary_menu_item" kindref="compound">LCDRotaryMenuItem</ref> &amp;</type>
+        <definition>LCDRotaryMenuItem&amp; LCDRotaryMenu::getRoot</definition>
+        <argsstring>()</argsstring>
+        <name>getRoot</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/lcd-rotary-menu.h" line="123" column="23"/>
+      </memberdef>
+      <memberdef kind="function" id="class_l_c_d_rotary_menu_1acecff8856990b6c405f5e9f531f532d6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_l_c_d_rotary_menu_item" kindref="compound">LCDRotaryMenuItem</ref> *</type>
+        <definition>LCDRotaryMenuItem* LCDRotaryMenu::getSelected</definition>
+        <argsstring>()</argsstring>
+        <name>getSelected</name>
+        <briefdescription>
+<para>retrieve currently selected menu <linebreak/>
+ </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/lcd-rotary-menu.h" line="128" column="23"/>
+      </memberdef>
+      <memberdef kind="function" id="class_l_c_d_rotary_menu_1a4009b20491d256c9127a31d01a0d9889" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void LCDRotaryMenu::setCustomLine</definition>
+        <argsstring>(const char *customLine, short rowIdx)</argsstring>
+        <name>setCustomLine</name>
+        <param>
+          <type>const char *</type>
+          <declname>customLine</declname>
+        </param>
+        <param>
+          <type>short</type>
+          <declname>rowIdx</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/lcd-rotary-menu.h" line="130" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="class_l_c_d_rotary_menu_1a42a5df48f6c099f08a18ae25510c373a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void LCDRotaryMenu::setCustomLine2</definition>
+        <argsstring>(const char *customLine2, short rowIdx)</argsstring>
+        <name>setCustomLine2</name>
+        <param>
+          <type>const char *</type>
+          <declname>customLine2</declname>
+        </param>
+        <param>
+          <type>short</type>
+          <declname>rowIdx</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/lcd-rotary-menu.h" line="131" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="class_l_c_d_rotary_menu_1a4ddfcf0c099fb241249750936ee8cc5a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void LCDRotaryMenu::unsetCustomLine</definition>
+        <argsstring>()</argsstring>
+        <name>unsetCustomLine</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/lcd-rotary-menu.h" line="132" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="class_l_c_d_rotary_menu_1a25597c254042ac27cb4164dcdb2bb108" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>LiquidCrystal_I2C &amp;</type>
+        <definition>LiquidCrystal_I2C&amp; LCDRotaryMenu::getLCD</definition>
+        <argsstring>()</argsstring>
+        <name>getLCD</name>
+        <briefdescription>
+<para>retrieve lcd pointer ( advanced ) <linebreak/>
+ </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/lcd-rotary-menu.h" line="137" column="23"/>
+      </memberdef>
+      <memberdef kind="function" id="class_l_c_d_rotary_menu_1a364949b3f32f8a19aad0c358594f0cd1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void LCDRotaryMenu::setBusyLine</definition>
+        <argsstring>(const char *busyLine, short rowIdx)</argsstring>
+        <name>setBusyLine</name>
+        <param>
+          <type>const char *</type>
+          <declname>busyLine</declname>
+        </param>
+        <param>
+          <type>short</type>
+          <declname>rowIdx</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/lcd-rotary-menu.h" line="139" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="class_l_c_d_rotary_menu_1ae2bd36e42489b84fa356524972f16604" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void LCDRotaryMenu::unsetBusy</definition>
+        <argsstring>()</argsstring>
+        <name>unsetBusy</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/lcd-rotary-menu.h" line="140" column="10"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>LCD Rotary Menu. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>nfo </para>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>LCDRotaryMenuOptions</label>
+        <link refid="struct_l_c_d_rotary_menu_options"/>
+      </node>
+      <node id="1">
+        <label>LCDRotaryMenu</label>
+        <link refid="class_l_c_d_rotary_menu"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>options</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="include/lcd-rotary-menu.h" line="35" column="1" bodyfile="include/lcd-rotary-menu.h" bodystart="34" bodyend="141"/>
+    <listofallmembers>
+      <member refid="class_l_c_d_rotary_menu_1a4248f52e71c280f2c22121ec2bb4a14a" prot="private" virt="non-virtual"><scope>LCDRotaryMenu</scope><name>btn</name></member>
+      <member refid="class_l_c_d_rotary_menu_1ad4a97e199045c6989e16df39e4719baf" prot="private" virt="non-virtual"><scope>LCDRotaryMenu</scope><name>btnCb</name></member>
+      <member refid="class_l_c_d_rotary_menu_1a54f5fe8dc335283a944e6b0294ebc2b1" prot="private" virt="non-virtual"><scope>LCDRotaryMenu</scope><name>busyMode</name></member>
+      <member refid="class_l_c_d_rotary_menu_1ad0d601e91512fcba9a508452fc375047" prot="private" virt="non-virtual"><scope>LCDRotaryMenu</scope><name>cols</name></member>
+      <member refid="class_l_c_d_rotary_menu_1aac1e8ff81554992e9121ce88f58be508" prot="private" virt="non-virtual"><scope>LCDRotaryMenu</scope><name>customLineRow</name></member>
+      <member refid="class_l_c_d_rotary_menu_1a071bf614eea3d455f925e97120690fc3" prot="private" virt="non-virtual"><scope>LCDRotaryMenu</scope><name>customLineRow2</name></member>
+      <member refid="class_l_c_d_rotary_menu_1a39641d61d541aa5c7cc715ad06ecdd4a" prot="private" virt="non-virtual"><scope>LCDRotaryMenu</scope><name>defaultCb</name></member>
+      <member refid="class_l_c_d_rotary_menu_1aa5f827e63af73de1cb84fb2eaca486e4" prot="private" virt="non-virtual"><scope>LCDRotaryMenu</scope><name>displayedMenuItems</name></member>
+      <member refid="class_l_c_d_rotary_menu_1a76c308685afec31de40341f5ccd9e2ec" prot="protected" virt="non-virtual"><scope>LCDRotaryMenu</scope><name>displayMenu</name></member>
+      <member refid="class_l_c_d_rotary_menu_1a25597c254042ac27cb4164dcdb2bb108" prot="public" virt="non-virtual"><scope>LCDRotaryMenu</scope><name>getLCD</name></member>
+      <member refid="class_l_c_d_rotary_menu_1ad24ac1f3c4e2263a393b98a475e165ab" prot="public" virt="non-virtual"><scope>LCDRotaryMenu</scope><name>getRoot</name></member>
+      <member refid="class_l_c_d_rotary_menu_1acecff8856990b6c405f5e9f531f532d6" prot="public" virt="non-virtual"><scope>LCDRotaryMenu</scope><name>getSelected</name></member>
+      <member refid="class_l_c_d_rotary_menu_1a0ee49bb239e0bb12ce4b4790ec9c8c42" prot="public" virt="non-virtual"><scope>LCDRotaryMenu</scope><name>init</name></member>
+      <member refid="class_l_c_d_rotary_menu_1a3a8d1058c26d1a60fabd88f208f43424" prot="protected" virt="non-virtual"><scope>LCDRotaryMenu</scope><name>invalidate</name></member>
+      <member refid="class_l_c_d_rotary_menu_1a99cf5a76a8f64dbcbe7413a20384767d" prot="private" virt="non-virtual"><scope>LCDRotaryMenu</scope><name>invalidated</name></member>
+      <member refid="class_l_c_d_rotary_menu_1a6b34af76b249df9b69e6eab0cafc4302" prot="private" virt="non-virtual"><scope>LCDRotaryMenu</scope><name>lcd</name></member>
+      <member refid="class_l_c_d_rotary_menu_1a02049fd88ea5c3ac2a4f0f1631d8d27e" prot="public" virt="non-virtual"><scope>LCDRotaryMenu</scope><name>LCDRotaryMenu</name></member>
+      <member refid="class_l_c_d_rotary_menu_1ae83390abf1ed9c051a14500c41acc39d" prot="private" virt="non-virtual"><scope>LCDRotaryMenu</scope><name>LCDRotaryMenuItem</name></member>
+      <member refid="class_l_c_d_rotary_menu_1ae927803ed98909ed04b277f2e1a55da5" prot="public" virt="non-virtual"><scope>LCDRotaryMenu</scope><name>loop</name></member>
+      <member refid="class_l_c_d_rotary_menu_1aa8710a6dd4d53a21bae37a3c1d933bcd" prot="private" virt="non-virtual"><scope>LCDRotaryMenu</scope><name>menuBeginTimestamp</name></member>
+      <member refid="class_l_c_d_rotary_menu_1af0e2cf5f429108a002a9979f47c56501" prot="protected" virt="non-virtual"><scope>LCDRotaryMenu</scope><name>move</name></member>
+      <member refid="class_l_c_d_rotary_menu_1a854dfd1512fbd600691274ac78929cad" prot="public" virt="non-virtual"><scope>LCDRotaryMenu</scope><name>options</name></member>
+      <member refid="class_l_c_d_rotary_menu_1aa4fd7aa604917453b1952d2974798958" prot="private" virt="non-virtual"><scope>LCDRotaryMenu</scope><name>root</name></member>
+      <member refid="class_l_c_d_rotary_menu_1a9bb53815d0d732504bfc1432a0022ee5" prot="private" virt="non-virtual"><scope>LCDRotaryMenu</scope><name>rotAPin</name></member>
+      <member refid="class_l_c_d_rotary_menu_1acfd472dc207eb53b748b1260f19d2df1" prot="private" virt="non-virtual"><scope>LCDRotaryMenu</scope><name>rotary</name></member>
+      <member refid="class_l_c_d_rotary_menu_1a0a41be9998752e9e76c61ed9ec4d1eea" prot="private" virt="non-virtual"><scope>LCDRotaryMenu</scope><name>rotBPin</name></member>
+      <member refid="class_l_c_d_rotary_menu_1a1699c2448320f404a71b6c23cfe865ea" prot="private" virt="non-virtual"><scope>LCDRotaryMenu</scope><name>rotSWPin</name></member>
+      <member refid="class_l_c_d_rotary_menu_1a4af7db3466a87a6e49da5b9816ced475" prot="private" virt="non-virtual"><scope>LCDRotaryMenu</scope><name>rows</name></member>
+      <member refid="class_l_c_d_rotary_menu_1a5e1988d8a706e46517d176b3fd7e18b6" prot="private" virt="non-virtual"><scope>LCDRotaryMenu</scope><name>rowsBuf</name></member>
+      <member refid="class_l_c_d_rotary_menu_1a5f6f0dd8e5d4d589257c9f1bba134e93" prot="private" virt="non-virtual"><scope>LCDRotaryMenu</scope><name>rowsBuf2</name></member>
+      <member refid="class_l_c_d_rotary_menu_1a5aaa6d23b186aaffe4df0a62e8db0d66" prot="private" virt="non-virtual"><scope>LCDRotaryMenu</scope><name>selectedItem</name></member>
+      <member refid="class_l_c_d_rotary_menu_1a364949b3f32f8a19aad0c358594f0cd1" prot="public" virt="non-virtual"><scope>LCDRotaryMenu</scope><name>setBusyLine</name></member>
+      <member refid="class_l_c_d_rotary_menu_1a78530f42f079fedc140660c9b6c0b310" prot="public" virt="non-virtual"><scope>LCDRotaryMenu</scope><name>setButtonCb</name></member>
+      <member refid="class_l_c_d_rotary_menu_1a4009b20491d256c9127a31d01a0d9889" prot="public" virt="non-virtual"><scope>LCDRotaryMenu</scope><name>setCustomLine</name></member>
+      <member refid="class_l_c_d_rotary_menu_1a42a5df48f6c099f08a18ae25510c373a" prot="public" virt="non-virtual"><scope>LCDRotaryMenu</scope><name>setCustomLine2</name></member>
+      <member refid="class_l_c_d_rotary_menu_1a031811b8aad118429f71122c7bca8d10" prot="public" virt="non-virtual"><scope>LCDRotaryMenu</scope><name>setDefaultCb</name></member>
+      <member refid="class_l_c_d_rotary_menu_1aabf84c1fa675f349a705d025952c1c01" prot="public" virt="non-virtual"><scope>LCDRotaryMenu</scope><name>setSplashCb</name></member>
+      <member refid="class_l_c_d_rotary_menu_1ad2623fc771e3685429f1e72341752071" prot="private" virt="non-virtual"><scope>LCDRotaryMenu</scope><name>splashDisplayed</name></member>
+      <member refid="class_l_c_d_rotary_menu_1a6c18938ea5e84fc5a9d4deebbd38a0b2" prot="private" virt="non-virtual"><scope>LCDRotaryMenu</scope><name>splCb</name></member>
+      <member refid="class_l_c_d_rotary_menu_1a6df6ca1cdb4db4f64a1c67750e05f45e" prot="private" virt="non-virtual"><scope>LCDRotaryMenu</scope><name>splTimeoutMs</name></member>
+      <member refid="class_l_c_d_rotary_menu_1ae2bd36e42489b84fa356524972f16604" prot="public" virt="non-virtual"><scope>LCDRotaryMenu</scope><name>unsetBusy</name></member>
+      <member refid="class_l_c_d_rotary_menu_1a4ddfcf0c099fb241249750936ee8cc5a" prot="public" virt="non-virtual"><scope>LCDRotaryMenu</scope><name>unsetCustomLine</name></member>
+      <member refid="class_l_c_d_rotary_menu_1a18422ffc4f4fa8d0b88f6a39b2d50346" prot="public" virt="non-virtual"><scope>LCDRotaryMenu</scope><name>~LCDRotaryMenu</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>
