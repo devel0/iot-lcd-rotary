@@ -127,6 +127,8 @@ public:
      */
     LCDRotaryMenuItem *getSelected();
 
+    void setSelected(LCDRotaryMenuItem& item);
+
     void setCustomLine(const char *customLine, short rowIdx);
     void setCustomLine2(const char *customLine2, short rowIdx);
     void unsetCustomLine();

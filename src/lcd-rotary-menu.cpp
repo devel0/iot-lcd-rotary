@@ -279,8 +279,9 @@ void LCDRotaryMenu::init()
 
 void LCDRotaryMenu::loop()
 {
-    if (busyMode) return;
-    
+    if (busyMode)
+        return;
+
     if (splashDisplayed)
     {
         if (millis() - menuBeginTimestamp >= splTimeoutMs)
@@ -331,6 +332,11 @@ void LCDRotaryMenu::loop()
 LCDRotaryMenuItem &LCDRotaryMenu::getRoot() { return *root; }
 
 LCDRotaryMenuItem *LCDRotaryMenu::getSelected() { return selectedItem; }
+
+void LCDRotaryMenu::setSelected(LCDRotaryMenuItem &_selectedItem)
+{
+    selectedItem = &_selectedItem;
+}
 
 void LCDRotaryMenu::setCustomLine(const char *customLine, short rowIdx)
 {

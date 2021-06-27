@@ -71,6 +71,16 @@ LCDRotaryMenuItem *LCDRotaryMenuItem::getParent()
     return parent;
 }
 
+LCDRotaryMenuItem *LCDRotaryMenuItem::getSelectedChild()
+{
+    return selectedChild;
+}
+
+vector<LCDRotaryMenuItem *> LCDRotaryMenuItem::getChildren()
+{
+    return children;
+}
+
 void LCDRotaryMenuItem::onSelect(LCDRotaryMenuItemCB cb)
 {
     this->selectCb = cb;

@@ -76,6 +76,10 @@ public:
 
     LCDRotaryMenuItem *getParent();
 
+    LCDRotaryMenuItem *getSelectedChild();
+
+    vector<LCDRotaryMenuItem *> getChildren();
+
     void setText(string menuText);
 
     /**
