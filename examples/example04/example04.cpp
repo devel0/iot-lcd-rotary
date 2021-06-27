@@ -6,15 +6,16 @@
 #include <lcd-rotary-menuitem.h>
 
 #include <sys-debug.h>
+#include <string-utils.h>
 
 // rotary menu example
 
 LCDRotaryMenu *menu;
 
 // check i2c lcd address using i2c scanner
-#define LCD_ADDR 0x3F
-#define LCD_COLS 16
-#define LCD_ROWS 2
+#define LCD_ADDR 0x27
+#define LCD_COLS 20
+#define LCD_ROWS 4
 
 #define ROT_A_PIN 40
 #define ROT_B_PIN 41
@@ -47,7 +48,7 @@ void processMenuItem(LCDRotaryMenuItem &item)
 
     case AppMenuItemTag::sample1:
     {
-        debug("sample1 menu item selected");
+        debug("sample1 menu item selected");        
     }
     break;
 
