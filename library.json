@@ -1,6 +1,6 @@
 {
     "name": "iot-lcd-rotary",
-    "version": "1.2.0",
+    "version": "1.2.1",
     "description": "LCD Rotary Menu for ststm32 framework and mbed, arduino platforms.",
     "keywords": "lcd,rotary,menu",
     "authors": {
@@ -42,9 +42,7 @@
             ]
         }
     ],
-    "dependencies": {
-        "devel0/iot-utils": "^1.5.0*",
-        "marcoschwartz/LiquidCrystal_I2C": "^1.1.4"
+    "dependencies": {  
     },
     "export": {
         "exclude": [
