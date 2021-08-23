@@ -7,8 +7,8 @@
 
 #include <LiquidCrystal_I2C.h>
 
-#include "debounced-button.h"
-#include "debounced-rotary.h"
+#include <debounced-button.h>
+#include <debounced-rotary.h>
 #include "lcd-rotary-menuitem.h"
 
 struct LCDRotaryMenuOptions
