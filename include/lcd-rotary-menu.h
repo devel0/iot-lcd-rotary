@@ -73,8 +73,7 @@ class LCDRotaryMenu
     bool busyMode = false;
 
 protected:
-    void displayMenu();
-    void invalidate();
+    void displayMenu();    
     void move(int diff);
 
 public:
@@ -94,6 +93,11 @@ public:
     LCDRotaryMenu(int addr, int cols, int rows, int rotAPin, int rotBPin, int rotSWPin, bool inverted = false,
                   int btnDebounceMs = 50, int abDebounceUs = 1500);
     ~LCDRotaryMenu();
+
+    /**
+     * @brief force menu redraw, for use within programmatic menu manipulation not tie within callbacks    
+     */
+    void invalidate();
 
     LCDRotaryMenuOptions options;
 
