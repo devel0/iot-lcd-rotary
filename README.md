@@ -15,7 +15,7 @@
 
 ## Description
 
-LCD Rotary Menu for ststm32 platform, mbed os framework.
+LCD Rotary Menu for ststm32 platforms with arduino framework.
 
 ## API
 
