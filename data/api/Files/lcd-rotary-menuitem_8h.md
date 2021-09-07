@@ -111,7 +111,7 @@ class LCDRotaryMenuItem
 
     vector<LCDRotaryMenuItem *> children;
 
-    String text;
+    string text;
 
     int scrollRowPos;
 
@@ -132,11 +132,15 @@ public:
 
     void clear();
 
-    LCDRotaryMenuItem &append(String menuText, int tag = -1, void *custom = NULL);
+    LCDRotaryMenuItem &append(string menuText, int tag = -1, void *custom = NULL);
 
     LCDRotaryMenuItem *getParent();
 
-    void setText(String menuText);
+    LCDRotaryMenuItem *getSelectedChild();
+
+    vector<LCDRotaryMenuItem *> getChildren();
+
+    void setText(string menuText);
 
     void onSelect(LCDRotaryMenuItemCB cb);
 
@@ -146,7 +150,7 @@ public:
 
     void back();
 
-    const String &getText() const;
+    const string &getText() const;
 
     int getTag() const;
 

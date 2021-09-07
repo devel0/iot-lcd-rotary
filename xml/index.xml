@@ -27,10 +27,10 @@
     <member refid="class_l_c_d_rotary_menu_1a54f5fe8dc335283a944e6b0294ebc2b1" kind="variable"><name>busyMode</name></member>
     <member refid="class_l_c_d_rotary_menu_1a854dfd1512fbd600691274ac78929cad" kind="variable"><name>options</name></member>
     <member refid="class_l_c_d_rotary_menu_1a76c308685afec31de40341f5ccd9e2ec" kind="function"><name>displayMenu</name></member>
-    <member refid="class_l_c_d_rotary_menu_1a3a8d1058c26d1a60fabd88f208f43424" kind="function"><name>invalidate</name></member>
     <member refid="class_l_c_d_rotary_menu_1af0e2cf5f429108a002a9979f47c56501" kind="function"><name>move</name></member>
     <member refid="class_l_c_d_rotary_menu_1a02049fd88ea5c3ac2a4f0f1631d8d27e" kind="function"><name>LCDRotaryMenu</name></member>
     <member refid="class_l_c_d_rotary_menu_1a18422ffc4f4fa8d0b88f6a39b2d50346" kind="function"><name>~LCDRotaryMenu</name></member>
+    <member refid="class_l_c_d_rotary_menu_1a3a8d1058c26d1a60fabd88f208f43424" kind="function"><name>invalidate</name></member>
     <member refid="class_l_c_d_rotary_menu_1aabf84c1fa675f349a705d025952c1c01" kind="function"><name>setSplashCb</name></member>
     <member refid="class_l_c_d_rotary_menu_1a031811b8aad118429f71122c7bca8d10" kind="function"><name>setDefaultCb</name></member>
     <member refid="class_l_c_d_rotary_menu_1a78530f42f079fedc140660c9b6c0b310" kind="function"><name>setButtonCb</name></member>
@@ -38,6 +38,7 @@
     <member refid="class_l_c_d_rotary_menu_1ae927803ed98909ed04b277f2e1a55da5" kind="function"><name>loop</name></member>
     <member refid="class_l_c_d_rotary_menu_1ad24ac1f3c4e2263a393b98a475e165ab" kind="function"><name>getRoot</name></member>
     <member refid="class_l_c_d_rotary_menu_1acecff8856990b6c405f5e9f531f532d6" kind="function"><name>getSelected</name></member>
+    <member refid="class_l_c_d_rotary_menu_1a6f26f6dffe18d5a1b6e94ebc070f3bc1" kind="function"><name>setSelected</name></member>
     <member refid="class_l_c_d_rotary_menu_1a4009b20491d256c9127a31d01a0d9889" kind="function"><name>setCustomLine</name></member>
     <member refid="class_l_c_d_rotary_menu_1a42a5df48f6c099f08a18ae25510c373a" kind="function"><name>setCustomLine2</name></member>
     <member refid="class_l_c_d_rotary_menu_1a4ddfcf0c099fb241249750936ee8cc5a" kind="function"><name>unsetCustomLine</name></member>
@@ -50,7 +51,7 @@
     <member refid="class_l_c_d_rotary_menu_item_1a3f7911fe9beee7b54b684fab8638326d" kind="variable"><name>menu</name></member>
     <member refid="class_l_c_d_rotary_menu_item_1a7accb3e29e2117d062f2fe2740fc7b69" kind="variable"><name>parent</name></member>
     <member refid="class_l_c_d_rotary_menu_item_1aaf717d336529108f26ca612d839d3748" kind="variable"><name>children</name></member>
-    <member refid="class_l_c_d_rotary_menu_item_1adab3b28b2c5192f4e59eab2aa79e270d" kind="variable"><name>text</name></member>
+    <member refid="class_l_c_d_rotary_menu_item_1a029578c7dcd7be0a9657ae0b2d6f3605" kind="variable"><name>text</name></member>
     <member refid="class_l_c_d_rotary_menu_item_1a9e6864faa209815b235e500d32f47dc4" kind="variable"><name>scrollRowPos</name></member>
     <member refid="class_l_c_d_rotary_menu_item_1a4813fe9aa55a237d860717e4845dbbb3" kind="variable"><name>selectedChild</name></member>
     <member refid="class_l_c_d_rotary_menu_item_1a12c3dd7194b776cafc8dc3564cd55df0" kind="variable"><name>selectCb</name></member>
@@ -61,14 +62,16 @@
     <member refid="class_l_c_d_rotary_menu_item_1af17f35ca099e15bdedbdd563c8e246f2" kind="function"><name>LCDRotaryMenuItem</name></member>
     <member refid="class_l_c_d_rotary_menu_item_1ab40aaa5d5a233631b80b8f59ab228ddb" kind="function"><name>~LCDRotaryMenuItem</name></member>
     <member refid="class_l_c_d_rotary_menu_item_1a9fcd505d7bde102f0552c4b8fcd4aa6c" kind="function"><name>clear</name></member>
-    <member refid="class_l_c_d_rotary_menu_item_1ad1646d2632724c6d0f9c56de13d6b8c8" kind="function"><name>append</name></member>
+    <member refid="class_l_c_d_rotary_menu_item_1a417797d76f3dcefac94aa693a09440fa" kind="function"><name>append</name></member>
     <member refid="class_l_c_d_rotary_menu_item_1a3728951e866fa1fa956d8eb344f03ff6" kind="function"><name>getParent</name></member>
-    <member refid="class_l_c_d_rotary_menu_item_1a03bdf0af4212c90096515032478fad17" kind="function"><name>setText</name></member>
+    <member refid="class_l_c_d_rotary_menu_item_1aef4b9d42743271a6fc4d5df4cf4fce5b" kind="function"><name>getSelectedChild</name></member>
+    <member refid="class_l_c_d_rotary_menu_item_1afa4fcb1d1bbf1202e828d07589b188e1" kind="function"><name>getChildren</name></member>
+    <member refid="class_l_c_d_rotary_menu_item_1a7857286f7a6b2d36105e0cc7c328df2e" kind="function"><name>setText</name></member>
     <member refid="class_l_c_d_rotary_menu_item_1a92afd4c054c7eddc60e77c526d98ea52" kind="function"><name>onSelect</name></member>
     <member refid="class_l_c_d_rotary_menu_item_1af38418f8e775b5829f3ae4066bb6edc0" kind="function"><name>onSelect</name></member>
     <member refid="class_l_c_d_rotary_menu_item_1a905bb35998be67a482456a8e9e182b75" kind="function"><name>select</name></member>
     <member refid="class_l_c_d_rotary_menu_item_1a4aa93da6c52e62e8201f73332d1c1d5f" kind="function"><name>back</name></member>
-    <member refid="class_l_c_d_rotary_menu_item_1a4f2bc6bce98cdd2ac2db90d8da2c638d" kind="function"><name>getText</name></member>
+    <member refid="class_l_c_d_rotary_menu_item_1ab74efd266806afbdfd232d8f8b53f41a" kind="function"><name>getText</name></member>
     <member refid="class_l_c_d_rotary_menu_item_1a7d4d5e38c134e5026b7b3f3d59f4d743" kind="function"><name>getTag</name></member>
     <member refid="class_l_c_d_rotary_menu_item_1a78c4bfe4e26f9e2e509b081f637cbe2d" kind="function"><name>getCustom</name></member>
     <member refid="class_l_c_d_rotary_menu_item_1abd0fc68a95bcd603d39d6388a217c364" kind="function"><name>isDisplayed</name></member>

@@ -47,8 +47,8 @@ title: include/lcd-rotary-menu.h
 
 #include <LiquidCrystal_I2C.h>
 
-#include "debounced-button.h"
-#include "debounced-rotary.h"
+#include <debounced-button.h>
+#include <debounced-rotary.h>
 #include "lcd-rotary-menuitem.h"
 
 struct LCDRotaryMenuOptions
@@ -97,14 +97,15 @@ class LCDRotaryMenu
     bool busyMode = false;
 
 protected:
-    void displayMenu();
-    void invalidate();
+    void displayMenu();    
     void move(int diff);
 
 public:
     LCDRotaryMenu(int addr, int cols, int rows, int rotAPin, int rotBPin, int rotSWPin, bool inverted = false,
                   int btnDebounceMs = 50, int abDebounceUs = 1500);
     ~LCDRotaryMenu();
+
+    void invalidate();
 
     LCDRotaryMenuOptions options;
 
@@ -120,6 +121,8 @@ public:
     LCDRotaryMenuItem &getRoot();
 
     LCDRotaryMenuItem *getSelected();
+
+    void setSelected(LCDRotaryMenuItem& item);
 
     void setCustomLine(const char *customLine, short rowIdx);
     void setCustomLine2(const char *customLine2, short rowIdx);
