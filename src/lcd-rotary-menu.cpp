@@ -327,7 +327,8 @@ void LCDRotaryMenu::loop()
         auto rotDiff = rotPos - lastRotPos;
         lastRotPos = rotPos;
 
-        move(rotDiff);
+        if (move(rotDiff) && rotCb != NULL)
+            rotCb();
 
         redrawMenu = true;
 
