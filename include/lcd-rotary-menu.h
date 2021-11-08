@@ -69,12 +69,16 @@ class LCDRotaryMenu
     LCDRotaryMenuItem **displayedMenuItems;
 
     void (*btnCb)() = NULL;
+    void (*rotCb)() = NULL;
 
     bool busyMode = false;
 
 protected:
-    void displayMenu();    
-    void move(int diff);
+    void displayMenu();
+    /**
+     * @brief move into menu for given diff pos ; return false if at end of menu
+     */
+    bool move(int diff);
 
 public:
     /**
@@ -121,6 +125,11 @@ public:
      */
     void setButtonCb(void (*cb)());
 
+    /**
+     * @brief set callback that will be called everytime rotary move to different menu item
+     */
+    void setRotCb(void (*cb)());
+
     void init();
     void loop();
 
@@ -131,7 +140,7 @@ public:
      */
     LCDRotaryMenuItem *getSelected();
 
-    void setSelected(LCDRotaryMenuItem& item);
+    void setSelected(LCDRotaryMenuItem &item);
 
     void setCustomLine(const char *customLine, short rowIdx);
     void setCustomLine2(const char *customLine2, short rowIdx);

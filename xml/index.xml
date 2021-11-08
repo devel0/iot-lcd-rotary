@@ -24,16 +24,18 @@
     <member refid="class_l_c_d_rotary_menu_1a39641d61d541aa5c7cc715ad06ecdd4a" kind="variable"><name>defaultCb</name></member>
     <member refid="class_l_c_d_rotary_menu_1aa5f827e63af73de1cb84fb2eaca486e4" kind="variable"><name>displayedMenuItems</name></member>
     <member refid="class_l_c_d_rotary_menu_1ad4a97e199045c6989e16df39e4719baf" kind="variable"><name>btnCb</name></member>
+    <member refid="class_l_c_d_rotary_menu_1a6c7510a46240d58348d80f837d6e7cf6" kind="variable"><name>rotCb</name></member>
     <member refid="class_l_c_d_rotary_menu_1a54f5fe8dc335283a944e6b0294ebc2b1" kind="variable"><name>busyMode</name></member>
     <member refid="class_l_c_d_rotary_menu_1a854dfd1512fbd600691274ac78929cad" kind="variable"><name>options</name></member>
     <member refid="class_l_c_d_rotary_menu_1a76c308685afec31de40341f5ccd9e2ec" kind="function"><name>displayMenu</name></member>
-    <member refid="class_l_c_d_rotary_menu_1af0e2cf5f429108a002a9979f47c56501" kind="function"><name>move</name></member>
+    <member refid="class_l_c_d_rotary_menu_1a69449fbc33ffdf4b1d6029d73aa293c7" kind="function"><name>move</name></member>
     <member refid="class_l_c_d_rotary_menu_1a02049fd88ea5c3ac2a4f0f1631d8d27e" kind="function"><name>LCDRotaryMenu</name></member>
     <member refid="class_l_c_d_rotary_menu_1a18422ffc4f4fa8d0b88f6a39b2d50346" kind="function"><name>~LCDRotaryMenu</name></member>
     <member refid="class_l_c_d_rotary_menu_1a3a8d1058c26d1a60fabd88f208f43424" kind="function"><name>invalidate</name></member>
     <member refid="class_l_c_d_rotary_menu_1aabf84c1fa675f349a705d025952c1c01" kind="function"><name>setSplashCb</name></member>
     <member refid="class_l_c_d_rotary_menu_1a031811b8aad118429f71122c7bca8d10" kind="function"><name>setDefaultCb</name></member>
     <member refid="class_l_c_d_rotary_menu_1a78530f42f079fedc140660c9b6c0b310" kind="function"><name>setButtonCb</name></member>
+    <member refid="class_l_c_d_rotary_menu_1a84d3de9d4fd37346cae27885a4775e32" kind="function"><name>setRotCb</name></member>
     <member refid="class_l_c_d_rotary_menu_1a0ee49bb239e0bb12ce4b4790ec9c8c42" kind="function"><name>init</name></member>
     <member refid="class_l_c_d_rotary_menu_1ae927803ed98909ed04b277f2e1a55da5" kind="function"><name>loop</name></member>
     <member refid="class_l_c_d_rotary_menu_1ad24ac1f3c4e2263a393b98a475e165ab" kind="function"><name>getRoot</name></member>

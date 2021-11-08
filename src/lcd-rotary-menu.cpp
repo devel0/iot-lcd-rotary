@@ -184,7 +184,7 @@ void LCDRotaryMenu::displayMenu()
     invalidated = false;
 }
 
-void LCDRotaryMenu::move(int diff)
+bool LCDRotaryMenu::move(int diff)
 {
     LCDRotaryMenuItem *parent = (selectedItem == NULL || selectedItem->parent == NULL) ? root : selectedItem->parent;
 
@@ -193,10 +193,12 @@ void LCDRotaryMenu::move(int diff)
     auto menuItemsSize = menuItems.size();
 
     if (menuItemsSize == 0)
-        return;
+        return false;
 
     if (selectedItem == NULL)
         selectedItem = *menuItems.begin();
+
+    LCDRotaryMenuItem *old = selectedItem;
 
     int selectedItemIndex = -1;
     for (int i = 0; i < menuItemsSize; ++i)
@@ -231,6 +233,8 @@ void LCDRotaryMenu::move(int diff)
     //debug("new menu idx:%d ( scrollpos:%d )", newSelectedItemIndex, parent->scrollRowPos);
 
     invalidated = true;
+
+    return selectedItem != old;
 }
 
 void LCDRotaryMenu::invalidate()
@@ -252,6 +256,11 @@ void LCDRotaryMenu::setDefaultCb(LCDRotaryMenuItemCB cb)
 void LCDRotaryMenu::setButtonCb(void (*cb)())
 {
     this->btnCb = cb;
+}
+
+void LCDRotaryMenu::setRotCb(void (*cb)())
+{
+    this->rotCb = cb;
 }
 
 int lastPressCount = 0;

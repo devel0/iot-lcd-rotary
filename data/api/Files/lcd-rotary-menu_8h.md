@@ -93,12 +93,13 @@ class LCDRotaryMenu
     LCDRotaryMenuItem **displayedMenuItems;
 
     void (*btnCb)() = NULL;
+    void (*rotCb)() = NULL;
 
     bool busyMode = false;
 
 protected:
-    void displayMenu();    
-    void move(int diff);
+    void displayMenu();
+    bool move(int diff);
 
 public:
     LCDRotaryMenu(int addr, int cols, int rows, int rotAPin, int rotBPin, int rotSWPin, bool inverted = false,
@@ -115,6 +116,8 @@ public:
 
     void setButtonCb(void (*cb)());
 
+    void setRotCb(void (*cb)());
+
     void init();
     void loop();
 
@@ -122,7 +125,7 @@ public:
 
     LCDRotaryMenuItem *getSelected();
 
-    void setSelected(LCDRotaryMenuItem& item);
+    void setSelected(LCDRotaryMenuItem &item);
 
     void setCustomLine(const char *customLine, short rowIdx);
     void setCustomLine2(const char *customLine2, short rowIdx);
