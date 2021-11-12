@@ -117,7 +117,7 @@ void LCDRotaryMenuItem::select()
     else if (selectCb2 != NULL)
         selectCb2();
     else if (menu.defaultCb != NULL)
-        menu.defaultCb(*this);
+        menu.defaultCb(*this);    
 
     menu.invalidate();
 }
@@ -150,6 +150,11 @@ bool LCDRotaryMenuItem::isDisplayed() const
             return true;
 
     return false;
+}
+
+void LCDRotaryMenuItem::setAsNumericInput()
+{
+    isNumericInput = true;
 }
 
 #endif

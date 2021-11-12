@@ -96,6 +96,8 @@ void LCDRotaryMenu::displayMenu()
     if (customLineRow2 != -1)
         ++customLineCount;
 
+    editOn = NULL;
+
     for (int r = 0; r < rows; ++r)
     {
         displayedMenuItems[r] = NULL;
@@ -163,6 +165,12 @@ void LCDRotaryMenu::displayMenu()
             lcd->setCursor(0, r);
             lcd->print(rowsBuf2[r][0]);
 
+            if (selectedItem->isEditing)
+            {
+                editOnRow = r;
+                editOn = selectedItem;
+            }
+
             int l = strlen(rowsBuf[r]);
 
             if (l2 > 0 && (l2 == 1 || l != l2 || strncmp(rowsBuf2[r] + 1, rowsBuf[r] + 1, l - 1) != 0))
@@ -180,6 +188,14 @@ void LCDRotaryMenu::displayMenu()
             }
         }
     }
+
+    if (editOn != NULL)
+    {
+        lcd->cursor_on();
+        lcd->setCursor(editOn->editingCol, editOnRow - 1);
+    }
+    else
+        lcd->cursor_off();
 
     invalidated = false;
 }
@@ -318,6 +334,15 @@ void LCDRotaryMenu::loop()
             redrawMenu = true;
         }
 
+        if (selectedItem != NULL && selectedItem->isNumericInput)
+        {
+            editOn = selectedItem;
+            if (editOn->editingCol == 0)
+                editOn->isEditing = !editOn->isEditing;
+            else
+                editOn->isEditingCol = !editOn->isEditingCol;
+        }
+
         //debug("press cnt = %d", lastPressCount);
     }
 
@@ -327,7 +352,56 @@ void LCDRotaryMenu::loop()
         auto rotDiff = rotPos - lastRotPos;
         lastRotPos = rotPos;
 
-        if (move(rotDiff) && rotCb != NULL)
+        if (editOn != NULL)
+        {
+            auto &str = editOn->getText();
+            int l = str.length();
+            if (editOn->isEditingCol)
+            {
+                if (editOn->editingCol - 1 < l)
+                {
+                    const char *cstr = str.c_str();
+                    char buf[cols + 1];
+                    int i = 0;
+                    while (cstr[i] != 0 && i < editOn->editingCol - 1)
+                    {
+                        buf[i] = cstr[i];
+                        ++i;
+                    }
+                    int nr = ((int)cstr[i]) - ((int)'0');
+                    if (rotDiff > 0)
+                        nr = nr < 9 ? nr + 1 : nr;
+                    else
+                        nr = nr > 0 ? nr - 1 : nr;
+                    buf[i] = ((int)'0') + nr;
+
+                    ++i;
+                    while (cstr[i] != 0)
+                    {
+                        buf[i] = cstr[i];
+                        ++i;
+                    }
+                    buf[i] = 0;
+                    editOn->setText(buf);
+                }
+            }
+            else
+            {
+                editOn->editingCol += rotDiff;
+                if (editOn->editingCol - 1 >= l)
+                    editOn->editingCol = l;
+                if (editOn->editingCol < 0)
+                    editOn->editingCol = 0;
+                else if (editOn->editingCol >= cols - 1)
+                    editOn->editingCol = cols - 1;
+                // if (editOn->editingCol == 0)
+                // {
+                //     editOn->isEditing = false;
+                // }
+            }
+            invalidated = true;
+        }
+        else if (move(rotDiff) && rotCb != NULL)
             rotCb();
 
         redrawMenu = true;

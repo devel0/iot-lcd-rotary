@@ -1,6 +1,17 @@
 {
     "files.associations": {
         "*.axaml": "xml",
-        "string": "cpp"
+        "*.htm": "html",
+        "string": "cpp",
+        "unordered_map": "cpp",
+        "functional": "cpp",
+        "memory_resource": "cpp",
+        "optional": "cpp",
+        "istream": "cpp",
+        "memory": "cpp",
+        "numeric": "cpp",
+        "ostream": "cpp",
+        "vector": "cpp",
+        "utility": "cpp"
     }
 }

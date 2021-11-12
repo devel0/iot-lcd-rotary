@@ -12,13 +12,18 @@
 LCDRotaryMenu *menu;
 
 // check i2c lcd address using i2c scanner
-#define LCD_ADDR 0x3F
-#define LCD_COLS 16
-#define LCD_ROWS 2
+#define LCD_ADDR 0x27
+#define LCD_COLS 20
+#define LCD_ROWS 4
 
-#define ROT_A_PIN 40
-#define ROT_B_PIN 41
-#define ROT_SW_PIN 45
+// PB5
+#define ROT_A_PIN 4
+
+// PB3
+#define ROT_B_PIN 3
+
+// PA10
+#define ROT_SW_PIN 2
 
 #define SPLASH_TIMEOUT_MS 1000
 
@@ -42,7 +47,8 @@ void setup()
 
     auto inverted = true;
 
-    menu = new LCDRotaryMenu(LCD_ADDR, LCD_COLS, LCD_ROWS, ROT_A_PIN, ROT_B_PIN, ROT_SW_PIN, inverted);
+    menu = new LCDRotaryMenu(LCD_ADDR, LCD_COLS, LCD_ROWS, ROT_A_PIN, ROT_B_PIN, ROT_SW_PIN, 
+        inverted, 200);
 
     // splash screen ( custom lcd usage ) ; call this before menu init
     menu->setSplashCb(LCDSplash, SPLASH_TIMEOUT_MS);
@@ -61,6 +67,9 @@ void setup()
 
     root.append("sample1");
     root.append("sample2");
+
+    auto &input = root.append("00000");
+    input.setAsNumericInput();
 
     auto &dev = root.append("dev");
 
