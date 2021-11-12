@@ -90,6 +90,8 @@ class LCDRotaryMenu
 
     LCDRotaryMenuItemCB defaultCb = NULL;
 
+    LCDRotaryMenuItemCB backPressedCb = NULL;
+
     LCDRotaryMenuItem **displayedMenuItems;
 
     void (*btnCb)() = NULL;
@@ -118,6 +120,8 @@ public:
     void setDefaultCb(LCDRotaryMenuItemCB cb);
 
     void setButtonCb(void (*cb)());
+
+    void setBackPressedCb(LCDRotaryMenuItemCB cb);
 
     void setRotCb(void (*cb)());
 
