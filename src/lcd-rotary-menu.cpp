@@ -301,6 +301,11 @@ void LCDRotaryMenu::init()
     //debug("INIT press cnt = %d", lastPressCount);
 }
 
+void LCDRotaryMenu::setBackPressedCb(LCDRotaryMenuItemCB cb)
+{
+    backPressedCb = cb;
+}
+
 void LCDRotaryMenu::loop()
 {
     if (busyMode)

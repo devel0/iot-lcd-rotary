@@ -112,6 +112,9 @@ void LCDRotaryMenuItem::select()
         }
     }
 
+    if (isBack && menu.backPressedCb != NULL)
+        menu.backPressedCb(*this);
+        
     if (selectCb != NULL)
         selectCb(*this);
     else if (selectCb2 != NULL)

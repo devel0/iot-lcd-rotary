@@ -63,6 +63,8 @@ class LCDRotaryMenu
 
     LCDRotaryMenuItemCB defaultCb = NULL;
 
+    LCDRotaryMenuItemCB backPressedCb = NULL;
+
     /**
      * @brief for purpose of isDisplayed() fn     
      */
@@ -127,6 +129,11 @@ public:
      * @param cb 
      */
     void setButtonCb(void (*cb)());
+
+    /**
+     * @brief set callback when press on .. ( parent ) ; parent menu can be retrived using callbacak argument getParent()
+     */
+    void setBackPressedCb(LCDRotaryMenuItemCB cb);
 
     /**
      * @brief set callback that will be called everytime rotary move to different menu item
