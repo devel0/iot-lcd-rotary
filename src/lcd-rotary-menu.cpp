@@ -137,6 +137,11 @@ void LCDRotaryMenu::displayMenu()
                 {
                     rowsBuf2[r][0] = item->isBack ? '<' : '>';
                     rowsBuf2[r][1] = 0;
+                    if (selectedItem->isEditing)
+                    {
+                        editOnRow = r;
+                        editOn = selectedItem;
+                    }
                 }
                 else
                 {
@@ -165,12 +170,6 @@ void LCDRotaryMenu::displayMenu()
             lcd->setCursor(0, r);
             lcd->print(rowsBuf2[r][0]);
 
-            if (selectedItem->isEditing)
-            {
-                editOnRow = r;
-                editOn = selectedItem;
-            }
-
             int l = strlen(rowsBuf[r]);
 
             if (l2 > 0 && (l2 == 1 || l != l2 || strncmp(rowsBuf2[r] + 1, rowsBuf[r] + 1, l - 1) != 0))
@@ -190,9 +189,9 @@ void LCDRotaryMenu::displayMenu()
     }
 
     if (editOn != NULL)
-    {
+    {    
         lcd->cursor_on();
-        lcd->setCursor(editOn->editingCol, editOnRow - 1);
+        lcd->setCursor(editOn->editingCol, editOnRow);
     }
     else
         lcd->cursor_off();
