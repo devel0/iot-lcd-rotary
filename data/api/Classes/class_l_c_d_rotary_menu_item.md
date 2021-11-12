@@ -46,6 +46,7 @@ title: LCDRotaryMenuItem
 | int | **[getTag](https://github.com/devel0/iot-lcd-rotary/tree/main/data/api/Classes/class_l_c_d_rotary_menu_item.md#function-gettag)**() const <br>retrieve user tag associated to this menuitem ( useful when manage with single callback that switch on menuitem tag )  |
 | void * | **[getCustom](https://github.com/devel0/iot-lcd-rotary/tree/main/data/api/Classes/class_l_c_d_rotary_menu_item.md#function-getcustom)**()  |
 | bool | **[isDisplayed](https://github.com/devel0/iot-lcd-rotary/tree/main/data/api/Classes/class_l_c_d_rotary_menu_item.md#function-isdisplayed)**() const  |
+| void | **[setAsNumericInput](https://github.com/devel0/iot-lcd-rotary/tree/main/data/api/Classes/class_l_c_d_rotary_menu_item.md#function-setasnumericinput)**()  |
 
 
 
@@ -577,6 +578,40 @@ void * getCustom()
 
 ```cpp
 bool isDisplayed() const
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+### function setAsNumericInput
+
+```cpp
+void setAsNumericInput()
 ```
 
 

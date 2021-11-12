@@ -97,6 +97,9 @@ class LCDRotaryMenu
 
     bool busyMode = false;
 
+    LCDRotaryMenuItem *editOn = NULL;
+    int editOnRow = 0;
+
 protected:
     void displayMenu();
     bool move(int diff);

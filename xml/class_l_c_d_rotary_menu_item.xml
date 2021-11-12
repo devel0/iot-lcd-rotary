@@ -175,6 +175,62 @@
         </inbodydescription>
         <location file="include/lcd-rotary-menuitem.h" line="58" column="10" bodyfile="include/lcd-rotary-menuitem.h" bodystart="58" bodyend="-1"/>
       </memberdef>
+      <memberdef kind="variable" id="class_l_c_d_rotary_menu_item_1a8253a7edd8113ecc790b09a26166f7ac" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool LCDRotaryMenuItem::isNumericInput</definition>
+        <argsstring></argsstring>
+        <name>isNumericInput</name>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/lcd-rotary-menuitem.h" line="60" column="10" bodyfile="include/lcd-rotary-menuitem.h" bodystart="60" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_l_c_d_rotary_menu_item_1a9899df06ef59206e233360d86121c719" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool LCDRotaryMenuItem::isEditing</definition>
+        <argsstring></argsstring>
+        <name>isEditing</name>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/lcd-rotary-menuitem.h" line="62" column="10" bodyfile="include/lcd-rotary-menuitem.h" bodystart="62" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_l_c_d_rotary_menu_item_1a53f8ebe5011597dc523b3d1b7a290e97" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool LCDRotaryMenuItem::isEditingCol</definition>
+        <argsstring></argsstring>
+        <name>isEditingCol</name>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/lcd-rotary-menuitem.h" line="64" column="10" bodyfile="include/lcd-rotary-menuitem.h" bodystart="64" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_l_c_d_rotary_menu_item_1a2009d91b8da47ed2d33d760b8a402499" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int LCDRotaryMenuItem::editingCol</definition>
+        <argsstring></argsstring>
+        <name>editingCol</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/lcd-rotary-menuitem.h" line="66" column="9" bodyfile="include/lcd-rotary-menuitem.h" bodystart="66" bodyend="-1"/>
+      </memberdef>
       </sectiondef>
       <sectiondef kind="private-func">
       <memberdef kind="function" id="class_l_c_d_rotary_menu_item_1af17f35ca099e15bdedbdd563c8e246f2" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
@@ -221,7 +277,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/lcd-rotary-menuitem.h" line="61" column="5"/>
+        <location file="include/lcd-rotary-menuitem.h" line="69" column="5"/>
       </memberdef>
       <memberdef kind="function" id="class_l_c_d_rotary_menu_item_1a9fcd505d7bde102f0552c4b8fcd4aa6c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -236,7 +292,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/lcd-rotary-menuitem.h" line="66" column="10"/>
+        <location file="include/lcd-rotary-menuitem.h" line="74" column="10"/>
       </memberdef>
       <memberdef kind="function" id="class_l_c_d_rotary_menu_item_1a417797d76f3dcefac94aa693a09440fa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="class_l_c_d_rotary_menu_item" kindref="compound">LCDRotaryMenuItem</ref> &amp;</type>
@@ -291,7 +347,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/lcd-rotary-menuitem.h" line="75" column="23"/>
+        <location file="include/lcd-rotary-menuitem.h" line="83" column="23"/>
       </memberdef>
       <memberdef kind="function" id="class_l_c_d_rotary_menu_item_1a3728951e866fa1fa956d8eb344f03ff6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="class_l_c_d_rotary_menu_item" kindref="compound">LCDRotaryMenuItem</ref> *</type>
@@ -304,7 +360,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/lcd-rotary-menuitem.h" line="77" column="23"/>
+        <location file="include/lcd-rotary-menuitem.h" line="85" column="23"/>
       </memberdef>
       <memberdef kind="function" id="class_l_c_d_rotary_menu_item_1aef4b9d42743271a6fc4d5df4cf4fce5b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="class_l_c_d_rotary_menu_item" kindref="compound">LCDRotaryMenuItem</ref> *</type>
@@ -317,7 +373,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/lcd-rotary-menuitem.h" line="79" column="23"/>
+        <location file="include/lcd-rotary-menuitem.h" line="87" column="23"/>
       </memberdef>
       <memberdef kind="function" id="class_l_c_d_rotary_menu_item_1afa4fcb1d1bbf1202e828d07589b188e1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>vector&lt; <ref refid="class_l_c_d_rotary_menu_item" kindref="compound">LCDRotaryMenuItem</ref> * &gt;</type>
@@ -330,7 +386,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/lcd-rotary-menuitem.h" line="81" column="12"/>
+        <location file="include/lcd-rotary-menuitem.h" line="89" column="12"/>
       </memberdef>
       <memberdef kind="function" id="class_l_c_d_rotary_menu_item_1a7857286f7a6b2d36105e0cc7c328df2e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -347,7 +403,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/lcd-rotary-menuitem.h" line="83" column="10"/>
+        <location file="include/lcd-rotary-menuitem.h" line="91" column="10"/>
       </memberdef>
       <memberdef kind="function" id="class_l_c_d_rotary_menu_item_1a92afd4c054c7eddc60e77c526d98ea52" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -365,7 +421,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/lcd-rotary-menuitem.h" line="88" column="10"/>
+        <location file="include/lcd-rotary-menuitem.h" line="96" column="10"/>
       </memberdef>
       <memberdef kind="function" id="class_l_c_d_rotary_menu_item_1af38418f8e775b5829f3ae4066bb6edc0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -382,7 +438,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/lcd-rotary-menuitem.h" line="90" column="10"/>
+        <location file="include/lcd-rotary-menuitem.h" line="98" column="10"/>
       </memberdef>
       <memberdef kind="function" id="class_l_c_d_rotary_menu_item_1a905bb35998be67a482456a8e9e182b75" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -397,7 +453,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/lcd-rotary-menuitem.h" line="95" column="10"/>
+        <location file="include/lcd-rotary-menuitem.h" line="103" column="10"/>
       </memberdef>
       <memberdef kind="function" id="class_l_c_d_rotary_menu_item_1a4aa93da6c52e62e8201f73332d1c1d5f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -412,7 +468,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/lcd-rotary-menuitem.h" line="100" column="10"/>
+        <location file="include/lcd-rotary-menuitem.h" line="108" column="10"/>
       </memberdef>
       <memberdef kind="function" id="class_l_c_d_rotary_menu_item_1ab74efd266806afbdfd232d8f8b53f41a" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>const string &amp;</type>
@@ -425,7 +481,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/lcd-rotary-menuitem.h" line="102" column="18"/>
+        <location file="include/lcd-rotary-menuitem.h" line="110" column="18"/>
       </memberdef>
       <memberdef kind="function" id="class_l_c_d_rotary_menu_item_1a7d4d5e38c134e5026b7b3f3d59f4d743" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -442,7 +498,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/lcd-rotary-menuitem.h" line="109" column="9"/>
+        <location file="include/lcd-rotary-menuitem.h" line="117" column="9"/>
       </memberdef>
       <memberdef kind="function" id="class_l_c_d_rotary_menu_item_1a78c4bfe4e26f9e2e509b081f637cbe2d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void *</type>
@@ -455,7 +511,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/lcd-rotary-menuitem.h" line="111" column="10"/>
+        <location file="include/lcd-rotary-menuitem.h" line="119" column="10"/>
       </memberdef>
       <memberdef kind="function" id="class_l_c_d_rotary_menu_item_1abd0fc68a95bcd603d39d6388a217c364" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -468,20 +524,34 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/lcd-rotary-menuitem.h" line="113" column="10"/>
+        <location file="include/lcd-rotary-menuitem.h" line="121" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="class_l_c_d_rotary_menu_item_1a9a1abe4f2f7f98c06fa4db80ded5ffd4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void LCDRotaryMenuItem::setAsNumericInput</definition>
+        <argsstring>()</argsstring>
+        <name>setAsNumericInput</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/lcd-rotary-menuitem.h" line="123" column="10"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="include/lcd-rotary-menuitem.h" line="18" column="1" bodyfile="include/lcd-rotary-menuitem.h" bodystart="17" bodyend="114"/>
+    <location file="include/lcd-rotary-menuitem.h" line="18" column="1" bodyfile="include/lcd-rotary-menuitem.h" bodystart="17" bodyend="124"/>
     <listofallmembers>
       <member refid="class_l_c_d_rotary_menu_item_1a417797d76f3dcefac94aa693a09440fa" prot="public" virt="non-virtual"><scope>LCDRotaryMenuItem</scope><name>append</name></member>
       <member refid="class_l_c_d_rotary_menu_item_1a4aa93da6c52e62e8201f73332d1c1d5f" prot="public" virt="non-virtual"><scope>LCDRotaryMenuItem</scope><name>back</name></member>
       <member refid="class_l_c_d_rotary_menu_item_1aaf717d336529108f26ca612d839d3748" prot="private" virt="non-virtual"><scope>LCDRotaryMenuItem</scope><name>children</name></member>
       <member refid="class_l_c_d_rotary_menu_item_1a9fcd505d7bde102f0552c4b8fcd4aa6c" prot="public" virt="non-virtual"><scope>LCDRotaryMenuItem</scope><name>clear</name></member>
       <member refid="class_l_c_d_rotary_menu_item_1a8bec5b9b88f73598020b4ac0608054d1" prot="private" virt="non-virtual"><scope>LCDRotaryMenuItem</scope><name>customPtr</name></member>
+      <member refid="class_l_c_d_rotary_menu_item_1a2009d91b8da47ed2d33d760b8a402499" prot="private" virt="non-virtual"><scope>LCDRotaryMenuItem</scope><name>editingCol</name></member>
       <member refid="class_l_c_d_rotary_menu_item_1afa4fcb1d1bbf1202e828d07589b188e1" prot="public" virt="non-virtual"><scope>LCDRotaryMenuItem</scope><name>getChildren</name></member>
       <member refid="class_l_c_d_rotary_menu_item_1a78c4bfe4e26f9e2e509b081f637cbe2d" prot="public" virt="non-virtual"><scope>LCDRotaryMenuItem</scope><name>getCustom</name></member>
       <member refid="class_l_c_d_rotary_menu_item_1a3728951e866fa1fa956d8eb344f03ff6" prot="public" virt="non-virtual"><scope>LCDRotaryMenuItem</scope><name>getParent</name></member>
@@ -490,6 +560,9 @@
       <member refid="class_l_c_d_rotary_menu_item_1ab74efd266806afbdfd232d8f8b53f41a" prot="public" virt="non-virtual"><scope>LCDRotaryMenuItem</scope><name>getText</name></member>
       <member refid="class_l_c_d_rotary_menu_item_1a9c0bb2400d2c604608dbf6b0c957f4ef" prot="private" virt="non-virtual"><scope>LCDRotaryMenuItem</scope><name>isBack</name></member>
       <member refid="class_l_c_d_rotary_menu_item_1abd0fc68a95bcd603d39d6388a217c364" prot="public" virt="non-virtual"><scope>LCDRotaryMenuItem</scope><name>isDisplayed</name></member>
+      <member refid="class_l_c_d_rotary_menu_item_1a9899df06ef59206e233360d86121c719" prot="private" virt="non-virtual"><scope>LCDRotaryMenuItem</scope><name>isEditing</name></member>
+      <member refid="class_l_c_d_rotary_menu_item_1a53f8ebe5011597dc523b3d1b7a290e97" prot="private" virt="non-virtual"><scope>LCDRotaryMenuItem</scope><name>isEditingCol</name></member>
+      <member refid="class_l_c_d_rotary_menu_item_1a8253a7edd8113ecc790b09a26166f7ac" prot="private" virt="non-virtual"><scope>LCDRotaryMenuItem</scope><name>isNumericInput</name></member>
       <member refid="class_l_c_d_rotary_menu_item_1ae80ac98bdb225d20a4e99d2af930b18b" prot="private" virt="non-virtual"><scope>LCDRotaryMenuItem</scope><name>LCDRotaryMenu</name></member>
       <member refid="class_l_c_d_rotary_menu_item_1af17f35ca099e15bdedbdd563c8e246f2" prot="private" virt="non-virtual"><scope>LCDRotaryMenuItem</scope><name>LCDRotaryMenuItem</name></member>
       <member refid="class_l_c_d_rotary_menu_item_1a3f7911fe9beee7b54b684fab8638326d" prot="private" virt="non-virtual"><scope>LCDRotaryMenuItem</scope><name>menu</name></member>
@@ -501,6 +574,7 @@
       <member refid="class_l_c_d_rotary_menu_item_1a12c3dd7194b776cafc8dc3564cd55df0" prot="private" virt="non-virtual"><scope>LCDRotaryMenuItem</scope><name>selectCb</name></member>
       <member refid="class_l_c_d_rotary_menu_item_1a2366c0ba9455df79250f34eab37414e3" prot="private" virt="non-virtual"><scope>LCDRotaryMenuItem</scope><name>selectCb2</name></member>
       <member refid="class_l_c_d_rotary_menu_item_1a4813fe9aa55a237d860717e4845dbbb3" prot="private" virt="non-virtual"><scope>LCDRotaryMenuItem</scope><name>selectedChild</name></member>
+      <member refid="class_l_c_d_rotary_menu_item_1a9a1abe4f2f7f98c06fa4db80ded5ffd4" prot="public" virt="non-virtual"><scope>LCDRotaryMenuItem</scope><name>setAsNumericInput</name></member>
       <member refid="class_l_c_d_rotary_menu_item_1a7857286f7a6b2d36105e0cc7c328df2e" prot="public" virt="non-virtual"><scope>LCDRotaryMenuItem</scope><name>setText</name></member>
       <member refid="class_l_c_d_rotary_menu_item_1aff2d20277ce48a3c997738a06173eee7" prot="private" virt="non-virtual"><scope>LCDRotaryMenuItem</scope><name>tag</name></member>
       <member refid="class_l_c_d_rotary_menu_item_1a029578c7dcd7be0a9657ae0b2d6f3605" prot="private" virt="non-virtual"><scope>LCDRotaryMenuItem</scope><name>text</name></member>

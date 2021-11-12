@@ -127,6 +127,14 @@ class LCDRotaryMenuItem
 
     void *customPtr = NULL;
 
+    bool isNumericInput = false;
+
+    bool isEditing = false;
+
+    bool isEditingCol = false;
+
+    int editingCol = 0;
+
 public:
     ~LCDRotaryMenuItem();
 
@@ -157,6 +165,8 @@ public:
     void *getCustom();
 
     bool isDisplayed() const;
+
+    void setAsNumericInput();
 };
 
 #endif
