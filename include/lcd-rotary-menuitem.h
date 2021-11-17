@@ -120,7 +120,18 @@ public:
 
     bool isDisplayed() const;
 
+    /**
+     * @brief set this item as integer numeric editable;
+     * hit on item to enter edit then hit on digit and use rotary to change,
+     * then confirm hit the switch and exit edit moving the cursor to the ">" char
+     */
     void setAsNumericInput();
+
+    /**
+     * @brief set the given row as the toplevel of the lcd
+     */
+    void setScrollRowPos(int scrollRow);
+
 };
 
 #endif

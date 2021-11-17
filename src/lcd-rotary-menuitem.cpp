@@ -114,13 +114,13 @@ void LCDRotaryMenuItem::select()
 
     if (isBack && menu.backPressedCb != NULL)
         menu.backPressedCb(*this);
-        
+
     if (selectCb != NULL)
         selectCb(*this);
     else if (selectCb2 != NULL)
         selectCb2();
     else if (menu.defaultCb != NULL)
-        menu.defaultCb(*this);    
+        menu.defaultCb(*this);
 
     menu.invalidate();
 }
@@ -158,6 +158,12 @@ bool LCDRotaryMenuItem::isDisplayed() const
 void LCDRotaryMenuItem::setAsNumericInput()
 {
     isNumericInput = true;
+}
+
+void LCDRotaryMenuItem::setScrollRowPos(int scrollRow)
+{
+    if (this->parent != NULL)
+        this->parent->scrollRowPos = scrollRow;
 }
 
 #endif
