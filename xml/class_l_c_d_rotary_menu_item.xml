@@ -532,19 +532,38 @@
         <argsstring>()</argsstring>
         <name>setAsNumericInput</name>
         <briefdescription>
+<para>set this item as integer numeric editable; hit on item to enter edit then hit on digit and use rotary to change, then confirm hit the switch and exit edit moving the cursor to the &quot;&gt;&quot; char </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/lcd-rotary-menuitem.h" line="123" column="10"/>
+        <location file="include/lcd-rotary-menuitem.h" line="128" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="class_l_c_d_rotary_menu_item_1a0d534d99a048ac4de681c1bba78a7fe2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void LCDRotaryMenuItem::setScrollRowPos</definition>
+        <argsstring>(int scrollRow)</argsstring>
+        <name>setScrollRowPos</name>
+        <param>
+          <type>int</type>
+          <declname>scrollRow</declname>
+        </param>
+        <briefdescription>
+<para>set the given row as the toplevel of the lcd </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/lcd-rotary-menuitem.h" line="133" column="10"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="include/lcd-rotary-menuitem.h" line="18" column="1" bodyfile="include/lcd-rotary-menuitem.h" bodystart="17" bodyend="124"/>
+    <location file="include/lcd-rotary-menuitem.h" line="18" column="1" bodyfile="include/lcd-rotary-menuitem.h" bodystart="17" bodyend="135"/>
     <listofallmembers>
       <member refid="class_l_c_d_rotary_menu_item_1a417797d76f3dcefac94aa693a09440fa" prot="public" virt="non-virtual"><scope>LCDRotaryMenuItem</scope><name>append</name></member>
       <member refid="class_l_c_d_rotary_menu_item_1a4aa93da6c52e62e8201f73332d1c1d5f" prot="public" virt="non-virtual"><scope>LCDRotaryMenuItem</scope><name>back</name></member>
@@ -575,6 +594,7 @@
       <member refid="class_l_c_d_rotary_menu_item_1a2366c0ba9455df79250f34eab37414e3" prot="private" virt="non-virtual"><scope>LCDRotaryMenuItem</scope><name>selectCb2</name></member>
       <member refid="class_l_c_d_rotary_menu_item_1a4813fe9aa55a237d860717e4845dbbb3" prot="private" virt="non-virtual"><scope>LCDRotaryMenuItem</scope><name>selectedChild</name></member>
       <member refid="class_l_c_d_rotary_menu_item_1a9a1abe4f2f7f98c06fa4db80ded5ffd4" prot="public" virt="non-virtual"><scope>LCDRotaryMenuItem</scope><name>setAsNumericInput</name></member>
+      <member refid="class_l_c_d_rotary_menu_item_1a0d534d99a048ac4de681c1bba78a7fe2" prot="public" virt="non-virtual"><scope>LCDRotaryMenuItem</scope><name>setScrollRowPos</name></member>
       <member refid="class_l_c_d_rotary_menu_item_1a7857286f7a6b2d36105e0cc7c328df2e" prot="public" virt="non-virtual"><scope>LCDRotaryMenuItem</scope><name>setText</name></member>
       <member refid="class_l_c_d_rotary_menu_item_1aff2d20277ce48a3c997738a06173eee7" prot="private" virt="non-virtual"><scope>LCDRotaryMenuItem</scope><name>tag</name></member>
       <member refid="class_l_c_d_rotary_menu_item_1a029578c7dcd7be0a9657ae0b2d6f3605" prot="private" virt="non-virtual"><scope>LCDRotaryMenuItem</scope><name>text</name></member>

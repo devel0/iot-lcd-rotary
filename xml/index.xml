@@ -86,6 +86,7 @@
     <member refid="class_l_c_d_rotary_menu_item_1a78c4bfe4e26f9e2e509b081f637cbe2d" kind="function"><name>getCustom</name></member>
     <member refid="class_l_c_d_rotary_menu_item_1abd0fc68a95bcd603d39d6388a217c364" kind="function"><name>isDisplayed</name></member>
     <member refid="class_l_c_d_rotary_menu_item_1a9a1abe4f2f7f98c06fa4db80ded5ffd4" kind="function"><name>setAsNumericInput</name></member>
+    <member refid="class_l_c_d_rotary_menu_item_1a0d534d99a048ac4de681c1bba78a7fe2" kind="function"><name>setScrollRowPos</name></member>
   </compound>
   <compound refid="struct_l_c_d_rotary_menu_options" kind="struct"><name>LCDRotaryMenuOptions</name>
     <member refid="struct_l_c_d_rotary_menu_options_1a2e73220ff857ce2a95f4f1c1bdb0b02d" kind="variable"><name>subMenuPostChar</name></member>

@@ -167,6 +167,9 @@ public:
     bool isDisplayed() const;
 
     void setAsNumericInput();
+
+    void setScrollRowPos(int scrollRow);
+
 };
 
 #endif
