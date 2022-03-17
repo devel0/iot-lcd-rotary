@@ -13,5 +13,25 @@
         "ostream": "cpp",
         "vector": "cpp",
         "utility": "cpp"
-    }
+    },
+    "workbench.colorCustomizations": {
+        "activityBar.activeBackground": "#9163f3",
+        "activityBar.activeBorder": "#f6ac89",
+        "activityBar.background": "#9163f3",
+        "activityBar.foreground": "#15202b",
+        "activityBar.inactiveForeground": "#15202b99",
+        "activityBarBadge.background": "#f6ac89",
+        "activityBarBadge.foreground": "#15202b",
+        "sash.hoverBorder": "#9163f3",
+        "statusBar.background": "#6f34ef",
+        "statusBar.foreground": "#e7e7e7",
+        "statusBarItem.hoverBackground": "#9163f3",
+        "statusBarItem.remoteBackground": "#6f34ef",
+        "statusBarItem.remoteForeground": "#e7e7e7",
+        "titleBar.activeBackground": "#6f34ef",
+        "titleBar.activeForeground": "#e7e7e7",
+        "titleBar.inactiveBackground": "#6f34ef99",
+        "titleBar.inactiveForeground": "#e7e7e799"
+    },
+    "peacock.color": "#6f34ef"
 }

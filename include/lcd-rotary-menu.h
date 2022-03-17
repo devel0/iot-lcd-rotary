@@ -20,7 +20,7 @@ struct LCDRotaryMenuOptions
     char subMenuPostChar;
 
     /**
-     * @brief text string for back menu label
+     * @brief text string for back menu label ( usually .. )
      */
     const char *backString;
 };

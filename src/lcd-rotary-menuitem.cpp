@@ -45,6 +45,7 @@ void LCDRotaryMenuItem::clear()
         delete children[ci];
     }
     children.clear();
+    selectedChild = NULL;
 }
 
 LCDRotaryMenuItem &LCDRotaryMenuItem::append(string menuText, int tag, void *custom)
@@ -52,7 +53,7 @@ LCDRotaryMenuItem &LCDRotaryMenuItem::append(string menuText, int tag, void *cus
     auto newItem = new LCDRotaryMenuItem(menu, this, tag, custom);
     newItem->setText(menuText);
 
-    if (this != menu.root && children.size() == 0)
+    if (this != menu.root && mode == LCDRotaryMenuItemModeEnum::MI_Normal && children.size() == 0)
     {
         auto backMenuItem = new LCDRotaryMenuItem(menu, this);
         backMenuItem->setText(menu.options.backString);
@@ -66,6 +67,54 @@ LCDRotaryMenuItem &LCDRotaryMenuItem::append(string menuText, int tag, void *cus
     return *newItem;
 }
 
+LCDRotaryMenuItem &LCDRotaryMenuItem::appendAfter(LCDRotaryMenuItem &before, string menuText, int tag, void *custom)
+{
+    auto newItem = new LCDRotaryMenuItem(menu, this, tag, custom);
+    newItem->setText(menuText);
+
+    if (this != menu.root && children.size() == 0)
+    {
+        auto backMenuItem = new LCDRotaryMenuItem(menu, this);
+        backMenuItem->setText(menu.options.backString);
+        backMenuItem->isBack = true;
+        backMenuItem->onSelect(goBack);
+        children.push_back(backMenuItem);
+    }
+
+    auto it = children.begin();
+    auto it_end = children.end();
+    while (it != it_end)
+    {
+        if ((*it) == &before)
+        {
+            children.insert(it + 1, newItem);
+            return *newItem;
+        }
+        ++it;
+    }
+
+    children.push_back(newItem);
+
+    return *newItem;
+}
+
+bool LCDRotaryMenuItem::remove(LCDRotaryMenuItem *child)
+{
+    auto it = children.begin();
+    auto it_end = children.end();
+    while (it != it_end)
+    {
+        if ((*it) == child)
+        {
+            children.erase(it);
+            return true;
+        }
+        ++it;
+    }
+
+    return false;
+}
+
 LCDRotaryMenuItem *LCDRotaryMenuItem::getParent()
 {
     return parent;
@@ -74,6 +123,11 @@ LCDRotaryMenuItem *LCDRotaryMenuItem::getParent()
 LCDRotaryMenuItem *LCDRotaryMenuItem::getSelectedChild()
 {
     return selectedChild;
+}
+
+void LCDRotaryMenuItem::setSelectedChild(LCDRotaryMenuItem *child)
+{
+    selectedChild = child;
 }
 
 vector<LCDRotaryMenuItem *> LCDRotaryMenuItem::getChildren()
@@ -94,6 +148,13 @@ void LCDRotaryMenuItem::onSelect(void (*cb)())
 void LCDRotaryMenuItem::setText(string menuText)
 {
     text = menuText;
+    menu.invalidate();
+}
+
+void LCDRotaryMenuItem::setPrefix(string menuPrefixText)
+{
+    prefix = menuPrefixText;
+    editingCol = beginEditingCol = menuPrefixText.length() + 1;
     menu.invalidate();
 }
 
@@ -136,6 +197,11 @@ const string &LCDRotaryMenuItem::getText() const
     return text;
 }
 
+const string &LCDRotaryMenuItem::getPrefix() const
+{
+    return prefix;
+}
+
 int LCDRotaryMenuItem::getTag() const
 {
     return tag;
@@ -155,15 +221,30 @@ bool LCDRotaryMenuItem::isDisplayed() const
     return false;
 }
 
-void LCDRotaryMenuItem::setAsNumericInput()
+void LCDRotaryMenuItem::setMode(LCDRotaryMenuItemModeEnum newMode)
 {
-    isNumericInput = true;
+    mode = newMode;
+}
+
+LCDRotaryMenuItemModeEnum LCDRotaryMenuItem::getMode() const
+{
+    return mode;
 }
 
 void LCDRotaryMenuItem::setScrollRowPos(int scrollRow)
 {
     if (this->parent != NULL)
         this->parent->scrollRowPos = scrollRow;
+}
+
+void LCDRotaryMenuItem::setCollapsed(bool collapsed)
+{
+    isCollapsed = collapsed;
+}
+
+bool LCDRotaryMenuItem::getCollapsed() const
+{
+    return isCollapsed;
 }
 
 #endif

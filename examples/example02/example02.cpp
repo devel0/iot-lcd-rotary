@@ -69,7 +69,7 @@ void setup()
     root.append("sample2");
 
     auto &input = root.append("00000");
-    input.setAsNumericInput();
+    input.setMode(LCDRotaryMenuItemModeEnum::MI_NumericInput);
 
     auto &dev = root.append("dev");
 

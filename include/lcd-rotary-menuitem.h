@@ -14,6 +14,13 @@ class LCDRotaryMenuItem;
 
 typedef void (*LCDRotaryMenuItemCB)(LCDRotaryMenuItem &);
 
+enum LCDRotaryMenuItemModeEnum
+{
+    MI_Normal,
+    MI_MultiSelect,
+    MI_NumericInput
+};
+
 class LCDRotaryMenuItem
 {
     friend class LCDRotaryMenu;
@@ -24,7 +31,7 @@ class LCDRotaryMenuItem
     LCDRotaryMenu &menu;
 
     /**
-     * @brief null if this menu is the root     
+     * @brief null if this menu is the root
      */
     LCDRotaryMenuItem *parent;
 
@@ -32,17 +39,28 @@ class LCDRotaryMenuItem
 
     vector<LCDRotaryMenuItem *> children;
 
+    /**
+     * @brief text or value
+     */
     string text;
 
     /**
-     * @brief children scroll row     
+     * @brief prefix ( useful for numeric or multiselect prompt )
+     */
+    string prefix;
+
+    /**
+     * @brief children scroll row
      */
     int scrollRowPos;
 
+    /**
+     * @brief currently selected child
+     */
     LCDRotaryMenuItem *selectedChild;
 
     /**
-     * @brief callback when select this menuitem     
+     * @brief callback when select this menuitem
      */
     LCDRotaryMenuItemCB selectCb = NULL;
 
@@ -57,62 +75,112 @@ class LCDRotaryMenuItem
 
     void *customPtr = NULL;
 
-    bool isNumericInput = false;
+    LCDRotaryMenuItemModeEnum mode = LCDRotaryMenuItemModeEnum::MI_Normal;
 
     bool isEditing = false;
 
     bool isEditingCol = false;
 
     int editingCol = 0;
+    int beginEditingCol = 0;
+
+    bool isCollapsed = false;
 
 public:
     ~LCDRotaryMenuItem();
 
     /**
-     * @brief remove children    
+     * @brief remove children
      */
     void clear();
 
     /**
      * @brief append new child ( deallocation automatic )
-     * 
+     *
      * @param menuText text for the item
-     * @param tag optional user tag useful to manage callback with switch type     
+     * @param tag optional user tag useful to manage callback with switch type
      * @param custom void * custom ptr
      */
     LCDRotaryMenuItem &append(string menuText, int tag = -1, void *custom = NULL);
 
+    /**
+     * @brief append new child ( deallocation automatic )
+     *
+     * @param menuText text for the item
+     * @param tag optional user tag useful to manage callback with switch type
+     * @param custom void * custom ptr
+     */
+    LCDRotaryMenuItem &appendAfter(LCDRotaryMenuItem &before, string menuText, int tag = -1, void *custom = NULL);
+
+    /**
+     * @brief remove given child ( MUST delete manually resource for LCDRotaryMenuItem ) if true returned
+     *
+     * @return false if not found
+     */
+    bool remove(LCDRotaryMenuItem *child);
+
+    /**
+     * @brief parent of this menu item
+     */
     LCDRotaryMenuItem *getParent();
 
+    /**
+     * @brief currently selected menu item child
+     */
     LCDRotaryMenuItem *getSelectedChild();
 
+    /**
+     * @brief change currently selected menu item child
+     */
+    void setSelectedChild(LCDRotaryMenuItem *child);
+
+    /**
+     * @brief retrieve list of children menu items
+     */
     vector<LCDRotaryMenuItem *> getChildren();
 
+    /**
+     * @brief change menu item text ( value )
+     */
     void setText(string menuText);
+
+    /**
+     * @brief change menu item prefix ( useful for numeric or multiselect types )
+     */
+    void setPrefix(string menuPrefixText);
+
+    /**
+     * @brief retrieve menu item text ( value )
+     */
+    const string &getText() const;        
+
+    /**
+     * @brief retrieve menu item prefix
+     */
+    const string &getPrefix() const;
 
     /**
      * @brief set callback on select this item
      */
     void onSelect(LCDRotaryMenuItemCB cb);
-
+    
     void onSelect(void (*cb)());
 
     /**
-     * @brief enter this menuitem (if children) selecting last child of it selected or first if never entered before    
+     * @brief enter this menuitem (if children) selecting last child of it selected or first if never entered before
+     * it also apply onSelect callback action
      */
     void select();
 
     /**
-     * @brief exit this menu and go back     
+     * @brief exit this menu and go back
      */
-    void back();
-
-    const string &getText() const;
+    void back();    
 
     /**
      * @brief retrieve user tag associated to this menuitem ( useful when manage with single callback that switch on menuitem tag )
-     * 
-     * @return int 
+     *
+     * @return int
      */
     int getTag() const;
 
@@ -120,18 +188,24 @@ public:
 
     bool isDisplayed() const;
 
-    /**
-     * @brief set this item as integer numeric editable;
-     * hit on item to enter edit then hit on digit and use rotary to change,
-     * then confirm hit the switch and exit edit moving the cursor to the ">" char
-     */
-    void setAsNumericInput();
+    void setMode(LCDRotaryMenuItemModeEnum newMode);
+
+    LCDRotaryMenuItemModeEnum getMode() const;
 
     /**
      * @brief set the given row as the toplevel of the lcd
      */
     void setScrollRowPos(int scrollRow);
 
+    /**
+     * @brief collapsed this menu item
+     */
+    void setCollapsed(bool collapsed);
+
+    /**
+     * @brief retrieve collapsed value of this menu item
+     */
+    bool getCollapsed() const;
 };
 
 #endif
