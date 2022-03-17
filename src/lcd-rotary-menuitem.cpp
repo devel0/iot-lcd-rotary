@@ -154,7 +154,8 @@ void LCDRotaryMenuItem::setText(string menuText)
 void LCDRotaryMenuItem::setPrefix(string menuPrefixText)
 {
     prefix = menuPrefixText;
-    editingCol = beginEditingCol = menuPrefixText.length() + 1;
+    editingCol = 0;
+    beginEditingCol = menuPrefixText.length() + 1;
     menu.invalidate();
 }
 
