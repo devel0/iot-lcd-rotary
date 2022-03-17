@@ -94,6 +94,52 @@ void LCDRotaryMenu::displayMenu()
     if (selectedItemIndex == -1)
         error("menuitem idx not found");
 
+    if (selectedItem->getCollapsed())
+    {
+        int nextNotCollapsed = -1;
+        for (int h = selectedItemIndex + 1; h < menuItemsSize; ++h)
+        {
+            if (!menuItems[h]->getCollapsed())
+            {
+                nextNotCollapsed = h;
+                break;
+            }
+        }
+        int prevNotCollapsed = -1;
+        if (nextNotCollapsed == -1)
+        {
+            for (int h = selectedItemIndex - 1; h >= 0; --h)
+            {
+                if (!menuItems[h]->getCollapsed())
+                {
+                    prevNotCollapsed = h;
+                    break;
+                }
+            }
+        }
+        if (nextNotCollapsed != -1)
+        {
+            setSelected(*menuItems[nextNotCollapsed]);
+        }
+        else if (prevNotCollapsed != -1)
+        {
+            setSelected(*menuItems[prevNotCollapsed]);
+        }
+
+        collapsedMenuItemsCount = 0;
+        for (int i = 0; i < menuItemsSize; ++i)
+        {
+            if (menuItems[i] == selectedItem)
+            {
+                selectedItemIndex = i;
+            }
+            if (menuItems[i]->getCollapsed())
+                ++collapsedMenuItemsCount;
+        }
+        if (selectedItemIndex == -1)
+            error("menuitem idx not found");
+    }
+
     int customLineCount = customLineRow != -1 ? 1 : 0;
     if (customLineRow2 != -1)
         ++customLineCount;
@@ -127,7 +173,7 @@ void LCDRotaryMenu::displayMenu()
             rowsBuf2[r][0] = 0;
             int l2 = 0;
 
-            if (parent->scrollRowPos + r >= menuItemsSize + customLineCount)
+            if (parent->scrollRowPos + r >= menuItemsSize + customLineCount - collapsedPartialCnt)
             {
                 rowsBuf2[r][0] = ' ';
                 rowsBuf2[r][1] = 0;
@@ -214,7 +260,9 @@ void LCDRotaryMenu::displayMenu()
         lcd->setCursor(editOn->editingCol, editOnRow);
     }
     else
+    {
         lcd->cursor_off();
+    }
 
     invalidated = false;
 }
@@ -247,20 +295,42 @@ bool LCDRotaryMenu::move(int diff)
     if (selectedItemIndex == -1)
         error("menuitem idx not found");
 
-    auto newSelectedItemIndex = selectedItemIndex + diff;
+    auto newSelectedItemIndex = selectedItemIndex; // + diff;
 
-    if (newSelectedItemIndex < 0)
-        newSelectedItemIndex = 0;
-    if (newSelectedItemIndex >= menuItemsSize)
-        newSelectedItemIndex = menuItemsSize - 1;
-
-    if (menuItems[newSelectedItemIndex]->getCollapsed())
+    if (diff > 0)
     {
-        if (diff < 0)
-            --newSelectedItemIndex;
-        else if (diff > 0)
-            ++newSelectedItemIndex;
+        int qNextNotCollapsed = -1;
+        for (int k = newSelectedItemIndex + 1; k < menuItemsSize; ++k)
+        {
+            if (!menuItems[k]->getCollapsed())
+            {
+                qNextNotCollapsed = k;
+                break;
+            }
+        }
+        if (qNextNotCollapsed == -1)
+            return false;
+
+        newSelectedItemIndex = qNextNotCollapsed;
     }
+    else if (diff < 0)
+    {
+        int qPrevNotCollapsed = -1;
+        for (int k = newSelectedItemIndex - 1; k >= 0; --k)
+        {
+            if (!menuItems[k]->getCollapsed())
+            {
+                qPrevNotCollapsed = k;
+                break;
+            }
+        }
+        if (qPrevNotCollapsed == -1)
+            return false;
+
+        newSelectedItemIndex = qPrevNotCollapsed;
+    }
+    else
+        return false;
 
     if (newSelectedItemIndex < 0)
         newSelectedItemIndex = 0;
@@ -399,7 +469,19 @@ void LCDRotaryMenu::loop()
             {
                 editOn = selectedItem;
 
-                editOn->isEditing = !editOn->isEditing;
+                if (editOn->editingCol == 0)
+                {
+                    if (!editOn->isEditing)
+                    {
+                        editOn->isEditing = true;
+                        editOn->editingCol = editOn->beginEditingCol;
+                    }
+                }
+                else
+                {
+                    editOn->isEditing = false;
+                    editOn->editingCol = 0;
+                }
 
                 invalidated = true;
             }

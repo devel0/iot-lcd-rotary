@@ -128,6 +128,8 @@ LCDRotaryMenuItem *LCDRotaryMenuItem::getSelectedChild()
 void LCDRotaryMenuItem::setSelectedChild(LCDRotaryMenuItem *child)
 {
     selectedChild = child;
+    if (mode == LCDRotaryMenuItemModeEnum::MI_MultiSelect)
+        setText(selectedChild->getText());
 }
 
 vector<LCDRotaryMenuItem *> LCDRotaryMenuItem::getChildren()
