@@ -714,9 +714,26 @@ LCDRotaryMenuItem &LCDRotaryMenu::getRoot() { return *root; }
 
 LCDRotaryMenuItem *LCDRotaryMenu::getSelected() { return selectedItem; }
 
-void LCDRotaryMenu::setSelected(LCDRotaryMenuItem &_selectedItem)
+void LCDRotaryMenu::setSelected(LCDRotaryMenuItem &_selectedItem, bool scrollTo)
 {
     selectedItem = &_selectedItem;
+    if (scrollTo)
+    {
+        auto p = selectedItem->getParent();
+        auto &chlds = p->getChildren();
+        auto s = chlds.size();
+        int i = 0;
+        while (i < s)
+        {
+            if (chlds[i] == selectedItem)
+            {
+                break;
+            }
+            ++i;
+        }
+        if (i < s)
+            selectedItem->setScrollRowPos(i);
+    }
 }
 
 void LCDRotaryMenu::setCustomLine(const char *customLine, short rowIdx)

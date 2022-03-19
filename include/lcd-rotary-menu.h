@@ -164,7 +164,7 @@ public:
      */
     LCDRotaryMenuItem *getSelected();
 
-    void setSelected(LCDRotaryMenuItem &item);
+    void setSelected(LCDRotaryMenuItem &item, bool scrollTo = false);    
 
     void setCustomLine(const char *customLine, short rowIdx);
     void setCustomLine2(const char *customLine2, short rowIdx);
