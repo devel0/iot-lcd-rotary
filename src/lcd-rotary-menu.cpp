@@ -511,12 +511,13 @@ void LCDRotaryMenu::loop()
             break;
 
             case LCDRotaryMenuItemModeEnum::MI_NumericInput:
+            case LCDRotaryMenuItemModeEnum::MI_TextInput:
             {
                 editOn = selectedItem;
                 if (editOn->editingCol == 0)
                 {
                     if (!editOn->isEditing)
-                    {                    
+                    {
                         editOn->isEditing = true;
                         editOn->editingCol = editOn->beginEditingCol;
                     }
@@ -600,6 +601,7 @@ void LCDRotaryMenu::loop()
             break;
 
             case LCDRotaryMenuItemModeEnum::MI_NumericInput:
+            case LCDRotaryMenuItemModeEnum::MI_TextInput:
             {
                 if (editOn->isEditingCol)
                 {
@@ -615,22 +617,48 @@ void LCDRotaryMenu::loop()
                                 buf[i] = cstr[i];
                                 ++i;
                             }
-                            if (cstr[i] == '+')
+                            if (selectedItem->getMode() == LCDRotaryMenuItemModeEnum::MI_TextInput)
                             {
-                                buf[i] = '-';
-                            }
-                            else if (cstr[i] == '-')
-                            {
-                                buf[i] = '+';
+                                auto search = strchr(selectedItem->textMaskCharset, cstr[i]);
+                                if (search == NULL)
+                                    buf[i] = selectedItem->textMaskCharset[0];
+                                else
+                                {
+                                    auto idx = search - selectedItem->textMaskCharset;
+
+                                    if (rotDiff > 0)
+                                        ++idx;
+                                    else
+                                        --idx;
+
+                                    int l = strlen(selectedItem->textMaskCharset);
+                                    if (idx >= l)
+                                        idx = 0;
+                                    else if (idx < 0)
+                                        idx = l - 1;
+
+                                    buf[i] = selectedItem->textMaskCharset[idx];
+                                }
                             }
                             else
                             {
-                                int nr = ((int)cstr[i]) - ((int)'0');
-                                if (rotDiff > 0)
-                                    nr = nr < 9 ? nr + 1 : nr;
+                                if (cstr[i] == '+')
+                                {
+                                    buf[i] = '-';
+                                }
+                                else if (cstr[i] == '-')
+                                {
+                                    buf[i] = '+';
+                                }
                                 else
-                                    nr = nr > 0 ? nr - 1 : nr;
-                                buf[i] = ((int)'0') + nr;
+                                {
+                                    int nr = ((int)cstr[i]) - ((int)'0');
+                                    if (rotDiff > 0)
+                                        nr = nr < 9 ? nr + 1 : nr;
+                                    else
+                                        nr = nr > 0 ? nr - 1 : nr;
+                                    buf[i] = ((int)'0') + nr;
+                                }
                             }
 
                             ++i;

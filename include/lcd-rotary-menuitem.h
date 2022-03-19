@@ -18,7 +18,8 @@ enum LCDRotaryMenuItemModeEnum
 {
     MI_Normal,
     MI_MultiSelect,
-    MI_NumericInput
+    MI_NumericInput,
+    MI_TextInput
 };
 
 class LCDRotaryMenuItem
@@ -87,6 +88,8 @@ class LCDRotaryMenuItem
     int beginEditingCol = 0;
 
     bool isCollapsed = false;
+
+    const char *textMaskCharset = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
 public:
     ~LCDRotaryMenuItem();
@@ -201,6 +204,8 @@ public:
     bool isDisplayed() const;
 
     void setMode(LCDRotaryMenuItemModeEnum newMode);
+
+    void setTextMaskCharset(const char *textMask);
 
     /**
      * @brief if true, for multiselect menuitem type, when rotary reach end or begin of the list restarts from other side

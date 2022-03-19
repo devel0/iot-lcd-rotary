@@ -231,6 +231,11 @@ void LCDRotaryMenuItem::setMode(LCDRotaryMenuItemModeEnum newMode)
     mode = newMode;
 }
 
+void LCDRotaryMenuItem::setTextMaskCharset(const char *textMask)
+{
+    textMaskCharset = textMask;
+}
+
 void LCDRotaryMenuItem::setMultiRollOver(bool rollOver)
 {
     multiRollOver = rollOver;
