@@ -24,7 +24,7 @@
         <argsstring></argsstring>
         <name>backString</name>
         <briefdescription>
-<para>text string for back menu label </para>
+<para>text string for back menu label ( usually .. ) </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>

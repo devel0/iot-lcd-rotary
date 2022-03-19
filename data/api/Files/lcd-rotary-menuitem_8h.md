@@ -28,6 +28,7 @@ title: include/lcd-rotary-menuitem.h
 
 |                | Name           |
 | -------------- | -------------- |
+| enum | **[LCDRotaryMenuItemModeEnum](https://github.com/devel0/iot-lcd-rotary/tree/main/data/api/Files/lcd-rotary-menuitem_8h.md#enum-lcdrotarymenuitemmodeenum)** { MI_Normal, MI_MultiSelect, MI_NumericInput } |
 | typedef void(*)(LCDRotaryMenuItem &) | **[LCDRotaryMenuItemCB](https://github.com/devel0/iot-lcd-rotary/tree/main/data/api/Files/lcd-rotary-menuitem_8h.md#typedef-lcdrotarymenuitemcb)**  |
 
 
@@ -40,6 +41,45 @@ title: include/lcd-rotary-menuitem.h
 
 
 ## Types Documentation
+
+### enum LCDRotaryMenuItemModeEnum
+
+
+| Enumerator | Value | Description |
+| ---------- | ----- | ----------- |
+| MI_Normal |  |   |
+| MI_MultiSelect |  |   |
+| MI_NumericInput |  |   |
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ### typedef LCDRotaryMenuItemCB
 
@@ -99,6 +139,13 @@ class LCDRotaryMenuItem;
 
 typedef void (*LCDRotaryMenuItemCB)(LCDRotaryMenuItem &);
 
+enum LCDRotaryMenuItemModeEnum
+{
+    MI_Normal,
+    MI_MultiSelect,
+    MI_NumericInput
+};
+
 class LCDRotaryMenuItem
 {
     friend class LCDRotaryMenu;
@@ -112,6 +159,8 @@ class LCDRotaryMenuItem
     vector<LCDRotaryMenuItem *> children;
 
     string text;
+
+    string prefix;
 
     int scrollRowPos;
 
@@ -127,28 +176,45 @@ class LCDRotaryMenuItem
 
     void *customPtr = NULL;
 
-    bool isNumericInput = false;
+    LCDRotaryMenuItemModeEnum mode = LCDRotaryMenuItemModeEnum::MI_Normal;
 
     bool isEditing = false;
 
     bool isEditingCol = false;
 
     int editingCol = 0;
+    int beginEditingCol = 0;
+
+    bool isCollapsed = false;
 
 public:
     ~LCDRotaryMenuItem();
 
     void clear();
 
+    LCDRotaryMenuItem &append(string prefixText, string menuText, int tag = -1, void *custom = NULL);
+
     LCDRotaryMenuItem &append(string menuText, int tag = -1, void *custom = NULL);
+
+    LCDRotaryMenuItem &appendAfter(LCDRotaryMenuItem &before, string menuText, int tag = -1, void *custom = NULL);
+
+    bool remove(LCDRotaryMenuItem *child);
 
     LCDRotaryMenuItem *getParent();
 
     LCDRotaryMenuItem *getSelectedChild();
 
+    void setSelectedChild(LCDRotaryMenuItem *child);
+
     vector<LCDRotaryMenuItem *> getChildren();
 
     void setText(string menuText);
+
+    void setPrefix(string menuPrefixText);
+
+    const string &getText() const;
+
+    const string &getPrefix() const;
 
     void onSelect(LCDRotaryMenuItemCB cb);
 
@@ -158,18 +224,21 @@ public:
 
     void back();
 
-    const string &getText() const;
-
     int getTag() const;
 
     void *getCustom();
 
     bool isDisplayed() const;
 
-    void setAsNumericInput();
+    void setMode(LCDRotaryMenuItemModeEnum newMode);
+
+    LCDRotaryMenuItemModeEnum getMode() const;
 
     void setScrollRowPos(int scrollRow);
 
+    void setCollapsed(bool collapsed);
+
+    bool getCollapsed() const;
 };
 
 #endif
