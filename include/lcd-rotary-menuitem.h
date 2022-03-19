@@ -77,6 +77,8 @@ class LCDRotaryMenuItem
 
     LCDRotaryMenuItemModeEnum mode = LCDRotaryMenuItemModeEnum::MI_Normal;
 
+    bool multiRollOver = true;
+
     bool isEditing = false;
 
     bool isEditingCol = false;
@@ -174,7 +176,7 @@ public:
      */
     void onSelect(LCDRotaryMenuItemCB cb);
 
-    void onSelect(void (*cb)());
+    void onSelect(void (*cb)());    
 
     /**
      * @brief enter this menuitem (if children) selecting last child of it selected or first if never entered before
@@ -199,6 +201,11 @@ public:
     bool isDisplayed() const;
 
     void setMode(LCDRotaryMenuItemModeEnum newMode);
+
+    /**
+     * @brief if true, for multiselect menuitem type, when rotary reach end or begin of the list restarts from other side
+     */
+    void setMultiRollOver(bool rollOver);
 
     LCDRotaryMenuItemModeEnum getMode() const;
 

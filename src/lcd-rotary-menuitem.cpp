@@ -40,7 +40,7 @@ void LCDRotaryMenuItem::clear()
 
     // neither clear or shrink_to_fit would reduce capacity to initial 0
     children = vector<LCDRotaryMenuItem *>();
-    //debug("children capacity: %d\n", children.capacity());
+    // debug("children capacity: %d\n", children.capacity());
     selectedChild = NULL;
 }
 
@@ -66,7 +66,7 @@ LCDRotaryMenuItem &LCDRotaryMenuItem::append(string prefixText, string menuText,
 
 LCDRotaryMenuItem &LCDRotaryMenuItem::append(string menuText, int tag, void *custom)
 {
-    return append("", menuText, tag, custom);   
+    return append("", menuText, tag, custom);
 }
 
 LCDRotaryMenuItem &LCDRotaryMenuItem::appendAfter(LCDRotaryMenuItem &before, string menuText, int tag, void *custom)
@@ -229,6 +229,11 @@ bool LCDRotaryMenuItem::isDisplayed() const
 void LCDRotaryMenuItem::setMode(LCDRotaryMenuItemModeEnum newMode)
 {
     mode = newMode;
+}
+
+void LCDRotaryMenuItem::setMultiRollOver(bool rollOver)
+{
+    multiRollOver = rollOver;
 }
 
 LCDRotaryMenuItemModeEnum LCDRotaryMenuItem::getMode() const

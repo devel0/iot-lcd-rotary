@@ -52,6 +52,14 @@ lib_deps =
 
 LCDRotaryMenu *menu;
 
+enum MenuTagEnum
+{
+    Mode_Type,
+    Mode_Type1,
+    Mode_Type2,
+    Mode_Type3,
+};
+
 // check i2c lcd address using i2c scanner
 #define LCD_ADDR 0x27
 #define LCD_COLS 20
@@ -81,6 +89,18 @@ void reboot()
     debug("would to reboot...");
 }
 
+void multiSelected(LCDRotaryMenuItem &item)
+{
+    switch (item.getTag())
+    {
+    case Mode_Type:
+    {
+        debug("selected mode tag=%d\n", item.getSelectedChild()->getTag());
+    }
+    break;
+    }
+}
+
 void setup()
 {
     Serial.begin(9600);
@@ -99,7 +119,7 @@ void setup()
     // compose follow menu
     //
     // sample1
-    // Mode : TYPE1 | TYPE2
+    // Mode : TYPE1 | TYPE2 | TYPE3
     // VAR A : 05000
     // VAR B :  +030
     // VAR C :   -12.3
@@ -107,15 +127,19 @@ void setup()
     //       reboot
     //       test
 
+    menu->onMultiSelect(multiSelected);
+
     auto &root = menu->getRoot();
 
     root.append("sample1");
     {
-        auto &multi = root.append("Mode : ", "");
+        auto &multi = root.append("Mode : ", "", Mode_Type);
         multi.setMode(LCDRotaryMenuItemModeEnum::MI_MultiSelect);
+        multi.setMultiRollOver(false);
 
-        auto &typ1 = multi.append("TYPE 1");
-        auto &typ2 = multi.append("TYPE 2");
+        auto &typ1 = multi.append("TYPE 1", Mode_Type1);
+        auto &typ2 = multi.append("TYPE 2", Mode_Type2);
+        auto &typ3 = multi.append("TYPE 3", Mode_Type3);
 
         multi.setSelectedChild(&typ1);
     }

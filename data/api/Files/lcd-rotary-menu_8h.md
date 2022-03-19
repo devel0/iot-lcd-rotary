@@ -90,6 +90,8 @@ class LCDRotaryMenu
 
     LCDRotaryMenuItemCB defaultCb = NULL;
 
+    LCDRotaryMenuItemCB multiSelectCb = NULL;
+
     LCDRotaryMenuItemCB backPressedCb = NULL;
 
     LCDRotaryMenuItem **displayedMenuItems;
@@ -118,6 +120,8 @@ public:
     void setSplashCb(void (*splCb)(LiquidCrystal_I2C &lcd), uint32_t timeoutMs);
 
     void setDefaultCb(LCDRotaryMenuItemCB cb);
+
+    void onMultiSelect(LCDRotaryMenuItemCB cb);
 
     void setButtonCb(void (*cb)());
 

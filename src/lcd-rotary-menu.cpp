@@ -397,6 +397,11 @@ void LCDRotaryMenu::setDefaultCb(LCDRotaryMenuItemCB cb)
     defaultCb = cb;
 }
 
+void LCDRotaryMenu::onMultiSelect(LCDRotaryMenuItemCB cb)
+{
+    multiSelectCb = cb;
+}
+
 void LCDRotaryMenu::setButtonCb(void (*cb)())
 {
     this->btnCb = cb;
@@ -489,6 +494,11 @@ void LCDRotaryMenu::loop()
                 {
                     editOn->isEditing = false;
                     editOn->editingCol = 0;
+
+                    if (multiSelectCb != NULL)
+                    {
+                        multiSelectCb(*selectedItem);
+                    }
                 }
 
                 invalidated = true;
@@ -559,19 +569,20 @@ void LCDRotaryMenu::loop()
                 {
                     if (selChildIdx < s - 1)
                         ++selChildIdx;
-                    else
+                    else if (selectedItem->multiRollOver)
                         selChildIdx = 0;
                 }
                 else if (rotDiff < 0)
                 {
                     if (selChildIdx > 0)
                         --selChildIdx;
-                    else
+                    else if (selectedItem->multiRollOver)
                         selChildIdx = s - 1;
                 }
                 auto selChild = childs[selChildIdx];
                 selectedItem->setText(selChild->getText());
-                selectedItem->setSelectedChild(selChild);                
+                auto changed = selChild != selectedItem->getSelectedChild();
+                selectedItem->setSelectedChild(selChild);
             }
             break;
 
@@ -637,7 +648,7 @@ void LCDRotaryMenu::loop()
                 }
             }
             break;
-            }            
+            }
             invalidated = true;
         }
         else

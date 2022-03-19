@@ -63,6 +63,8 @@ class LCDRotaryMenu
 
     LCDRotaryMenuItemCB defaultCb = NULL;
 
+    LCDRotaryMenuItemCB multiSelectCb = NULL;
+
     LCDRotaryMenuItemCB backPressedCb = NULL;
 
     /**
@@ -122,6 +124,11 @@ public:
      * @brief set default callback when select menuitem that has no custom callback
      */
     void setDefaultCb(LCDRotaryMenuItemCB cb);
+
+    /**
+     * @brief set callback on select this item (multi select mode)
+     */
+    void onMultiSelect(LCDRotaryMenuItemCB cb);
 
     /**
      * @brief set callback that will be called everytime button switch ; it's called before any specific onSelect callback

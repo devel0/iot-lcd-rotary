@@ -37,6 +37,7 @@ LCD Rotary Menu.  [More...](#detailed-description)
 | void | **[invalidate](https://github.com/devel0/iot-lcd-rotary/tree/main/data/api/Classes/class_l_c_d_rotary_menu.md#function-invalidate)**() <br>force menu redraw, for use within programmatic menu manipulation not tie within callbacks  |
 | void | **[setSplashCb](https://github.com/devel0/iot-lcd-rotary/tree/main/data/api/Classes/class_l_c_d_rotary_menu.md#function-setsplashcb)**(void(*)(LiquidCrystal_I2C &lcd) splCb, uint32_t timeoutMs) <br>Set splash callback before Init.  |
 | void | **[setDefaultCb](https://github.com/devel0/iot-lcd-rotary/tree/main/data/api/Classes/class_l_c_d_rotary_menu.md#function-setdefaultcb)**([LCDRotaryMenuItemCB](https://github.com/devel0/iot-lcd-rotary/tree/main/data/api/Files/lcd-rotary-menuitem_8h.md#typedef-lcdrotarymenuitemcb) cb) <br>set default callback when select menuitem that has no custom callback  |
+| void | **[onMultiSelect](https://github.com/devel0/iot-lcd-rotary/tree/main/data/api/Classes/class_l_c_d_rotary_menu.md#function-onmultiselect)**([LCDRotaryMenuItemCB](https://github.com/devel0/iot-lcd-rotary/tree/main/data/api/Files/lcd-rotary-menuitem_8h.md#typedef-lcdrotarymenuitemcb) cb) <br>set callback on select this item (multi select mode)  |
 | void | **[setButtonCb](https://github.com/devel0/iot-lcd-rotary/tree/main/data/api/Classes/class_l_c_d_rotary_menu.md#function-setbuttoncb)**(void(*)() cb) <br>set callback that will be called everytime button switch ; it's called before any specific onSelect callback  |
 | void | **[setBackPressedCb](https://github.com/devel0/iot-lcd-rotary/tree/main/data/api/Classes/class_l_c_d_rotary_menu.md#function-setbackpressedcb)**([LCDRotaryMenuItemCB](https://github.com/devel0/iot-lcd-rotary/tree/main/data/api/Files/lcd-rotary-menuitem_8h.md#typedef-lcdrotarymenuitemcb) cb) <br>set callback when press on .. ( parent ) ; parent menu can be retrived using callbacak argument getParent()  |
 | void | **[setRotCb](https://github.com/devel0/iot-lcd-rotary/tree/main/data/api/Classes/class_l_c_d_rotary_menu.md#function-setrotcb)**(void(*)() cb) <br>set callback that will be called everytime rotary move to different menu item  |
@@ -303,6 +304,43 @@ void setDefaultCb(
 ```
 
 set default callback when select menuitem that has no custom callback 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+### function onMultiSelect
+
+```cpp
+void onMultiSelect(
+    LCDRotaryMenuItemCB cb
+)
+```
+
+set callback on select this item (multi select mode) 
 
 
 

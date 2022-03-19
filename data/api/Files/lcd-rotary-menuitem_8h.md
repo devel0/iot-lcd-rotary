@@ -178,6 +178,8 @@ class LCDRotaryMenuItem
 
     LCDRotaryMenuItemModeEnum mode = LCDRotaryMenuItemModeEnum::MI_Normal;
 
+    bool multiRollOver = true;
+
     bool isEditing = false;
 
     bool isEditingCol = false;
@@ -218,7 +220,7 @@ public:
 
     void onSelect(LCDRotaryMenuItemCB cb);
 
-    void onSelect(void (*cb)());
+    void onSelect(void (*cb)());    
 
     void select();
 
@@ -231,6 +233,8 @@ public:
     bool isDisplayed() const;
 
     void setMode(LCDRotaryMenuItemModeEnum newMode);
+
+    void setMultiRollOver(bool rollOver);
 
     LCDRotaryMenuItemModeEnum getMode() const;
 

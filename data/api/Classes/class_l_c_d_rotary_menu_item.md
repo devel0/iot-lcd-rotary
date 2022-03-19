@@ -53,6 +53,7 @@ title: LCDRotaryMenuItem
 | void * | **[getCustom](https://github.com/devel0/iot-lcd-rotary/tree/main/data/api/Classes/class_l_c_d_rotary_menu_item.md#function-getcustom)**()  |
 | bool | **[isDisplayed](https://github.com/devel0/iot-lcd-rotary/tree/main/data/api/Classes/class_l_c_d_rotary_menu_item.md#function-isdisplayed)**() const  |
 | void | **[setMode](https://github.com/devel0/iot-lcd-rotary/tree/main/data/api/Classes/class_l_c_d_rotary_menu_item.md#function-setmode)**([LCDRotaryMenuItemModeEnum](https://github.com/devel0/iot-lcd-rotary/tree/main/data/api/Files/lcd-rotary-menuitem_8h.md#enum-lcdrotarymenuitemmodeenum) newMode)  |
+| void | **[setMultiRollOver](https://github.com/devel0/iot-lcd-rotary/tree/main/data/api/Classes/class_l_c_d_rotary_menu_item.md#function-setmultirollover)**(bool rollOver) <br>if true, for multiselect menuitem type, when rotary reach end or begin of the list restarts from other side  |
 | [LCDRotaryMenuItemModeEnum](https://github.com/devel0/iot-lcd-rotary/tree/main/data/api/Files/lcd-rotary-menuitem_8h.md#enum-lcdrotarymenuitemmodeenum) | **[getMode](https://github.com/devel0/iot-lcd-rotary/tree/main/data/api/Classes/class_l_c_d_rotary_menu_item.md#function-getmode)**() const  |
 | void | **[setScrollRowPos](https://github.com/devel0/iot-lcd-rotary/tree/main/data/api/Classes/class_l_c_d_rotary_menu_item.md#function-setscrollrowpos)**(int scrollRow) <br>set the given row as the toplevel of the lcd  |
 | void | **[setCollapsed](https://github.com/devel0/iot-lcd-rotary/tree/main/data/api/Classes/class_l_c_d_rotary_menu_item.md#function-setcollapsed)**(bool collapsed) <br>collapsed this menu item  |
@@ -871,6 +872,43 @@ void setMode(
 )
 ```
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+### function setMultiRollOver
+
+```cpp
+void setMultiRollOver(
+    bool rollOver
+)
+```
+
+if true, for multiselect menuitem type, when rotary reach end or begin of the list restarts from other side 
 
 
 
