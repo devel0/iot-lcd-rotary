@@ -134,7 +134,7 @@ void LCDRotaryMenuItem::setSelectedChild(LCDRotaryMenuItem *child)
         setText(selectedChild->getText());
 }
 
-vector<LCDRotaryMenuItem *> LCDRotaryMenuItem::getChildren()
+vector<LCDRotaryMenuItem *>& LCDRotaryMenuItem::getChildren()
 {
     return children;
 }

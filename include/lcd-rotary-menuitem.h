@@ -152,7 +152,7 @@ public:
     /**
      * @brief retrieve list of children menu items
      */
-    vector<LCDRotaryMenuItem *> getChildren();
+    vector<LCDRotaryMenuItem *>& getChildren();
 
     /**
      * @brief change menu item text ( value )
