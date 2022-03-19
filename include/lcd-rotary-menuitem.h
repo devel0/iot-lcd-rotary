@@ -97,6 +97,16 @@ public:
     /**
      * @brief append new child ( deallocation automatic )
      *
+     * @param prefixText prefix text for the item
+     * @param menuText text for the item
+     * @param tag optional user tag useful to manage callback with switch type
+     * @param custom void * custom ptr
+     */
+    LCDRotaryMenuItem &append(string prefixText, string menuText, int tag = -1, void *custom = NULL);
+
+    /**
+     * @brief append new child ( deallocation automatic )
+     *     
      * @param menuText text for the item
      * @param tag optional user tag useful to manage callback with switch type
      * @param custom void * custom ptr
@@ -152,7 +162,7 @@ public:
     /**
      * @brief retrieve menu item text ( value )
      */
-    const string &getText() const;        
+    const string &getText() const;
 
     /**
      * @brief retrieve menu item prefix
@@ -163,7 +173,7 @@ public:
      * @brief set callback on select this item
      */
     void onSelect(LCDRotaryMenuItemCB cb);
-    
+
     void onSelect(void (*cb)());
 
     /**
@@ -175,7 +185,7 @@ public:
     /**
      * @brief exit this menu and go back
      */
-    void back();    
+    void back();
 
     /**
      * @brief retrieve user tag associated to this menuitem ( useful when manage with single callback that switch on menuitem tag )

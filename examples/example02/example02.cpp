@@ -16,11 +16,11 @@ LCDRotaryMenu *menu;
 #define LCD_COLS 20
 #define LCD_ROWS 4
 
-// PB5
-#define ROT_A_PIN 4
+// PB2
+#define ROT_A_PIN 40
 
-// PB3
-#define ROT_B_PIN 3
+// PB1
+#define ROT_B_PIN 41
 
 // PA10
 #define ROT_SW_PIN 2
@@ -45,10 +45,10 @@ void setup()
     Serial.begin(9600);
     setSystemPrinter(Serial); // for debug and error notice
 
-    auto inverted = true;
+    auto inverted = false;
 
-    menu = new LCDRotaryMenu(LCD_ADDR, LCD_COLS, LCD_ROWS, ROT_A_PIN, ROT_B_PIN, ROT_SW_PIN, 
-        inverted, 200);
+    menu = new LCDRotaryMenu(LCD_ADDR, LCD_COLS, LCD_ROWS, ROT_A_PIN, ROT_B_PIN, ROT_SW_PIN,
+                             inverted, 200);
 
     // splash screen ( custom lcd usage ) ; call this before menu init
     menu->setSplashCb(LCDSplash, SPLASH_TIMEOUT_MS);
@@ -58,7 +58,10 @@ void setup()
     // compose follow menu
     //
     // sample1
-    // sample2
+    // Mode : TYPE1 | TYPE2
+    // VAR A : 05000
+    // VAR B :  +030
+    // VAR C :   -12.3
     // dev---+
     //       reboot
     //       test
@@ -66,10 +69,28 @@ void setup()
     auto &root = menu->getRoot();
 
     root.append("sample1");
-    root.append("sample2");
+    {
+        auto &multi = root.append("Mode : ", "");
+        multi.setMode(LCDRotaryMenuItemModeEnum::MI_MultiSelect);
 
-    auto &input = root.append("00000");
-    input.setMode(LCDRotaryMenuItemModeEnum::MI_NumericInput);
+        auto &typ1 = multi.append("TYPE 1");
+        auto &typ2 = multi.append("TYPE 2");
+
+        multi.setSelectedChild(&typ1);
+    }
+
+    {
+        auto &input = root.append("VAR A : ", "05000");
+        input.setMode(LCDRotaryMenuItemModeEnum::MI_NumericInput);
+    }
+    {
+        auto &input = root.append("VAR B :  ", "+030");
+        input.setMode(LCDRotaryMenuItemModeEnum::MI_NumericInput);
+    }
+    {
+        auto &input = root.append("VAR C :   ", "-12.3");
+        input.setMode(LCDRotaryMenuItemModeEnum::MI_NumericInput);
+    }
 
     auto &dev = root.append("dev");
 

@@ -191,7 +191,8 @@ void LCDRotaryMenu::displayMenu()
                 }
                 if (item == selectedItem)
                 {
-                    rowsBuf2[r][0] = item->isBack ? '<' : '>';
+                    char chin = '>';
+                    rowsBuf2[r][0] = item->isBack ? '<' : chin;
                     rowsBuf2[r][1] = 0;
                     if (selectedItem->isEditing)
                     {
@@ -231,6 +232,13 @@ void LCDRotaryMenu::displayMenu()
                         rowsBuf[r][l2] = 0;
                         ++l2;
                     };
+                }
+
+                if (item->isEditingCol || (item->isEditing && item->getMode() == LCDRotaryMenuItemModeEnum::MI_MultiSelect))
+                {
+                    auto pl = item->prefix.length();
+                    if (pl > 0)
+                        rowsBuf2[r][pl] = 232 + 3;
                 }
             }
             lcd->setCursor(0, r);
@@ -362,7 +370,7 @@ bool LCDRotaryMenu::move(int diff)
     if (newSelectedItemIndex < parent->scrollRowPos)
         parent->scrollRowPos = newSelectedItemIndex;
     else if (newSelectedItemIndex >= parent->scrollRowPos + rows - customLineCnt + collapsedCntBeforeNewSelected)
-        parent->scrollRowPos = newSelectedItemIndex;
+        parent->scrollRowPos = newSelectedItemIndex - (rows - 1);
 
     // debug("new menu idx:%d ( scrollpos:%d ) collBefore:%d",
     //       newSelectedItemIndex, parent->scrollRowPos,
@@ -563,7 +571,7 @@ void LCDRotaryMenu::loop()
                 }
                 auto selChild = childs[selChildIdx];
                 selectedItem->setText(selChild->getText());
-                selectedItem->setSelectedChild(selChild);
+                selectedItem->setSelectedChild(selChild);                
             }
             break;
 
@@ -581,12 +589,26 @@ void LCDRotaryMenu::loop()
                             buf[i] = cstr[i];
                             ++i;
                         }
-                        int nr = ((int)cstr[i]) - ((int)'0');
-                        if (rotDiff > 0)
-                            nr = nr < 9 ? nr + 1 : nr;
+                        if (cstr[i] == '.')
+                        {
+                        }
+                        else if (cstr[i] == '+')
+                        {
+                            buf[i] = '-';
+                        }
+                        else if (cstr[i] == '-')
+                        {
+                            buf[i] = '+';
+                        }
                         else
-                            nr = nr > 0 ? nr - 1 : nr;
-                        buf[i] = ((int)'0') + nr;
+                        {
+                            int nr = ((int)cstr[i]) - ((int)'0');
+                            if (rotDiff > 0)
+                                nr = nr < 9 ? nr + 1 : nr;
+                            else
+                                nr = nr > 0 ? nr - 1 : nr;
+                            buf[i] = ((int)'0') + nr;
+                        }
 
                         ++i;
                         while (cstr[i] != 0)
@@ -599,20 +621,7 @@ void LCDRotaryMenu::loop()
                     }
                 }
                 else
-                { /*
-                     if (editOn->editingCol == editOn->beginEditingCol && rotDiff < 0)
-                     {
-                         editOn->isEditing = editOn->isEditingCol = false;
-                         if (move(rotDiff) && rotCb != NULL)
-                             rotCb();
-                     }
-                     else if (editOn->editingCol == editOn->beginEditingCol + l_val - 1 && rotDiff > 0)
-                     {
-                         editOn->isEditing = editOn->isEditingCol = false;
-                         if (move(rotDiff) && rotCb != NULL)
-                             rotCb();
-                     }
-                     else */
+                {
                     if (editOn->editingCol == 0 && l_pre > 0 && rotDiff > 0)
                         editOn->editingCol = l_pre + 1;
                     else
@@ -625,14 +634,10 @@ void LCDRotaryMenu::loop()
                         else if (editOn->editingCol >= cols - 1)
                             editOn->editingCol = cols - 1;
                     }
-                    // if (editOn->editingCol == 0)
-                    // {
-                    //     editOn->isEditing = false;
-                    // }
                 }
             }
             break;
-            }
+            }            
             invalidated = true;
         }
         else

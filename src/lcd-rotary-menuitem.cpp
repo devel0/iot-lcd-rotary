@@ -3,6 +3,7 @@
 #include "lcd-rotary-menuitem.h"
 
 #include "lcd-rotary-menu.h"
+#include "sys-debug.h"
 
 using namespace std;
 
@@ -18,14 +19,6 @@ LCDRotaryMenuItem::LCDRotaryMenuItem(LCDRotaryMenu &menu, LCDRotaryMenuItem *par
     this->customPtr = custom;
     scrollRowPos = 0;
     selectedChild = NULL;
-
-    /*if (!(options & NO_BACK))
-    {
-        auto backMenuItem = new LCDRotaryMenuItem(menu, this, LCDRotaryMenuItemOptions::NO_BACK);
-        backMenuItem->setText("..");
-        backMenuItem->onSelect(goBack);
-        children.push_back(backMenuItem);
-    }*/
 }
 
 LCDRotaryMenuItem::~LCDRotaryMenuItem()
@@ -44,14 +37,18 @@ void LCDRotaryMenuItem::clear()
     {
         delete children[ci];
     }
-    children.clear();
+
+    // neither clear or shrink_to_fit would reduce capacity to initial 0
+    children = vector<LCDRotaryMenuItem *>();
+    //debug("children capacity: %d\n", children.capacity());
     selectedChild = NULL;
 }
 
-LCDRotaryMenuItem &LCDRotaryMenuItem::append(string menuText, int tag, void *custom)
+LCDRotaryMenuItem &LCDRotaryMenuItem::append(string prefixText, string menuText, int tag, void *custom)
 {
     auto newItem = new LCDRotaryMenuItem(menu, this, tag, custom);
     newItem->setText(menuText);
+    newItem->setPrefix(prefixText);
 
     if (this != menu.root && mode == LCDRotaryMenuItemModeEnum::MI_Normal && children.size() == 0)
     {
@@ -65,6 +62,11 @@ LCDRotaryMenuItem &LCDRotaryMenuItem::append(string menuText, int tag, void *cus
     children.push_back(newItem);
 
     return *newItem;
+}
+
+LCDRotaryMenuItem &LCDRotaryMenuItem::append(string menuText, int tag, void *custom)
+{
+    return append("", menuText, tag, custom);   
 }
 
 LCDRotaryMenuItem &LCDRotaryMenuItem::appendAfter(LCDRotaryMenuItem &before, string menuText, int tag, void *custom)
