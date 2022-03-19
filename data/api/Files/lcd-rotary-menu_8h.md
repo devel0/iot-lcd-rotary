@@ -92,6 +92,8 @@ class LCDRotaryMenu
 
     LCDRotaryMenuItemCB multiSelectCb = NULL;
 
+    LCDRotaryMenuItemCB editEndCb = NULL;
+
     LCDRotaryMenuItemCB backPressedCb = NULL;
 
     LCDRotaryMenuItem **displayedMenuItems;
@@ -122,6 +124,8 @@ public:
     void setDefaultCb(LCDRotaryMenuItemCB cb);
 
     void onMultiSelect(LCDRotaryMenuItemCB cb);
+
+    void onEditEnd(LCDRotaryMenuItemCB cb);
 
     void setButtonCb(void (*cb)());
 

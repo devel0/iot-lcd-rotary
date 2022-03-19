@@ -23,6 +23,7 @@
     <member refid="class_l_c_d_rotary_menu_1a071bf614eea3d455f925e97120690fc3" kind="variable"><name>customLineRow2</name></member>
     <member refid="class_l_c_d_rotary_menu_1a39641d61d541aa5c7cc715ad06ecdd4a" kind="variable"><name>defaultCb</name></member>
     <member refid="class_l_c_d_rotary_menu_1aa097654a1a6d4efae17eb1097e7759ac" kind="variable"><name>multiSelectCb</name></member>
+    <member refid="class_l_c_d_rotary_menu_1a202848febb8664771a7d0a0137a3ad43" kind="variable"><name>editEndCb</name></member>
     <member refid="class_l_c_d_rotary_menu_1a93c53e727c9c47598d3c0bbb65d5c74c" kind="variable"><name>backPressedCb</name></member>
     <member refid="class_l_c_d_rotary_menu_1aa5f827e63af73de1cb84fb2eaca486e4" kind="variable"><name>displayedMenuItems</name></member>
     <member refid="class_l_c_d_rotary_menu_1ad4a97e199045c6989e16df39e4719baf" kind="variable"><name>btnCb</name></member>
@@ -39,6 +40,7 @@
     <member refid="class_l_c_d_rotary_menu_1aabf84c1fa675f349a705d025952c1c01" kind="function"><name>setSplashCb</name></member>
     <member refid="class_l_c_d_rotary_menu_1a031811b8aad118429f71122c7bca8d10" kind="function"><name>setDefaultCb</name></member>
     <member refid="class_l_c_d_rotary_menu_1aa68bfc949d0a60614999b763b78db441" kind="function"><name>onMultiSelect</name></member>
+    <member refid="class_l_c_d_rotary_menu_1a12c0bfc6d1234b66959a3f2bec5abdf5" kind="function"><name>onEditEnd</name></member>
     <member refid="class_l_c_d_rotary_menu_1a78530f42f079fedc140660c9b6c0b310" kind="function"><name>setButtonCb</name></member>
     <member refid="class_l_c_d_rotary_menu_1a46cd867b9da554a7ba8009cd42471048" kind="function"><name>setBackPressedCb</name></member>
     <member refid="class_l_c_d_rotary_menu_1a84d3de9d4fd37346cae27885a4775e32" kind="function"><name>setRotCb</name></member>

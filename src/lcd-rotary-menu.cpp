@@ -402,6 +402,11 @@ void LCDRotaryMenu::onMultiSelect(LCDRotaryMenuItemCB cb)
     multiSelectCb = cb;
 }
 
+void LCDRotaryMenu::onEditEnd(LCDRotaryMenuItemCB cb)
+{
+    editEndCb = cb;
+}
+
 void LCDRotaryMenu::setButtonCb(void (*cb)())
 {
     this->btnCb = cb;
@@ -516,10 +521,16 @@ void LCDRotaryMenu::loop()
                         editOn->editingCol = editOn->beginEditingCol;
                     }
                     else
+                    {
                         editOn->isEditing = !editOn->isEditing;
+                        if (!editOn->isEditing && editEndCb != NULL)
+                            editEndCb(*selectedItem);
+                    }
                 }
                 else
+                {
                     editOn->isEditingCol = !editOn->isEditingCol;
+                }
 
                 invalidated = true;
             }
@@ -539,8 +550,10 @@ void LCDRotaryMenu::loop()
         if (editOn != NULL && editOn->isEditing && !editOn->isEditingCol && editOn->editingCol == 0 && rotDiff < 0)
         {
             editOn->isEditing = false;
+            if (editEndCb != NULL)
+                editEndCb(*selectedItem);
             if (move(rotDiff) && rotCb != NULL)
-                rotCb();
+                rotCb();            
         }
         else if (editOn != NULL)
         {

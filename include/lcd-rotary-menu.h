@@ -65,6 +65,8 @@ class LCDRotaryMenu
 
     LCDRotaryMenuItemCB multiSelectCb = NULL;
 
+    LCDRotaryMenuItemCB editEndCb = NULL;
+
     LCDRotaryMenuItemCB backPressedCb = NULL;
 
     /**
@@ -129,6 +131,11 @@ public:
      * @brief set callback on select this item (multi select mode)
      */
     void onMultiSelect(LCDRotaryMenuItemCB cb);
+
+    /**
+     * @brief set callback when edit mode ended
+     */
+    void onEditEnd(LCDRotaryMenuItemCB cb);
 
     /**
      * @brief set callback that will be called everytime button switch ; it's called before any specific onSelect callback

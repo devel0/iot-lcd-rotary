@@ -6,6 +6,7 @@
 #include <lcd-rotary-menuitem.h>
 
 #include <sys-debug.h>
+#include <string-utils.h>
 
 // rotary menu example
 
@@ -17,6 +18,10 @@ enum MenuTagEnum
     Mode_Type1,
     Mode_Type2,
     Mode_Type3,
+
+    Var_A,
+    Var_B,
+    Var_C,
 };
 
 // check i2c lcd address using i2c scanner
@@ -60,6 +65,17 @@ void multiSelected(LCDRotaryMenuItem &item)
     }
 }
 
+void editEnd(LCDRotaryMenuItem &item)
+{
+    if (item.getMode() == LCDRotaryMenuItemModeEnum::MI_NumericInput)
+    {
+        auto str = item.getText().c_str();
+        auto val = atof(str);
+
+        debug("var tag=%d changed to %s\n", item.getTag(), tostr(val, 1).c_str());
+    }
+}
+
 void setup()
 {
     Serial.begin(9600);
@@ -88,31 +104,33 @@ void setup()
 
     menu->onMultiSelect(multiSelected);
 
+    menu->onEditEnd(editEnd);
+
     auto &root = menu->getRoot();
 
     root.append("sample1");
     {
-        auto &multi = root.append("Mode : ", "", Mode_Type);
+        auto &multi = root.append("Mode : ", "", MenuTagEnum::Mode_Type);
         multi.setMode(LCDRotaryMenuItemModeEnum::MI_MultiSelect);
         multi.setMultiRollOver(false);
 
-        auto &typ1 = multi.append("TYPE 1", Mode_Type1);
-        auto &typ2 = multi.append("TYPE 2", Mode_Type2);
-        auto &typ3 = multi.append("TYPE 3", Mode_Type3);
+        auto &typ1 = multi.append("TYPE 1", MenuTagEnum::Mode_Type1);
+        auto &typ2 = multi.append("TYPE 2", MenuTagEnum::Mode_Type2);
+        auto &typ3 = multi.append("TYPE 3", MenuTagEnum::Mode_Type3);
 
         multi.setSelectedChild(&typ1);
     }
 
     {
-        auto &input = root.append("VAR A : ", "05000");
+        auto &input = root.append("VAR A : ", "05000", MenuTagEnum::Var_A);
         input.setMode(LCDRotaryMenuItemModeEnum::MI_NumericInput);
     }
     {
-        auto &input = root.append("VAR B :  ", "+030");
+        auto &input = root.append("VAR B :  ", "+030", MenuTagEnum::Var_B);
         input.setMode(LCDRotaryMenuItemModeEnum::MI_NumericInput);
     }
     {
-        auto &input = root.append("VAR C :   ", "-12.3");
+        auto &input = root.append("VAR C :   ", "-12.3", MenuTagEnum::Var_C);
         input.setMode(LCDRotaryMenuItemModeEnum::MI_NumericInput);
     }
 
