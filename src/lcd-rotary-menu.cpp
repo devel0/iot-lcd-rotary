@@ -516,7 +516,7 @@ void LCDRotaryMenu::loop()
                 if (editOn->editingCol == 0)
                 {
                     if (!editOn->isEditing)
-                    {
+                    {                    
                         editOn->isEditing = true;
                         editOn->editingCol = editOn->beginEditingCol;
                     }
@@ -553,7 +553,7 @@ void LCDRotaryMenu::loop()
             if (editEndCb != NULL)
                 editEndCb(*selectedItem);
             if (move(rotDiff) && rotCb != NULL)
-                rotCb();            
+                rotCb();
         }
         else if (editOn != NULL)
         {
@@ -606,42 +606,42 @@ void LCDRotaryMenu::loop()
                     if (editOn->editingCol - 1 < l_pre + l_val)
                     {
                         const char *cstr = s_val.c_str();
-                        char buf[cols + 1];
-                        int i = 0;
-                        while (cstr[i] != 0 && i < editOn->editingCol - editOn->beginEditingCol)
+                        if (cstr[editOn->editingCol - editOn->beginEditingCol] != '.')
                         {
-                            buf[i] = cstr[i];
-                            ++i;
-                        }
-                        if (cstr[i] == '.')
-                        {
-                        }
-                        else if (cstr[i] == '+')
-                        {
-                            buf[i] = '-';
-                        }
-                        else if (cstr[i] == '-')
-                        {
-                            buf[i] = '+';
-                        }
-                        else
-                        {
-                            int nr = ((int)cstr[i]) - ((int)'0');
-                            if (rotDiff > 0)
-                                nr = nr < 9 ? nr + 1 : nr;
+                            char buf[cols + 1];
+                            int i = 0;
+                            while (cstr[i] != 0 && i < editOn->editingCol - editOn->beginEditingCol)
+                            {
+                                buf[i] = cstr[i];
+                                ++i;
+                            }
+                            if (cstr[i] == '+')
+                            {
+                                buf[i] = '-';
+                            }
+                            else if (cstr[i] == '-')
+                            {
+                                buf[i] = '+';
+                            }
                             else
-                                nr = nr > 0 ? nr - 1 : nr;
-                            buf[i] = ((int)'0') + nr;
-                        }
+                            {
+                                int nr = ((int)cstr[i]) - ((int)'0');
+                                if (rotDiff > 0)
+                                    nr = nr < 9 ? nr + 1 : nr;
+                                else
+                                    nr = nr > 0 ? nr - 1 : nr;
+                                buf[i] = ((int)'0') + nr;
+                            }
 
-                        ++i;
-                        while (cstr[i] != 0)
-                        {
-                            buf[i] = cstr[i];
                             ++i;
+                            while (cstr[i] != 0)
+                            {
+                                buf[i] = cstr[i];
+                                ++i;
+                            }
+                            buf[i] = 0;
+                            editOn->setText(buf);
                         }
-                        buf[i] = 0;
-                        editOn->setText(buf);
                     }
                 }
                 else
