@@ -9,6 +9,12 @@
 
 using namespace std;
 
+#define RMI_FLAG_IS_BACK (1 << 0)
+#define RMI_FLAG_MULTI_ROLLOVER (1 << 1)
+#define RMI_FLAG_IS_EDITING (1 << 2)
+#define RMI_FLAG_IS_EDITING_COL (1 << 3)
+#define RMI_FLAG_IS_COLLAPSED (1 << 4)
+
 class LCDRotaryMenu;
 class LCDRotaryMenuItem;
 
@@ -65,28 +71,20 @@ class LCDRotaryMenuItem
      */
     LCDRotaryMenuItemCB selectCb = NULL;
 
-    bool isBack = false;
-
     int tag = -1;
 
     void *customPtr = NULL;
 
     LCDRotaryMenuItemModeEnum mode = LCDRotaryMenuItemModeEnum::MI_Normal;
 
-    bool multiRollOver = true;
-
-    bool isEditing = false;
-
-    bool isEditingCol = false;
-
     int editingCol = 0;
     int beginEditingCol = 0;
 
-    bool isCollapsed = false;
-
     static constexpr const char *DEFAULT_textMaskCharset = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    
+
     const char *textMaskCharset = DEFAULT_textMaskCharset;
+
+    uint8_t flags = 0;
 
 public:
     ~LCDRotaryMenuItem();
@@ -108,7 +106,7 @@ public:
 
     /**
      * @brief append new child ( deallocation automatic )
-     *     
+     *
      * @param menuText text for the item
      * @param tag optional user tag useful to manage callback with switch type
      * @param custom void * custom ptr
@@ -149,7 +147,7 @@ public:
     /**
      * @brief retrieve list of children menu items
      */
-    vector<LCDRotaryMenuItem *>& getChildren();
+    vector<LCDRotaryMenuItem *> &getChildren();
 
     /**
      * @brief change menu item text ( value )
@@ -174,7 +172,7 @@ public:
     /**
      * @brief set callback on select this item
      */
-    void onSelect(LCDRotaryMenuItemCB cb);    
+    void onSelect(LCDRotaryMenuItemCB cb);
 
     /**
      * @brief enter this menuitem (if children) selecting last child of it selected or first if never entered before
@@ -202,11 +200,6 @@ public:
 
     void setTextMaskCharset(const char *textMask);
 
-    /**
-     * @brief if true, for multiselect menuitem type, when rotary reach end or begin of the list restarts from other side
-     */
-    void setMultiRollOver(bool rollOver);
-
     LCDRotaryMenuItemModeEnum getMode() const;
 
     /**
@@ -214,15 +207,30 @@ public:
      */
     void setScrollRowPos(int scrollRow);
 
-    /**
-     * @brief collapsed this menu item
-     */
-    void setCollapsed(bool collapsed);
+    // -- flags [get]
+
+    inline bool isBack() const { return (flags & RMI_FLAG_IS_BACK) != 0; }
+
+    inline bool isEditing() const { return (flags & RMI_FLAG_IS_EDITING) != 0; }
+
+    inline bool isEditingCol() const { return (flags & RMI_FLAG_IS_EDITING_COL) != 0; }
+
+    inline bool isCollapsed() const { return (flags & RMI_FLAG_IS_COLLAPSED) != 0; }
+
+    inline bool getMultiRollOver() const { return (flags & RMI_FLAG_MULTI_ROLLOVER) != 0; }
+
+    // -- flags [set]
+
+    void setIsEditing(bool val);
+
+    void setIsEditingCol(bool val);
+
+    void setIsCollapsed(bool collapsed);
 
     /**
-     * @brief retrieve collapsed value of this menu item
+     * @brief if true, for multiselect menuitem type, when rotary reach end or begin of the list restarts from other side
      */
-    bool getCollapsed() const;
+    void setMultiRollOver(bool rollOver);
 };
 
 #endif

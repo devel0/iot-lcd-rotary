@@ -16,6 +16,7 @@ bool goBack(LCDRotaryMenuItem &item)
 
 LCDRotaryMenuItem::LCDRotaryMenuItem(LCDRotaryMenu &menu, LCDRotaryMenuItem *parent, int tag, void *custom) : menu(menu)
 {
+    flags = RMI_FLAG_MULTI_ROLLOVER;
     this->parent = parent;
     this->tag = tag;
     this->customPtr = custom;
@@ -61,7 +62,7 @@ LCDRotaryMenuItem &LCDRotaryMenuItem::append(string prefixText, string menuText,
     {
         auto backMenuItem = new LCDRotaryMenuItem(menu, this);
         backMenuItem->setText(menu.options.backString);
-        backMenuItem->isBack = true;
+        backMenuItem->flags |= RMI_FLAG_MULTI_ROLLOVER;
         backMenuItem->onSelect(goBack);
         children.push_back(backMenuItem);
     }
@@ -85,7 +86,7 @@ LCDRotaryMenuItem &LCDRotaryMenuItem::appendAfter(LCDRotaryMenuItem &before, str
     {
         auto backMenuItem = new LCDRotaryMenuItem(menu, this);
         backMenuItem->setText(menu.options.backString);
-        backMenuItem->isBack = true;
+        backMenuItem->flags |= RMI_FLAG_IS_BACK;
         backMenuItem->onSelect(goBack);
         children.push_back(backMenuItem);
     }
@@ -192,7 +193,7 @@ void LCDRotaryMenuItem::select()
 
     auto handled = false;
 
-    if (isBack && menu.backPressedCb != NULL)
+    if (((flags & RMI_FLAG_IS_BACK) != 0) && menu.backPressedCb != NULL)
         handled = menu.backPressedCb(*this);
 
     if (!handled && selectCb != NULL)
@@ -253,11 +254,6 @@ void LCDRotaryMenuItem::setTextMaskCharset(const char *textMask)
     textMaskCharset = textMask;
 }
 
-void LCDRotaryMenuItem::setMultiRollOver(bool rollOver)
-{
-    multiRollOver = rollOver;
-}
-
 LCDRotaryMenuItemModeEnum LCDRotaryMenuItem::getMode() const
 {
     return mode;
@@ -269,14 +265,37 @@ void LCDRotaryMenuItem::setScrollRowPos(int scrollRow)
         this->parent->scrollRowPos = scrollRow;
 }
 
-void LCDRotaryMenuItem::setCollapsed(bool collapsed)
+
+void LCDRotaryMenuItem::setIsEditing(bool isEditing)
 {
-    isCollapsed = collapsed;
+    if (isEditing)
+        flags |= RMI_FLAG_IS_EDITING;
+    else
+        flags &= ~(RMI_FLAG_IS_EDITING);
 }
 
-bool LCDRotaryMenuItem::getCollapsed() const
+void LCDRotaryMenuItem::setIsEditingCol(bool isEditingCol)
 {
-    return isCollapsed;
+    if (isEditingCol)
+        flags |= RMI_FLAG_IS_EDITING_COL;
+    else
+        flags &= ~(RMI_FLAG_IS_EDITING_COL);
+}
+
+void LCDRotaryMenuItem::setMultiRollOver(bool rollOver)
+{
+    if (rollOver)
+        flags |= RMI_FLAG_MULTI_ROLLOVER;
+    else
+        flags &= ~(RMI_FLAG_MULTI_ROLLOVER);
+}
+
+void LCDRotaryMenuItem::setIsCollapsed(bool collapsed)
+{
+    if (collapsed)
+        flags |= RMI_FLAG_IS_COLLAPSED;
+    else
+        flags &= ~(RMI_FLAG_IS_COLLAPSED);
 }
 
 #endif

@@ -88,18 +88,18 @@ void LCDRotaryMenu::displayMenu()
         {
             selectedItemIndex = i;
         }
-        if (menuItems[i]->getCollapsed())
+        if (menuItems[i]->isCollapsed())
             ++collapsedMenuItemsCount;
     }
     if (selectedItemIndex == -1)
         error("menuitem idx not found");
 
-    if (selectedItem->getCollapsed())
+    if (selectedItem->isCollapsed())
     {
         int nextNotCollapsed = -1;
         for (int h = selectedItemIndex + 1; h < menuItemsSize; ++h)
         {
-            if (!menuItems[h]->getCollapsed())
+            if (!menuItems[h]->isCollapsed())
             {
                 nextNotCollapsed = h;
                 break;
@@ -110,7 +110,7 @@ void LCDRotaryMenu::displayMenu()
         {
             for (int h = selectedItemIndex - 1; h >= 0; --h)
             {
-                if (!menuItems[h]->getCollapsed())
+                if (!menuItems[h]->isCollapsed())
                 {
                     prevNotCollapsed = h;
                     break;
@@ -133,7 +133,7 @@ void LCDRotaryMenu::displayMenu()
             {
                 selectedItemIndex = i;
             }
-            if (menuItems[i]->getCollapsed())
+            if (menuItems[i]->isCollapsed())
                 ++collapsedMenuItemsCount;
         }
         if (selectedItemIndex == -1)
@@ -183,7 +183,7 @@ void LCDRotaryMenu::displayMenu()
             {
                 auto kidx = parent->scrollRowPos + collapsedPartialCnt + r - (r >= customLineRow ? customLineCount : 0);
                 auto item = menuItems[kidx];
-                if (item->getCollapsed())
+                if (item->isCollapsed())
                 {
                     ++collapsedPartialCnt;
                     --r;
@@ -192,9 +192,9 @@ void LCDRotaryMenu::displayMenu()
                 if (item == selectedItem)
                 {
                     char chin = '>';
-                    rowsBuf2[r][0] = item->isBack ? '<' : chin;
+                    rowsBuf2[r][0] = item->isBack() ? '<' : chin;
                     rowsBuf2[r][1] = 0;
-                    if (selectedItem->isEditing)
+                    if (selectedItem->isEditing())
                     {
                         editOnRow = r;
                         editOn = selectedItem;
@@ -235,7 +235,7 @@ void LCDRotaryMenu::displayMenu()
                     };
                 }
 
-                if (item->isEditingCol || (item->isEditing && item->getMode() == LCDRotaryMenuItemModeEnum::MI_MultiSelect))
+                if (item->isEditingCol() || (item->isEditing() && item->getMode() == LCDRotaryMenuItemModeEnum::MI_MultiSelect))
                 {
                     auto pl = strlen(item->getPrefix());
                     if (pl > 0)
@@ -311,7 +311,7 @@ bool LCDRotaryMenu::move(int diff)
         int qNextNotCollapsed = -1;
         for (int k = newSelectedItemIndex + 1; k < menuItemsSize; ++k)
         {
-            if (!menuItems[k]->getCollapsed())
+            if (!menuItems[k]->isCollapsed())
             {
                 qNextNotCollapsed = k;
                 break;
@@ -327,7 +327,7 @@ bool LCDRotaryMenu::move(int diff)
         int qPrevNotCollapsed = -1;
         for (int k = newSelectedItemIndex - 1; k >= 0; --k)
         {
-            if (!menuItems[k]->getCollapsed())
+            if (!menuItems[k]->isCollapsed())
             {
                 qPrevNotCollapsed = k;
                 break;
@@ -357,7 +357,7 @@ bool LCDRotaryMenu::move(int diff)
 
     for (int i = parent->scrollRowPos; i < newSelectedItemIndex; ++i)
     {
-        auto iscoll = menuItems[i]->getCollapsed();
+        auto iscoll = menuItems[i]->isCollapsed();
 
         if (iscoll)
         {
@@ -490,15 +490,15 @@ void LCDRotaryMenu::loop()
 
                 if (editOn->editingCol == 0)
                 {
-                    if (!editOn->isEditing)
+                    if (!editOn->isEditing())
                     {
-                        editOn->isEditing = true;
+                        editOn->setIsEditing(true);
                         editOn->editingCol = editOn->beginEditingCol;
                     }
                 }
                 else
                 {
-                    editOn->isEditing = false;
+                    editOn->setIsEditing(false);
                     editOn->editingCol = 0;
 
                     if (multiSelectCb != NULL)
@@ -517,21 +517,21 @@ void LCDRotaryMenu::loop()
                 editOn = selectedItem;
                 if (editOn->editingCol == 0)
                 {
-                    if (!editOn->isEditing)
+                    if (!editOn->isEditing())
                     {
-                        editOn->isEditing = true;
+                        editOn->setIsEditing(true);
                         editOn->editingCol = editOn->beginEditingCol;
                     }
                     else
                     {
-                        editOn->isEditing = !editOn->isEditing;
-                        if (!editOn->isEditing && editEndCb != NULL)
+                        editOn->setIsEditing(!editOn->isEditing());
+                        if (!editOn->isEditing() && editEndCb != NULL)
                             editEndCb(*selectedItem);
                     }
                 }
                 else
                 {
-                    editOn->isEditingCol = !editOn->isEditingCol;
+                    editOn->setIsEditingCol(!editOn->isEditingCol());
                 }
 
                 invalidated = true;
@@ -549,9 +549,9 @@ void LCDRotaryMenu::loop()
         auto rotDiff = rotPos - lastRotPos;
         lastRotPos = rotPos;
 
-        if (editOn != NULL && editOn->isEditing && !editOn->isEditingCol && editOn->editingCol == 0 && rotDiff < 0)
+        if (editOn != NULL && editOn->isEditing() && !editOn->isEditingCol() && editOn->editingCol == 0 && rotDiff < 0)
         {
-            editOn->isEditing = false;
+            editOn->setIsEditing(false);
             if (editEndCb != NULL)
                 editEndCb(*selectedItem);
             if (move(rotDiff) && rotCb != NULL)
@@ -584,14 +584,14 @@ void LCDRotaryMenu::loop()
                 {
                     if (selChildIdx < s - 1)
                         ++selChildIdx;
-                    else if (selectedItem->multiRollOver)
+                    else if (selectedItem->getMultiRollOver())
                         selChildIdx = 0;
                 }
                 else if (rotDiff < 0)
                 {
                     if (selChildIdx > 0)
                         --selChildIdx;
-                    else if (selectedItem->multiRollOver)
+                    else if (selectedItem->getMultiRollOver())
                         selChildIdx = s - 1;
                 }
                 auto selChild = childs[selChildIdx];
@@ -604,7 +604,7 @@ void LCDRotaryMenu::loop()
             case LCDRotaryMenuItemModeEnum::MI_NumericInput:
             case LCDRotaryMenuItemModeEnum::MI_TextInput:
             {
-                if (editOn->isEditingCol)
+                if (editOn->isEditingCol())
                 {
                     if (editOn->editingCol - 1 < l_pre + l_val)
                     {
