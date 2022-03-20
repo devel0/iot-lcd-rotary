@@ -12,7 +12,7 @@ using namespace std;
 class LCDRotaryMenu;
 class LCDRotaryMenuItem;
 
-typedef void (*LCDRotaryMenuItemCB)(LCDRotaryMenuItem &);
+typedef bool (*LCDRotaryMenuItemCB)(LCDRotaryMenuItem &);
 
 enum LCDRotaryMenuItemModeEnum
 {
@@ -64,11 +64,6 @@ class LCDRotaryMenuItem
      * @brief callback when select this menuitem
      */
     LCDRotaryMenuItemCB selectCb = NULL;
-
-    /**
-     * @brief callback when select this menuitem ( argument less )
-     */
-    void (*selectCb2)() = NULL;
 
     bool isBack = false;
 
@@ -177,9 +172,7 @@ public:
     /**
      * @brief set callback on select this item
      */
-    void onSelect(LCDRotaryMenuItemCB cb);
-
-    void onSelect(void (*cb)());    
+    void onSelect(LCDRotaryMenuItemCB cb);    
 
     /**
      * @brief enter this menuitem (if children) selecting last child of it selected or first if never entered before

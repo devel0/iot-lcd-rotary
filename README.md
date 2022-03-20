@@ -94,27 +94,39 @@ void reboot()
     debug("would to reboot...");
 }
 
-void multiSelected(LCDRotaryMenuItem &item)
+bool multiSelected(LCDRotaryMenuItem &item)
 {
+    auto handled = false;
+
     switch (item.getTag())
     {
     case Mode_Type:
     {
         debug("selected mode tag=%d\n", item.getSelectedChild()->getTag());
+
+        handled = true;
     }
     break;
     }
+
+    return handled;
 }
 
-void editEnd(LCDRotaryMenuItem &item)
+bool editEnd(LCDRotaryMenuItem &item)
 {
+    auto handled = false;
+
     if (item.getMode() == LCDRotaryMenuItemModeEnum::MI_NumericInput)
     {
         auto str = item.getText().c_str();
         auto val = atof(str);
 
         debug("var tag=%d changed to %s\n", item.getTag(), tostr(val, 1).c_str());
+
+        handled = true;
     }
+
+    return handled;
 }
 
 void setup()

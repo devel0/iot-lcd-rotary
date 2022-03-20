@@ -7,9 +7,11 @@
 
 using namespace std;
 
-void goBack(LCDRotaryMenuItem &item)
+bool goBack(LCDRotaryMenuItem &item)
 {
     item.back();
+
+    return true;
 }
 
 LCDRotaryMenuItem::LCDRotaryMenuItem(LCDRotaryMenu &menu, LCDRotaryMenuItem *parent, int tag, void *custom) : menu(menu)
@@ -144,11 +146,6 @@ void LCDRotaryMenuItem::onSelect(LCDRotaryMenuItemCB cb)
     this->selectCb = cb;
 }
 
-void LCDRotaryMenuItem::onSelect(void (*cb)())
-{
-    this->selectCb2 = cb;
-}
-
 void LCDRotaryMenuItem::setText(string menuText)
 {
     text = menuText;
@@ -178,14 +175,16 @@ void LCDRotaryMenuItem::select()
         }
     }
 
-    if (selectCb != NULL)
-        selectCb(*this);
-    else if (selectCb2 != NULL)
-        selectCb2();
-    else if (menu.defaultCb != NULL)
-        menu.defaultCb(*this);
-    else if (isBack && menu.backPressedCb != NULL)
-        menu.backPressedCb(*this);
+    auto handled = false;
+
+    if (isBack && menu.backPressedCb != NULL)
+        handled = menu.backPressedCb(*this);
+    
+    if (!handled && selectCb != NULL)
+        handled = selectCb(*this);    
+
+    if (!handled && menu.defaultCb != NULL)
+        handled = menu.defaultCb(*this);
 
     menu.invalidate();
 }
