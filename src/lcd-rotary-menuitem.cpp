@@ -134,7 +134,7 @@ void LCDRotaryMenuItem::setSelectedChild(LCDRotaryMenuItem *child)
         setText(selectedChild->getText());
 }
 
-vector<LCDRotaryMenuItem *>& LCDRotaryMenuItem::getChildren()
+vector<LCDRotaryMenuItem *> &LCDRotaryMenuItem::getChildren()
 {
     return children;
 }
@@ -178,15 +178,15 @@ void LCDRotaryMenuItem::select()
         }
     }
 
-    if (isBack && menu.backPressedCb != NULL)
-        menu.backPressedCb(*this);
-
     if (selectCb != NULL)
         selectCb(*this);
     else if (selectCb2 != NULL)
         selectCb2();
     else if (menu.defaultCb != NULL)
         menu.defaultCb(*this);
+
+    if (isBack && menu.backPressedCb != NULL)
+        menu.backPressedCb(*this);
 
     menu.invalidate();
 }
