@@ -84,7 +84,9 @@ class LCDRotaryMenuItem
 
     bool isCollapsed = false;
 
-    const char *textMaskCharset = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    static constexpr char *DEFAULT_textMaskCharset = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    
+    const char *textMaskCharset = DEFAULT_textMaskCharset;
 
 public:
     ~LCDRotaryMenuItem();
