@@ -25,6 +25,11 @@ LCDRotaryMenuItem::LCDRotaryMenuItem(LCDRotaryMenu &menu, LCDRotaryMenuItem *par
 
 LCDRotaryMenuItem::~LCDRotaryMenuItem()
 {
+    if (text != NULL)
+        delete text;
+    if (prefix != NULL)
+        delete prefix;
+
     int cs = children.size();
     for (int ci = 0; ci < cs; ++ci)
     {
@@ -148,13 +153,23 @@ void LCDRotaryMenuItem::onSelect(LCDRotaryMenuItemCB cb)
 
 void LCDRotaryMenuItem::setText(string menuText)
 {
-    text = menuText;
+    if (text != NULL)
+    {
+        delete text;
+    }
+    text = new char[menuText.length() + 1];
+    strcpy(text, menuText.c_str());
     menu.invalidate();
 }
 
 void LCDRotaryMenuItem::setPrefix(string menuPrefixText)
 {
-    prefix = menuPrefixText;
+    if (prefix != NULL)
+    {
+        delete prefix;
+    }
+    prefix = new char[menuPrefixText.length() + 1];
+    strcpy(prefix, menuPrefixText.c_str());
     editingCol = 0;
     beginEditingCol = menuPrefixText.length() + 1;
     menu.invalidate();
@@ -195,13 +210,17 @@ void LCDRotaryMenuItem::back()
     menu.invalidate();
 }
 
-const string &LCDRotaryMenuItem::getText() const
+const char *LCDRotaryMenuItem::getText() const
 {
+    if (text == NULL)
+        return "";
     return text;
 }
 
-const string &LCDRotaryMenuItem::getPrefix() const
+const char *LCDRotaryMenuItem::getPrefix() const
 {
+    if (prefix == NULL)
+        return "";
     return prefix;
 }
 

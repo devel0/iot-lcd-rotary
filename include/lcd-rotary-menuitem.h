@@ -43,12 +43,12 @@ class LCDRotaryMenuItem
     /**
      * @brief text or value
      */
-    string text;
+    char *text = NULL;
 
     /**
      * @brief prefix ( useful for numeric or multiselect prompt )
      */
-    string prefix;
+    char *prefix = NULL;
 
     /**
      * @brief children scroll row
@@ -84,7 +84,7 @@ class LCDRotaryMenuItem
 
     bool isCollapsed = false;
 
-    static constexpr char *DEFAULT_textMaskCharset = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    static constexpr const char *DEFAULT_textMaskCharset = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     
     const char *textMaskCharset = DEFAULT_textMaskCharset;
 
@@ -164,12 +164,12 @@ public:
     /**
      * @brief retrieve menu item text ( value )
      */
-    const string &getText() const;
+    const char *getText() const;
 
     /**
      * @brief retrieve menu item prefix
      */
-    const string &getPrefix() const;
+    const char *getPrefix() const;
 
     /**
      * @brief set callback on select this item

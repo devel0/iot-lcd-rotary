@@ -79,7 +79,7 @@ bool editEnd(LCDRotaryMenuItem &item)
 
     if (item.getMode() == LCDRotaryMenuItemModeEnum::MI_NumericInput)
     {
-        auto str = item.getText().c_str();
+        auto str = item.getText();
         auto val = atof(str);
 
         debug("var tag=%d changed to %s\n", item.getTag(), tostr(val, 1).c_str());

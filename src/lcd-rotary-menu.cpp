@@ -208,15 +208,16 @@ void LCDRotaryMenu::displayMenu()
 
                 displayedMenuItems[r] = item;
 
-                auto &prefix = item->getPrefix();
-                auto &txt = item->getText();
-                if (prefix.length() > 0)
+                auto prefix = item->getPrefix();
+                auto txt = item->getText();
+                auto pl = strlen(prefix);
+                if (pl > 0)
                 {
-                    strncat(rowsBuf2[r], prefix.c_str(), cols - 1);
-                    strncat(rowsBuf2[r], txt.c_str(), cols - prefix.length() - 1);
+                    strncat(rowsBuf2[r], prefix, cols - 1);
+                    strncat(rowsBuf2[r], txt, cols - pl - 1);
                 }
                 else
-                    strncat(rowsBuf2[r], txt.c_str(), cols - 1);
+                    strncat(rowsBuf2[r], txt, cols - 1);
 
                 l2 = strlen(rowsBuf2[r]);
 
@@ -236,7 +237,7 @@ void LCDRotaryMenu::displayMenu()
 
                 if (item->isEditingCol || (item->isEditing && item->getMode() == LCDRotaryMenuItemModeEnum::MI_MultiSelect))
                 {
-                    auto pl = item->prefix.length();
+                    auto pl = strlen(item->getPrefix());
                     if (pl > 0)
                         rowsBuf2[r][pl] = 232 + 3;
                 }
@@ -558,22 +559,22 @@ void LCDRotaryMenu::loop()
         }
         else if (editOn != NULL)
         {
-            auto &s_val = editOn->getText();
-            auto &s_pre = editOn->getPrefix();
-            int l_val = s_val.length();
-            int l_pre = s_pre.length();
+            auto s_val = editOn->getText();
+            auto s_pre = editOn->getPrefix();
+            int l_val = strlen(s_val);
+            int l_pre = strlen(s_pre);
 
             switch (selectedItem->getMode())
             {
             case LCDRotaryMenuItemModeEnum::MI_MultiSelect:
             {
                 auto &childs = selectedItem->children;
-                auto &selTxt = selectedItem->getText();
+                auto selTxt = selectedItem->getText();
                 auto s = childs.size();
                 auto selChildIdx = 0;
                 for (int i = 0; i < s; ++i)
                 {
-                    if (childs[i]->getText() == selTxt)
+                    if (strcmp(childs[i]->getText(), selTxt) == 0)
                     {
                         selChildIdx = i;
                         break;
@@ -607,7 +608,7 @@ void LCDRotaryMenu::loop()
                 {
                     if (editOn->editingCol - 1 < l_pre + l_val)
                     {
-                        const char *cstr = s_val.c_str();
+                        const char *cstr = s_val;
                         if (cstr[editOn->editingCol - editOn->beginEditingCol] != '.')
                         {
                             char buf[cols + 1];
