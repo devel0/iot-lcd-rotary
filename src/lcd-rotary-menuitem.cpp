@@ -184,8 +184,7 @@ void LCDRotaryMenuItem::select()
         selectCb2();
     else if (menu.defaultCb != NULL)
         menu.defaultCb(*this);
-
-    if (isBack && menu.backPressedCb != NULL)
+    else if (isBack && menu.backPressedCb != NULL)
         menu.backPressedCb(*this);
 
     menu.invalidate();
