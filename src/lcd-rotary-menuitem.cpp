@@ -62,7 +62,7 @@ LCDRotaryMenuItem &LCDRotaryMenuItem::append(string prefixText, string menuText,
     {
         auto backMenuItem = new LCDRotaryMenuItem(menu, this);
         backMenuItem->setText(menu.options.backString);
-        backMenuItem->flags |= RMI_FLAG_MULTI_ROLLOVER;
+        backMenuItem->flags |= RMI_FLAG_IS_BACK;
         backMenuItem->onSelect(goBack);
         children.push_back(backMenuItem);
     }
