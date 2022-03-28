@@ -733,7 +733,11 @@ void LCDRotaryMenu::setSelected(LCDRotaryMenuItem &_selectedItem, bool scrollTo)
             ++i;
         }
         if (i < s)
-            selectedItem->setScrollRowPos(i);
+        {
+            auto r = max(0, i - rows + 1);
+
+            selectedItem->setScrollRowPos(r);
+        }
     }
 }
 
