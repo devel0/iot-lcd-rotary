@@ -207,7 +207,7 @@ void LCDRotaryMenuItem::select()
 
 void LCDRotaryMenuItem::back()
 {
-    menu.selectedItem = parent->parent->selectedChild;
+    menu.selectedItem = parent->parent->selectedChild;     
     menu.invalidate();
 }
 

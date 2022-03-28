@@ -207,6 +207,8 @@ public:
      */
     void setScrollRowPos(int scrollRow);
 
+    inline int getScrollRowPos() const { return scrollRowPos; }
+
     // -- flags [get]
 
     inline bool isBack() const { return (flags & RMI_FLAG_IS_BACK) != 0; }

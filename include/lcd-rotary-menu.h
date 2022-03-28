@@ -15,7 +15,7 @@ struct LCDRotaryMenuOptions
 {
     /**
      * @brief if not space then the char is appended at end of menu text to inform the user that the selected item is a submenu item
-     * 
+     *
      */
     char subMenuPostChar;
 
@@ -27,9 +27,9 @@ struct LCDRotaryMenuOptions
 
 /**
  * @brief LCD Rotary Menu
- * 
+ *
  * nfo
- * 
+ *
  */
 class LCDRotaryMenu
 {
@@ -54,7 +54,7 @@ class LCDRotaryMenu
 
     LCDRotaryMenuItem *root;
     LCDRotaryMenuItem *selectedItem;
-    bool invalidated;
+    bool invalidated;    
 
     char **rowsBuf;
     char **rowsBuf2;
@@ -70,7 +70,7 @@ class LCDRotaryMenu
     LCDRotaryMenuItemCB backPressedCb = NULL;
 
     /**
-     * @brief for purpose of isDisplayed() fn     
+     * @brief for purpose of isDisplayed() fn
      */
     LCDRotaryMenuItem **displayedMenuItems;
 
@@ -81,6 +81,11 @@ class LCDRotaryMenu
 
     LCDRotaryMenuItem *editOn = NULL;
     int editOnRow = 0;
+    uint32_t m_inhibit = 0UL;
+    uint32_t inhibit_on = 0UL;
+
+    int lastPressCount = 0;
+    int lastRotPos = 0;
 
 protected:
     void displayMenu();
@@ -92,7 +97,7 @@ protected:
 public:
     /**
      * @brief Construct a new LCDRotaryMenu object
-     * 
+     *
      * @param addr i2c lcd address
      * @param cols nr. of lcd columns
      * @param rows nr. of lcd rows
@@ -108,7 +113,7 @@ public:
     ~LCDRotaryMenu();
 
     /**
-     * @brief force menu redraw, for use within programmatic menu manipulation not tie within callbacks    
+     * @brief force menu redraw, for use within programmatic menu manipulation not tie within callbacks
      */
     void invalidate();
 
@@ -116,7 +121,7 @@ public:
 
     /**
      * @brief Set splash callback before Init
-     * 
+     *
      * @param splCb callback here you can directly used lcd ( clear, setCursor, print )
      * @param timeoutMs time after which menu display
      */
@@ -139,8 +144,8 @@ public:
 
     /**
      * @brief set callback that will be called everytime button switch ; it's called before any specific onSelect callback
-     * 
-     * @param cb 
+     *
+     * @param cb
      */
     void setButtonCb(void (*cb)());
 
@@ -160,18 +165,20 @@ public:
     LCDRotaryMenuItem &getRoot();
 
     /**
-     * @brief retrieve currently selected menu     
+     * @brief retrieve currently selected menu
      */
     LCDRotaryMenuItem *getSelected();
 
-    void setSelected(LCDRotaryMenuItem &item, bool scrollTo = false);    
+    void setSelected(LCDRotaryMenuItem &item, bool scrollTo = false, int customScrollRowPos = -1);
 
     void setCustomLine(const char *customLine, short rowIdx);
     void setCustomLine2(const char *customLine2, short rowIdx);
     void unsetCustomLine();
 
+    void inhibit(uint32_t timeout_ms);
+
     /**
-     * @brief retrieve lcd pointer ( advanced )          
+     * @brief retrieve lcd pointer ( advanced )
      */
     LiquidCrystal_I2C &getLCD();
 

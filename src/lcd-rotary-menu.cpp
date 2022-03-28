@@ -418,9 +418,6 @@ void LCDRotaryMenu::setRotCb(void (*cb)())
     this->rotCb = cb;
 }
 
-int lastPressCount = 0;
-int lastRotPos = 0;
-
 void LCDRotaryMenu::init()
 {
     lcd->init();
@@ -446,6 +443,12 @@ void LCDRotaryMenu::setBackPressedCb(LCDRotaryMenuItemCB cb)
     backPressedCb = cb;
 }
 
+void LCDRotaryMenu::inhibit(uint32_t timeout_ms)
+{
+    m_inhibit = millis();
+    inhibit_on = timeout_ms;
+}
+
 void LCDRotaryMenu::loop()
 {
     if (busyMode)
@@ -464,83 +467,98 @@ void LCDRotaryMenu::loop()
 
     bool redrawMenu = invalidated || false;
 
+    bool inhibit_detected = false;
+
+    if (inhibit_on > 0 && (millis() - m_inhibit) < inhibit_on)
+    {
+        inhibit_detected = true;
+    }
+    else
+    {
+        inhibit_on = 0;
+    }
+
     if (btn->getPressCount() != lastPressCount)
     {
         lastPressCount = btn->getPressCount();
 
-        if (btnCb != NULL)
-            btnCb();
-
-        if (selectedItem != NULL)
+        if (!inhibit_detected)
         {
-            if (selectedItem->getMode() == LCDRotaryMenuItemModeEnum::MI_Normal)
-                selectedItem->select();
 
-            redrawMenu = true;
-        }
+            if (btnCb != NULL)
+                btnCb();
 
-        if (selectedItem != NULL)
-        {
-            switch (selectedItem->getMode())
+            if (selectedItem != NULL)
             {
+                if (selectedItem->getMode() == LCDRotaryMenuItemModeEnum::MI_Normal)
+                    selectedItem->select();
 
-            case LCDRotaryMenuItemModeEnum::MI_MultiSelect:
-            {
-                editOn = selectedItem;
-
-                if (editOn->editingCol == 0)
-                {
-                    if (!editOn->isEditing())
-                    {
-                        editOn->setIsEditing(true);
-                        editOn->editingCol = editOn->beginEditingCol;
-                    }
-                }
-                else
-                {
-                    editOn->setIsEditing(false);
-                    editOn->editingCol = 0;
-
-                    if (multiSelectCb != NULL)
-                    {
-                        multiSelectCb(*selectedItem);
-                    }
-                }
-
-                invalidated = true;
+                redrawMenu = true;
             }
-            break;
 
-            case LCDRotaryMenuItemModeEnum::MI_NumericInput:
-            case LCDRotaryMenuItemModeEnum::MI_TextInput:
+            if (selectedItem != NULL)
             {
-                editOn = selectedItem;
-                if (editOn->editingCol == 0)
+                switch (selectedItem->getMode())
                 {
-                    if (!editOn->isEditing())
+
+                case LCDRotaryMenuItemModeEnum::MI_MultiSelect:
+                {
+                    editOn = selectedItem;
+
+                    if (editOn->editingCol == 0)
                     {
-                        editOn->setIsEditing(true);
-                        editOn->editingCol = editOn->beginEditingCol;
+                        if (!editOn->isEditing())
+                        {
+                            editOn->setIsEditing(true);
+                            editOn->editingCol = editOn->beginEditingCol;
+                        }
                     }
                     else
                     {
-                        editOn->setIsEditing(!editOn->isEditing());
-                        if (!editOn->isEditing() && editEndCb != NULL)
-                            editEndCb(*selectedItem);
+                        editOn->setIsEditing(false);
+                        editOn->editingCol = 0;
+
+                        if (multiSelectCb != NULL)
+                        {
+                            multiSelectCb(*selectedItem);
+                        }
                     }
+
+                    invalidated = true;
                 }
-                else
+                break;
+
+                case LCDRotaryMenuItemModeEnum::MI_NumericInput:
+                case LCDRotaryMenuItemModeEnum::MI_TextInput:
                 {
-                    editOn->setIsEditingCol(!editOn->isEditingCol());
+                    editOn = selectedItem;
+                    if (editOn->editingCol == 0)
+                    {
+                        if (!editOn->isEditing())
+                        {
+                            editOn->setIsEditing(true);
+                            editOn->editingCol = editOn->beginEditingCol;
+                        }
+                        else
+                        {
+                            editOn->setIsEditing(!editOn->isEditing());
+                            if (!editOn->isEditing() && editEndCb != NULL)
+                                editEndCb(*selectedItem);
+                        }
+                    }
+                    else
+                    {
+                        editOn->setIsEditingCol(!editOn->isEditingCol());
+                    }
+
+                    invalidated = true;
                 }
+                break;
+                }
+            }
 
-                invalidated = true;
-            }
-            break;
-            }
+            // debug("press cnt = %d", lastPressCount);
         }
-
-        // debug("press cnt = %d", lastPressCount);
     }
 
     if (rotary->getRotPos() != lastRotPos)
@@ -549,157 +567,161 @@ void LCDRotaryMenu::loop()
         auto rotDiff = rotPos - lastRotPos;
         lastRotPos = rotPos;
 
-        if (editOn != NULL && editOn->isEditing() && !editOn->isEditingCol() && editOn->editingCol == 0 && rotDiff < 0)
+        if (!inhibit_detected)
         {
-            editOn->setIsEditing(false);
-            if (editEndCb != NULL)
-                editEndCb(*selectedItem);
-            if (move(rotDiff) && rotCb != NULL)
-                rotCb();
-        }
-        else if (editOn != NULL)
-        {
-            auto s_val = editOn->getText();
-            auto s_pre = editOn->getPrefix();
-            int l_val = strlen(s_val);
-            int l_pre = strlen(s_pre);
 
-            switch (selectedItem->getMode())
+            if (editOn != NULL && editOn->isEditing() && !editOn->isEditingCol() && editOn->editingCol == 0 && rotDiff < 0)
             {
-            case LCDRotaryMenuItemModeEnum::MI_MultiSelect:
-            {
-                auto &childs = selectedItem->children;
-                auto selTxt = selectedItem->getText();
-                auto s = childs.size();
-                auto selChildIdx = 0;
-                for (int i = 0; i < s; ++i)
-                {
-                    if (strcmp(childs[i]->getText(), selTxt) == 0)
-                    {
-                        selChildIdx = i;
-                        break;
-                    }
-                }
-                if (rotDiff > 0)
-                {
-                    if (selChildIdx < s - 1)
-                        ++selChildIdx;
-                    else if (selectedItem->getMultiRollOver())
-                        selChildIdx = 0;
-                }
-                else if (rotDiff < 0)
-                {
-                    if (selChildIdx > 0)
-                        --selChildIdx;
-                    else if (selectedItem->getMultiRollOver())
-                        selChildIdx = s - 1;
-                }
-                auto selChild = childs[selChildIdx];
-                selectedItem->setText(selChild->getText());
-                auto changed = selChild != selectedItem->getSelectedChild();
-                selectedItem->setSelectedChild(selChild);
+                editOn->setIsEditing(false);
+                if (editEndCb != NULL)
+                    editEndCb(*selectedItem);
+                if (move(rotDiff) && rotCb != NULL)
+                    rotCb();
             }
-            break;
-
-            case LCDRotaryMenuItemModeEnum::MI_NumericInput:
-            case LCDRotaryMenuItemModeEnum::MI_TextInput:
+            else if (editOn != NULL)
             {
-                if (editOn->isEditingCol())
+                auto s_val = editOn->getText();
+                auto s_pre = editOn->getPrefix();
+                int l_val = strlen(s_val);
+                int l_pre = strlen(s_pre);
+
+                switch (selectedItem->getMode())
                 {
-                    if (editOn->editingCol - 1 < l_pre + l_val)
+                case LCDRotaryMenuItemModeEnum::MI_MultiSelect:
+                {
+                    auto &childs = selectedItem->children;
+                    auto selTxt = selectedItem->getText();
+                    auto s = childs.size();
+                    auto selChildIdx = 0;
+                    for (int i = 0; i < s; ++i)
                     {
-                        const char *cstr = s_val;
-                        if (cstr[editOn->editingCol - editOn->beginEditingCol] != '.')
+                        if (strcmp(childs[i]->getText(), selTxt) == 0)
                         {
-                            char buf[cols + 1];
-                            int i = 0;
-                            while (cstr[i] != 0 && i < editOn->editingCol - editOn->beginEditingCol)
+                            selChildIdx = i;
+                            break;
+                        }
+                    }
+                    if (rotDiff > 0)
+                    {
+                        if (selChildIdx < s - 1)
+                            ++selChildIdx;
+                        else if (selectedItem->getMultiRollOver())
+                            selChildIdx = 0;
+                    }
+                    else if (rotDiff < 0)
+                    {
+                        if (selChildIdx > 0)
+                            --selChildIdx;
+                        else if (selectedItem->getMultiRollOver())
+                            selChildIdx = s - 1;
+                    }
+                    auto selChild = childs[selChildIdx];
+                    selectedItem->setText(selChild->getText());
+                    auto changed = selChild != selectedItem->getSelectedChild();
+                    selectedItem->setSelectedChild(selChild);
+                }
+                break;
+
+                case LCDRotaryMenuItemModeEnum::MI_NumericInput:
+                case LCDRotaryMenuItemModeEnum::MI_TextInput:
+                {
+                    if (editOn->isEditingCol())
+                    {
+                        if (editOn->editingCol - 1 < l_pre + l_val)
+                        {
+                            const char *cstr = s_val;
+                            if (cstr[editOn->editingCol - editOn->beginEditingCol] != '.')
                             {
-                                buf[i] = cstr[i];
-                                ++i;
-                            }
-                            if (selectedItem->getMode() == LCDRotaryMenuItemModeEnum::MI_TextInput)
-                            {
-                                auto search = strchr(selectedItem->textMaskCharset, cstr[i]);
-                                if (search == NULL)
-                                    buf[i] = selectedItem->textMaskCharset[0];
+                                char buf[cols + 1];
+                                int i = 0;
+                                while (cstr[i] != 0 && i < editOn->editingCol - editOn->beginEditingCol)
+                                {
+                                    buf[i] = cstr[i];
+                                    ++i;
+                                }
+                                if (selectedItem->getMode() == LCDRotaryMenuItemModeEnum::MI_TextInput)
+                                {
+                                    auto search = strchr(selectedItem->textMaskCharset, cstr[i]);
+                                    if (search == NULL)
+                                        buf[i] = selectedItem->textMaskCharset[0];
+                                    else
+                                    {
+                                        auto idx = search - selectedItem->textMaskCharset;
+
+                                        if (rotDiff > 0)
+                                            ++idx;
+                                        else
+                                            --idx;
+
+                                        int l = strlen(selectedItem->textMaskCharset);
+                                        if (idx >= l)
+                                            idx = 0;
+                                        else if (idx < 0)
+                                            idx = l - 1;
+
+                                        buf[i] = selectedItem->textMaskCharset[idx];
+                                    }
+                                }
                                 else
                                 {
-                                    auto idx = search - selectedItem->textMaskCharset;
-
-                                    if (rotDiff > 0)
-                                        ++idx;
+                                    if (cstr[i] == '+')
+                                    {
+                                        buf[i] = '-';
+                                    }
+                                    else if (cstr[i] == '-')
+                                    {
+                                        buf[i] = '+';
+                                    }
                                     else
-                                        --idx;
+                                    {
+                                        int nr = ((int)cstr[i]) - ((int)'0');
+                                        if (rotDiff > 0)
+                                            nr = nr < 9 ? nr + 1 : nr;
+                                        else
+                                            nr = nr > 0 ? nr - 1 : nr;
+                                        buf[i] = ((int)'0') + nr;
+                                    }
+                                }
 
-                                    int l = strlen(selectedItem->textMaskCharset);
-                                    if (idx >= l)
-                                        idx = 0;
-                                    else if (idx < 0)
-                                        idx = l - 1;
-
-                                    buf[i] = selectedItem->textMaskCharset[idx];
-                                }
-                            }
-                            else
-                            {
-                                if (cstr[i] == '+')
-                                {
-                                    buf[i] = '-';
-                                }
-                                else if (cstr[i] == '-')
-                                {
-                                    buf[i] = '+';
-                                }
-                                else
-                                {
-                                    int nr = ((int)cstr[i]) - ((int)'0');
-                                    if (rotDiff > 0)
-                                        nr = nr < 9 ? nr + 1 : nr;
-                                    else
-                                        nr = nr > 0 ? nr - 1 : nr;
-                                    buf[i] = ((int)'0') + nr;
-                                }
-                            }
-
-                            ++i;
-                            while (cstr[i] != 0)
-                            {
-                                buf[i] = cstr[i];
                                 ++i;
+                                while (cstr[i] != 0)
+                                {
+                                    buf[i] = cstr[i];
+                                    ++i;
+                                }
+                                buf[i] = 0;
+                                editOn->setText(buf);
                             }
-                            buf[i] = 0;
-                            editOn->setText(buf);
+                        }
+                    }
+                    else
+                    {
+                        if (editOn->editingCol == 0 && l_pre > 0 && rotDiff > 0)
+                            editOn->editingCol = l_pre + 1;
+                        else
+                        {
+                            editOn->editingCol += rotDiff;
+                            if (editOn->editingCol - 1 >= l_pre + l_val)
+                                editOn->editingCol = l_pre + l_val;
+                            if (editOn->editingCol < l_pre + 1)
+                                editOn->editingCol = 0;
+                            else if (editOn->editingCol >= cols - 1)
+                                editOn->editingCol = cols - 1;
                         }
                     }
                 }
-                else
-                {
-                    if (editOn->editingCol == 0 && l_pre > 0 && rotDiff > 0)
-                        editOn->editingCol = l_pre + 1;
-                    else
-                    {
-                        editOn->editingCol += rotDiff;
-                        if (editOn->editingCol - 1 >= l_pre + l_val)
-                            editOn->editingCol = l_pre + l_val;
-                        if (editOn->editingCol < l_pre + 1)
-                            editOn->editingCol = 0;
-                        else if (editOn->editingCol >= cols - 1)
-                            editOn->editingCol = cols - 1;
-                    }
+                break;
                 }
+                invalidated = true;
             }
-            break;
+            else
+            {
+                if (move(rotDiff) && rotCb != NULL)
+                    rotCb();
             }
-            invalidated = true;
-        }
-        else
-        {
-            if (move(rotDiff) && rotCb != NULL)
-                rotCb();
-        }
 
-        redrawMenu = true;
+            redrawMenu = true;
+        }
 
         // debug("rot pos = %d", lastRotPos);
     }
@@ -715,11 +737,18 @@ LCDRotaryMenuItem &LCDRotaryMenu::getRoot() { return *root; }
 
 LCDRotaryMenuItem *LCDRotaryMenu::getSelected() { return selectedItem; }
 
-void LCDRotaryMenu::setSelected(LCDRotaryMenuItem &_selectedItem, bool scrollTo)
+void LCDRotaryMenu::setSelected(LCDRotaryMenuItem &_selectedItem, bool scrollTo, int customScrollRowPos)
 {
     selectedItem = &_selectedItem;
+
     if (scrollTo)
     {
+        if (customScrollRowPos>=0)
+        {
+            selectedItem->setScrollRowPos(customScrollRowPos);
+        }
+        else
+        {
         auto p = selectedItem->getParent();
         auto &chlds = p->getChildren();
         auto s = chlds.size();
@@ -737,6 +766,7 @@ void LCDRotaryMenu::setSelected(LCDRotaryMenuItem &_selectedItem, bool scrollTo)
             auto r = max(0, i - rows + 1);
 
             selectedItem->setScrollRowPos(r);
+        }
         }
     }
 }
