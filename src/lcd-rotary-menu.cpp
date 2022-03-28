@@ -191,10 +191,11 @@ void LCDRotaryMenu::displayMenu()
                 }
                 if (item == selectedItem)
                 {
-                    char chin = '>';
+                    auto selIsEdit = selectedItem->isEditing();
+                    char chin = selIsEdit ? editRowChar : '>';
                     rowsBuf2[r][0] = item->isBack() ? '<' : chin;
                     rowsBuf2[r][1] = 0;
-                    if (selectedItem->isEditing())
+                    if (selIsEdit)
                     {
                         editOnRow = r;
                         editOn = selectedItem;
@@ -239,7 +240,7 @@ void LCDRotaryMenu::displayMenu()
                 {
                     auto pl = strlen(item->getPrefix());
                     if (pl > 0)
-                        rowsBuf2[r][pl] = 232 + 3;
+                        rowsBuf2[r][pl] = editChar;
                 }
             }
             lcd->setCursor(0, r);
@@ -739,7 +740,7 @@ LCDRotaryMenuItem *LCDRotaryMenu::getSelected() { return selectedItem; }
 
 void LCDRotaryMenu::setSelected(LCDRotaryMenuItem &_selectedItem, bool scrollTo, int customScrollRowPos)
 {
-    selectedItem = &_selectedItem;
+    selectedItem = &_selectedItem;    
 
     if (scrollTo)
     {

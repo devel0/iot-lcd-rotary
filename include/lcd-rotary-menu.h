@@ -87,6 +87,9 @@ class LCDRotaryMenu
     int lastPressCount = 0;
     int lastRotPos = 0;
 
+    static const uint8_t editChar = 232 + 3;
+    static const uint8_t editRowChar = '=';
+
 protected:
     void displayMenu();
     /**
