@@ -46,10 +46,11 @@ LCD Rotary Menu.  [More...](#detailed-description)
 | void | **[loop](https://github.com/devel0/iot-lcd-rotary/tree/main/data/api/Classes/class_l_c_d_rotary_menu.md#function-loop)**()  |
 | [LCDRotaryMenuItem](https://github.com/devel0/iot-lcd-rotary/tree/main/data/api/Classes/class_l_c_d_rotary_menu_item.md) & | **[getRoot](https://github.com/devel0/iot-lcd-rotary/tree/main/data/api/Classes/class_l_c_d_rotary_menu.md#function-getroot)**()  |
 | [LCDRotaryMenuItem](https://github.com/devel0/iot-lcd-rotary/tree/main/data/api/Classes/class_l_c_d_rotary_menu_item.md) * | **[getSelected](https://github.com/devel0/iot-lcd-rotary/tree/main/data/api/Classes/class_l_c_d_rotary_menu.md#function-getselected)**() <br>retrieve currently selected menu  |
-| void | **[setSelected](https://github.com/devel0/iot-lcd-rotary/tree/main/data/api/Classes/class_l_c_d_rotary_menu.md#function-setselected)**([LCDRotaryMenuItem](https://github.com/devel0/iot-lcd-rotary/tree/main/data/api/Classes/class_l_c_d_rotary_menu_item.md) & item)  |
+| void | **[setSelected](https://github.com/devel0/iot-lcd-rotary/tree/main/data/api/Classes/class_l_c_d_rotary_menu.md#function-setselected)**([LCDRotaryMenuItem](https://github.com/devel0/iot-lcd-rotary/tree/main/data/api/Classes/class_l_c_d_rotary_menu_item.md) & item, bool scrollTo =false, int customScrollRowPos =-1)  |
 | void | **[setCustomLine](https://github.com/devel0/iot-lcd-rotary/tree/main/data/api/Classes/class_l_c_d_rotary_menu.md#function-setcustomline)**(const char * customLine, short rowIdx)  |
 | void | **[setCustomLine2](https://github.com/devel0/iot-lcd-rotary/tree/main/data/api/Classes/class_l_c_d_rotary_menu.md#function-setcustomline2)**(const char * customLine2, short rowIdx)  |
 | void | **[unsetCustomLine](https://github.com/devel0/iot-lcd-rotary/tree/main/data/api/Classes/class_l_c_d_rotary_menu.md#function-unsetcustomline)**()  |
+| void | **[inhibit](https://github.com/devel0/iot-lcd-rotary/tree/main/data/api/Classes/class_l_c_d_rotary_menu.md#function-inhibit)**(uint32_t timeout_ms)  |
 | LiquidCrystal_I2C & | **[getLCD](https://github.com/devel0/iot-lcd-rotary/tree/main/data/api/Classes/class_l_c_d_rotary_menu.md#function-getlcd)**() <br>retrieve lcd pointer ( advanced )  |
 | void | **[setBusyLine](https://github.com/devel0/iot-lcd-rotary/tree/main/data/api/Classes/class_l_c_d_rotary_menu.md#function-setbusyline)**(const char * busyLine, short rowIdx)  |
 | void | **[unsetBusy](https://github.com/devel0/iot-lcd-rotary/tree/main/data/api/Classes/class_l_c_d_rotary_menu.md#function-unsetbusy)**()  |
@@ -663,7 +664,9 @@ retrieve currently selected menu
 
 ```cpp
 void setSelected(
-    LCDRotaryMenuItem & item
+    LCDRotaryMenuItem & item,
+    bool scrollTo =false,
+    int customScrollRowPos =-1
 )
 ```
 
@@ -773,6 +776,42 @@ void setCustomLine2(
 
 ```cpp
 void unsetCustomLine()
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+### function inhibit
+
+```cpp
+void inhibit(
+    uint32_t timeout_ms
+)
 ```
 
 
@@ -1029,7 +1068,9 @@ LCDRotaryMenuOptions options;
 ### friend LCDRotaryMenuItem
 
 ```cpp
-friend class LCDRotaryMenuItem;
+friend class LCDRotaryMenuItem(
+    LCDRotaryMenuItem 
+);
 ```
 
 

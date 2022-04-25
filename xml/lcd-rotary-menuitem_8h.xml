@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="lcd-rotary-menuitem_8h" kind="file" language="C++">
     <compoundname>lcd-rotary-menuitem.h</compoundname>
     <includes local="no">Arduino.h</includes>
@@ -35,6 +35,63 @@
     </invincdepgraph>
     <innerclass refid="class_l_c_d_rotary_menu_item" prot="public">LCDRotaryMenuItem</innerclass>
     <innernamespace refid="namespacestd">std</innernamespace>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="lcd-rotary-menuitem_8h_1a9ac010775316488f11041bf5d2fdc636" prot="public" static="no">
+        <name>RMI_FLAG_IS_BACK</name>
+        <initializer>(1 &lt;&lt; 0)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/lcd-rotary-menuitem.h" line="12" column="9" bodyfile="include/lcd-rotary-menuitem.h" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="lcd-rotary-menuitem_8h_1a7b2676fd343622ef447ba12a0e990997" prot="public" static="no">
+        <name>RMI_FLAG_MULTI_ROLLOVER</name>
+        <initializer>(1 &lt;&lt; 1)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/lcd-rotary-menuitem.h" line="13" column="9" bodyfile="include/lcd-rotary-menuitem.h" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="lcd-rotary-menuitem_8h_1ab8b74be8192b3ceb7b3548353bcec4d2" prot="public" static="no">
+        <name>RMI_FLAG_IS_EDITING</name>
+        <initializer>(1 &lt;&lt; 2)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/lcd-rotary-menuitem.h" line="14" column="9" bodyfile="include/lcd-rotary-menuitem.h" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="lcd-rotary-menuitem_8h_1a3f95f4dbf063eb08bd8e5a650deedb53" prot="public" static="no">
+        <name>RMI_FLAG_IS_EDITING_COL</name>
+        <initializer>(1 &lt;&lt; 3)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/lcd-rotary-menuitem.h" line="15" column="9" bodyfile="include/lcd-rotary-menuitem.h" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="lcd-rotary-menuitem_8h_1aeb803c0b15bd693d0b5cbe651b9d1b1c" prot="public" static="no">
+        <name>RMI_FLAG_IS_COLLAPSED</name>
+        <initializer>(1 &lt;&lt; 4)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/lcd-rotary-menuitem.h" line="16" column="9" bodyfile="include/lcd-rotary-menuitem.h" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
       <sectiondef kind="enum">
       <memberdef kind="enum" id="lcd-rotary-menuitem_8h_1a00ff890573c8811278937b2bd185f7a6" prot="public" static="no" strong="no">
         <type></type>
@@ -60,19 +117,26 @@
           <detaileddescription>
           </detaileddescription>
         </enumvalue>
+        <enumvalue id="lcd-rotary-menuitem_8h_1a00ff890573c8811278937b2bd185f7a6a7050143224e2baf76dff63428988db9f" prot="public">
+          <name>MI_TextInput</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/lcd-rotary-menuitem.h" line="18" column="1" bodyfile="include/lcd-rotary-menuitem.h" bodystart="17" bodyend="22"/>
+        <location file="include/lcd-rotary-menuitem.h" line="23" column="1" bodyfile="include/lcd-rotary-menuitem.h" bodystart="24" bodyend="29"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="typedef">
-      <memberdef kind="typedef" id="lcd-rotary-menuitem_8h_1a1fe9ce9741dcc6b7fc7051d0467ccf7e" prot="public" static="no">
-        <type>void(*</type>
-        <definition>typedef void(* LCDRotaryMenuItemCB) (LCDRotaryMenuItem &amp;)</definition>
+      <memberdef kind="typedef" id="lcd-rotary-menuitem_8h_1a7c4e2ce235fd4be87d06bc7434627e7d" prot="public" static="no">
+        <type>bool(*</type>
+        <definition>typedef bool(* LCDRotaryMenuItemCB) (LCDRotaryMenuItem &amp;)</definition>
         <argsstring>)(LCDRotaryMenuItem &amp;)</argsstring>
         <name>LCDRotaryMenuItemCB</name>
         <briefdescription>
@@ -81,7 +145,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/lcd-rotary-menuitem.h" line="15" column="9" bodyfile="include/lcd-rotary-menuitem.h" bodystart="15" bodyend="-1"/>
+        <location file="include/lcd-rotary-menuitem.h" line="21" column="9" bodyfile="include/lcd-rotary-menuitem.h" bodystart="21" bodyend="-1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -100,43 +164,46 @@
 <codeline lineno="9"><highlight class="normal"></highlight></codeline>
 <codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal">std;</highlight></codeline>
 <codeline lineno="11"><highlight class="normal"></highlight></codeline>
-<codeline lineno="12"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_l_c_d_rotary_menu" kindref="compound">LCDRotaryMenu</ref>;</highlight></codeline>
-<codeline lineno="13"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_l_c_d_rotary_menu_item" kindref="compound">LCDRotaryMenuItem</ref>;</highlight></codeline>
-<codeline lineno="14"><highlight class="normal"></highlight></codeline>
-<codeline lineno="15" refid="lcd-rotary-menuitem_8h_1a1fe9ce9741dcc6b7fc7051d0467ccf7e" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>void<sp/>(*<ref refid="lcd-rotary-menuitem_8h_1a1fe9ce9741dcc6b7fc7051d0467ccf7e" kindref="member">LCDRotaryMenuItemCB</ref>)(<ref refid="class_l_c_d_rotary_menu_item" kindref="compound">LCDRotaryMenuItem</ref><sp/>&amp;);</highlight></codeline>
-<codeline lineno="16"><highlight class="normal"></highlight></codeline>
-<codeline lineno="17" refid="lcd-rotary-menuitem_8h_1a00ff890573c8811278937b2bd185f7a6" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/><ref refid="lcd-rotary-menuitem_8h_1a00ff890573c8811278937b2bd185f7a6" kindref="member">LCDRotaryMenuItemModeEnum</ref></highlight></codeline>
-<codeline lineno="18"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="19" refid="lcd-rotary-menuitem_8h_1a00ff890573c8811278937b2bd185f7a6a5a18717b22fcbb476cbc435bfec2bf6d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="lcd-rotary-menuitem_8h_1a00ff890573c8811278937b2bd185f7a6a5a18717b22fcbb476cbc435bfec2bf6d" kindref="member">MI_Normal</ref>,</highlight></codeline>
-<codeline lineno="20" refid="lcd-rotary-menuitem_8h_1a00ff890573c8811278937b2bd185f7a6a4429410da53b1a789455a53fd9f87d64" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="lcd-rotary-menuitem_8h_1a00ff890573c8811278937b2bd185f7a6a4429410da53b1a789455a53fd9f87d64" kindref="member">MI_MultiSelect</ref>,</highlight></codeline>
-<codeline lineno="21" refid="lcd-rotary-menuitem_8h_1a00ff890573c8811278937b2bd185f7a6afb7b879435701b19cb7513e885fd257d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="lcd-rotary-menuitem_8h_1a00ff890573c8811278937b2bd185f7a6afb7b879435701b19cb7513e885fd257d" kindref="member">MI_NumericInput</ref></highlight></codeline>
-<codeline lineno="22"><highlight class="normal">};</highlight></codeline>
-<codeline lineno="23"><highlight class="normal"></highlight></codeline>
-<codeline lineno="24" refid="class_l_c_d_rotary_menu_item" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_l_c_d_rotary_menu_item" kindref="compound">LCDRotaryMenuItem</ref></highlight></codeline>
-<codeline lineno="25"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="26" refid="class_l_c_d_rotary_menu_item_1ae80ac98bdb225d20a4e99d2af930b18b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">friend</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_l_c_d_rotary_menu" kindref="compound">LCDRotaryMenu</ref>;</highlight></codeline>
-<codeline lineno="27"><highlight class="normal"></highlight></codeline>
-<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_l_c_d_rotary_menu" kindref="compound">LCDRotaryMenu</ref><sp/>&amp;menu;</highlight></codeline>
-<codeline lineno="32"><highlight class="normal"></highlight></codeline>
-<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_l_c_d_rotary_menu_item" kindref="compound">LCDRotaryMenuItem</ref><sp/>*parent;</highlight></codeline>
-<codeline lineno="37"><highlight class="normal"></highlight></codeline>
-<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_l_c_d_rotary_menu_1ae83390abf1ed9c051a14500c41acc39d" kindref="member">LCDRotaryMenuItem</ref>(<ref refid="class_l_c_d_rotary_menu" kindref="compound">LCDRotaryMenu</ref><sp/>&amp;menu,<sp/><ref refid="class_l_c_d_rotary_menu_item" kindref="compound">LCDRotaryMenuItem</ref><sp/>*parent,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>tag<sp/>=<sp/>-1,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*custom<sp/>=<sp/>NULL);</highlight></codeline>
+<codeline lineno="12" refid="lcd-rotary-menuitem_8h_1a9ac010775316488f11041bf5d2fdc636" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>RMI_FLAG_IS_BACK<sp/>(1<sp/>&lt;&lt;<sp/>0)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13" refid="lcd-rotary-menuitem_8h_1a7b2676fd343622ef447ba12a0e990997" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>RMI_FLAG_MULTI_ROLLOVER<sp/>(1<sp/>&lt;&lt;<sp/>1)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14" refid="lcd-rotary-menuitem_8h_1ab8b74be8192b3ceb7b3548353bcec4d2" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>RMI_FLAG_IS_EDITING<sp/>(1<sp/>&lt;&lt;<sp/>2)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15" refid="lcd-rotary-menuitem_8h_1a3f95f4dbf063eb08bd8e5a650deedb53" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>RMI_FLAG_IS_EDITING_COL<sp/>(1<sp/>&lt;&lt;<sp/>3)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16" refid="lcd-rotary-menuitem_8h_1aeb803c0b15bd693d0b5cbe651b9d1b1c" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>RMI_FLAG_IS_COLLAPSED<sp/>(1<sp/>&lt;&lt;<sp/>4)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_l_c_d_rotary_menu" kindref="compound">LCDRotaryMenu</ref>;</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_l_c_d_rotary_menu_item" kindref="compound">LCDRotaryMenuItem</ref>;</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21" refid="lcd-rotary-menuitem_8h_1a7c4e2ce235fd4be87d06bc7434627e7d" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>bool<sp/>(*<ref refid="lcd-rotary-menuitem_8h_1a7c4e2ce235fd4be87d06bc7434627e7d" kindref="member">LCDRotaryMenuItemCB</ref>)(<ref refid="class_l_c_d_rotary_menu_item" kindref="compound">LCDRotaryMenuItem</ref><sp/>&amp;);</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23" refid="lcd-rotary-menuitem_8h_1a00ff890573c8811278937b2bd185f7a6" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/><ref refid="lcd-rotary-menuitem_8h_1a00ff890573c8811278937b2bd185f7a6" kindref="member">LCDRotaryMenuItemModeEnum</ref></highlight></codeline>
+<codeline lineno="24"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="25" refid="lcd-rotary-menuitem_8h_1a00ff890573c8811278937b2bd185f7a6a5a18717b22fcbb476cbc435bfec2bf6d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="lcd-rotary-menuitem_8h_1a00ff890573c8811278937b2bd185f7a6a5a18717b22fcbb476cbc435bfec2bf6d" kindref="member">MI_Normal</ref>,</highlight></codeline>
+<codeline lineno="26" refid="lcd-rotary-menuitem_8h_1a00ff890573c8811278937b2bd185f7a6a4429410da53b1a789455a53fd9f87d64" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="lcd-rotary-menuitem_8h_1a00ff890573c8811278937b2bd185f7a6a4429410da53b1a789455a53fd9f87d64" kindref="member">MI_MultiSelect</ref>,</highlight></codeline>
+<codeline lineno="27" refid="lcd-rotary-menuitem_8h_1a00ff890573c8811278937b2bd185f7a6afb7b879435701b19cb7513e885fd257d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="lcd-rotary-menuitem_8h_1a00ff890573c8811278937b2bd185f7a6afb7b879435701b19cb7513e885fd257d" kindref="member">MI_NumericInput</ref>,</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="lcd-rotary-menuitem_8h_1a00ff890573c8811278937b2bd185f7a6a7050143224e2baf76dff63428988db9f" kindref="member">MI_TextInput</ref></highlight></codeline>
+<codeline lineno="29" refid="lcd-rotary-menuitem_8h_1a00ff890573c8811278937b2bd185f7a6a7050143224e2baf76dff63428988db9f" refkind="member"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight></codeline>
+<codeline lineno="31" refid="class_l_c_d_rotary_menu_item" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_l_c_d_rotary_menu_item" kindref="compound">LCDRotaryMenuItem</ref></highlight></codeline>
+<codeline lineno="32"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="33" refid="class_l_c_d_rotary_menu_item_1ae80ac98bdb225d20a4e99d2af930b18b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">friend</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_l_c_d_rotary_menu" kindref="compound">LCDRotaryMenu</ref>;</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_l_c_d_rotary_menu" kindref="compound">LCDRotaryMenu</ref><sp/>&amp;menu;</highlight></codeline>
 <codeline lineno="39"><highlight class="normal"></highlight></codeline>
-<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/>vector&lt;LCDRotaryMenuItem<sp/>*&gt;<sp/>children;</highlight></codeline>
-<codeline lineno="41"><highlight class="normal"></highlight></codeline>
-<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>text;</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_l_c_d_rotary_menu_item" kindref="compound">LCDRotaryMenuItem</ref><sp/>*parent;</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_l_c_d_rotary_menu_1ae83390abf1ed9c051a14500c41acc39d" kindref="member">LCDRotaryMenuItem</ref>(<ref refid="class_l_c_d_rotary_menu" kindref="compound">LCDRotaryMenu</ref><sp/>&amp;menu,<sp/><ref refid="class_l_c_d_rotary_menu_item" kindref="compound">LCDRotaryMenuItem</ref><sp/>*parent,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>tag<sp/>=<sp/>-1,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*custom<sp/>=<sp/>NULL);</highlight></codeline>
 <codeline lineno="46"><highlight class="normal"></highlight></codeline>
-<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>prefix;</highlight></codeline>
-<codeline lineno="51"><highlight class="normal"></highlight></codeline>
-<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>scrollRowPos;</highlight></codeline>
-<codeline lineno="56"><highlight class="normal"></highlight></codeline>
-<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_l_c_d_rotary_menu_item" kindref="compound">LCDRotaryMenuItem</ref><sp/>*selectedChild;</highlight></codeline>
-<codeline lineno="61"><highlight class="normal"></highlight></codeline>
-<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="lcd-rotary-menuitem_8h_1a1fe9ce9741dcc6b7fc7051d0467ccf7e" kindref="member">LCDRotaryMenuItemCB</ref><sp/>selectCb<sp/>=<sp/>NULL;</highlight></codeline>
-<codeline lineno="66"><highlight class="normal"></highlight></codeline>
-<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/>void<sp/>(*selectCb2)()<sp/>=<sp/>NULL;</highlight></codeline>
-<codeline lineno="71"><highlight class="normal"></highlight></codeline>
-<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>isBack<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/>vector&lt;LCDRotaryMenuItem<sp/>*&gt;<sp/>children;</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*text<sp/>=<sp/>NULL;</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*prefix<sp/>=<sp/>NULL;</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>scrollRowPos;</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_l_c_d_rotary_menu_item" kindref="compound">LCDRotaryMenuItem</ref><sp/>*selectedChild;</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="lcd-rotary-menuitem_8h_1a7c4e2ce235fd4be87d06bc7434627e7d" kindref="member">LCDRotaryMenuItemCB</ref><sp/>selectCb<sp/>=<sp/>NULL;</highlight></codeline>
 <codeline lineno="73"><highlight class="normal"></highlight></codeline>
 <codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>tag<sp/>=<sp/>-1;</highlight></codeline>
 <codeline lineno="75"><highlight class="normal"></highlight></codeline>
@@ -144,76 +211,92 @@
 <codeline lineno="77"><highlight class="normal"></highlight></codeline>
 <codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="lcd-rotary-menuitem_8h_1a00ff890573c8811278937b2bd185f7a6" kindref="member">LCDRotaryMenuItemModeEnum</ref><sp/>mode<sp/>=<sp/><ref refid="lcd-rotary-menuitem_8h_1a00ff890573c8811278937b2bd185f7a6a5a18717b22fcbb476cbc435bfec2bf6d" kindref="member">LCDRotaryMenuItemModeEnum::MI_Normal</ref>;</highlight></codeline>
 <codeline lineno="79"><highlight class="normal"></highlight></codeline>
-<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>multiRollOver<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="81"><highlight class="normal"></highlight></codeline>
-<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>isEditing<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="83"><highlight class="normal"></highlight></codeline>
-<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>isEditingCol<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="85"><highlight class="normal"></highlight></codeline>
-<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>editingCol<sp/>=<sp/>0;</highlight></codeline>
-<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>beginEditingCol<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>editingCol<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>beginEditingCol<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>constexpr<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*DEFAULT_textMaskCharset<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*textMaskCharset<sp/>=<sp/>DEFAULT_textMaskCharset;</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/>flags<sp/>=<sp/>0;</highlight></codeline>
 <codeline lineno="88"><highlight class="normal"></highlight></codeline>
-<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>isCollapsed<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="90"><highlight class="normal"></highlight></codeline>
-<codeline lineno="91"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
-<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/>~<ref refid="class_l_c_d_rotary_menu_item" kindref="compound">LCDRotaryMenuItem</ref>();</highlight></codeline>
-<codeline lineno="93"><highlight class="normal"></highlight></codeline>
-<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>clear();</highlight></codeline>
-<codeline lineno="98"><highlight class="normal"></highlight></codeline>
-<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_l_c_d_rotary_menu_item" kindref="compound">LCDRotaryMenuItem</ref><sp/>&amp;append(</highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>prefixText,<sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>menuText,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>tag<sp/>=<sp/>-1,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*custom<sp/>=<sp/>NULL);</highlight></codeline>
-<codeline lineno="108"><highlight class="normal"></highlight></codeline>
-<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_l_c_d_rotary_menu_item" kindref="compound">LCDRotaryMenuItem</ref><sp/>&amp;append(</highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>menuText,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>tag<sp/>=<sp/>-1,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*custom<sp/>=<sp/>NULL);</highlight></codeline>
-<codeline lineno="117"><highlight class="normal"></highlight></codeline>
-<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_l_c_d_rotary_menu_item" kindref="compound">LCDRotaryMenuItem</ref><sp/>&amp;appendAfter(<ref refid="class_l_c_d_rotary_menu_item" kindref="compound">LCDRotaryMenuItem</ref><sp/>&amp;before,<sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>menuText,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>tag<sp/>=<sp/>-1,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*custom<sp/>=<sp/>NULL);</highlight></codeline>
-<codeline lineno="126"><highlight class="normal"></highlight></codeline>
-<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>remove(<ref refid="class_l_c_d_rotary_menu_item" kindref="compound">LCDRotaryMenuItem</ref><sp/>*child);</highlight></codeline>
-<codeline lineno="133"><highlight class="normal"></highlight></codeline>
-<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_l_c_d_rotary_menu_item" kindref="compound">LCDRotaryMenuItem</ref><sp/>*getParent();</highlight></codeline>
-<codeline lineno="138"><highlight class="normal"></highlight></codeline>
-<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_l_c_d_rotary_menu_item" kindref="compound">LCDRotaryMenuItem</ref><sp/>*getSelectedChild();</highlight></codeline>
-<codeline lineno="143"><highlight class="normal"></highlight></codeline>
-<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setSelectedChild(<ref refid="class_l_c_d_rotary_menu_item" kindref="compound">LCDRotaryMenuItem</ref><sp/>*child);</highlight></codeline>
-<codeline lineno="148"><highlight class="normal"></highlight></codeline>
-<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/>vector&lt;LCDRotaryMenuItem<sp/>*&gt;<sp/>getChildren();</highlight></codeline>
-<codeline lineno="153"><highlight class="normal"></highlight></codeline>
-<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setText(</highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>menuText);</highlight></codeline>
-<codeline lineno="158"><highlight class="normal"></highlight></codeline>
-<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setPrefix(</highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>menuPrefixText);</highlight></codeline>
-<codeline lineno="163"><highlight class="normal"></highlight></codeline>
-<codeline lineno="167"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>&amp;getText()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="168"><highlight class="normal"></highlight></codeline>
-<codeline lineno="172"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>&amp;getPrefix()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="173"><highlight class="normal"></highlight></codeline>
-<codeline lineno="177"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>onSelect(<ref refid="lcd-rotary-menuitem_8h_1a1fe9ce9741dcc6b7fc7051d0467ccf7e" kindref="member">LCDRotaryMenuItemCB</ref><sp/>cb);</highlight></codeline>
-<codeline lineno="178"><highlight class="normal"></highlight></codeline>
-<codeline lineno="179"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>onSelect(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>(*cb)());<sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="180"><highlight class="normal"></highlight></codeline>
-<codeline lineno="185"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>select();</highlight></codeline>
-<codeline lineno="186"><highlight class="normal"></highlight></codeline>
-<codeline lineno="190"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>back();</highlight></codeline>
-<codeline lineno="191"><highlight class="normal"></highlight></codeline>
-<codeline lineno="197"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>getTag()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="90" refid="class_l_c_d_rotary_menu_item_1ab40aaa5d5a233631b80b8f59ab228ddb" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_l_c_d_rotary_menu_item_1ab40aaa5d5a233631b80b8f59ab228ddb" kindref="member">~LCDRotaryMenuItem</ref>();</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"></highlight></codeline>
+<codeline lineno="95" refid="class_l_c_d_rotary_menu_item_1a9fcd505d7bde102f0552c4b8fcd4aa6c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_l_c_d_rotary_menu_item_1a9fcd505d7bde102f0552c4b8fcd4aa6c" kindref="member">clear</ref>();</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"></highlight></codeline>
+<codeline lineno="105" refid="class_l_c_d_rotary_menu_item_1ae39fdb80fc7582edbf8a0ed1ce89d695" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_l_c_d_rotary_menu_item" kindref="compound">LCDRotaryMenuItem</ref><sp/>&amp;<ref refid="class_l_c_d_rotary_menu_item_1ae39fdb80fc7582edbf8a0ed1ce89d695" kindref="member">append</ref>(</highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>prefixText,<sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>menuText,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>tag<sp/>=<sp/>-1,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*custom<sp/>=<sp/>NULL);</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"></highlight></codeline>
+<codeline lineno="114" refid="class_l_c_d_rotary_menu_item_1a417797d76f3dcefac94aa693a09440fa" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_l_c_d_rotary_menu_item" kindref="compound">LCDRotaryMenuItem</ref><sp/>&amp;<ref refid="class_l_c_d_rotary_menu_item_1a417797d76f3dcefac94aa693a09440fa" kindref="member">append</ref>(</highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>menuText,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>tag<sp/>=<sp/>-1,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*custom<sp/>=<sp/>NULL);</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"></highlight></codeline>
+<codeline lineno="123" refid="class_l_c_d_rotary_menu_item_1ae7661c13273b1c31afffbdc6cd689097" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_l_c_d_rotary_menu_item" kindref="compound">LCDRotaryMenuItem</ref><sp/>&amp;<ref refid="class_l_c_d_rotary_menu_item_1ae7661c13273b1c31afffbdc6cd689097" kindref="member">appendAfter</ref>(<ref refid="class_l_c_d_rotary_menu_item" kindref="compound">LCDRotaryMenuItem</ref><sp/>&amp;before,<sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>menuText,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>tag<sp/>=<sp/>-1,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*custom<sp/>=<sp/>NULL);</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"></highlight></codeline>
+<codeline lineno="130" refid="class_l_c_d_rotary_menu_item_1afac008833ce134d0501f52f88f84b060" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_l_c_d_rotary_menu_item_1afac008833ce134d0501f52f88f84b060" kindref="member">remove</ref>(<ref refid="class_l_c_d_rotary_menu_item" kindref="compound">LCDRotaryMenuItem</ref><sp/>*child);</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"></highlight></codeline>
+<codeline lineno="135" refid="class_l_c_d_rotary_menu_item_1a3728951e866fa1fa956d8eb344f03ff6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_l_c_d_rotary_menu_item" kindref="compound">LCDRotaryMenuItem</ref><sp/>*<ref refid="class_l_c_d_rotary_menu_item_1a3728951e866fa1fa956d8eb344f03ff6" kindref="member">getParent</ref>();</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"></highlight></codeline>
+<codeline lineno="140" refid="class_l_c_d_rotary_menu_item_1aef4b9d42743271a6fc4d5df4cf4fce5b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_l_c_d_rotary_menu_item" kindref="compound">LCDRotaryMenuItem</ref><sp/>*<ref refid="class_l_c_d_rotary_menu_item_1aef4b9d42743271a6fc4d5df4cf4fce5b" kindref="member">getSelectedChild</ref>();</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"></highlight></codeline>
+<codeline lineno="145" refid="class_l_c_d_rotary_menu_item_1aef8564188d687c949b82478906ce810c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_l_c_d_rotary_menu_item_1aef8564188d687c949b82478906ce810c" kindref="member">setSelectedChild</ref>(<ref refid="class_l_c_d_rotary_menu_item" kindref="compound">LCDRotaryMenuItem</ref><sp/>*child);</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"></highlight></codeline>
+<codeline lineno="150" refid="class_l_c_d_rotary_menu_item_1a848962fa1247072f4ea8edf38796a64c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>vector&lt;LCDRotaryMenuItem<sp/>*&gt;<sp/>&amp;<ref refid="class_l_c_d_rotary_menu_item_1a848962fa1247072f4ea8edf38796a64c" kindref="member">getChildren</ref>();</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"></highlight></codeline>
+<codeline lineno="155" refid="class_l_c_d_rotary_menu_item_1a7857286f7a6b2d36105e0cc7c328df2e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_l_c_d_rotary_menu_item_1a7857286f7a6b2d36105e0cc7c328df2e" kindref="member">setText</ref>(</highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>menuText);</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"></highlight></codeline>
+<codeline lineno="160" refid="class_l_c_d_rotary_menu_item_1aa883e4abe796a3d61522c3280e0c53cc" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_l_c_d_rotary_menu_item_1aa883e4abe796a3d61522c3280e0c53cc" kindref="member">setPrefix</ref>(</highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>menuPrefixText);</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"></highlight></codeline>
+<codeline lineno="165" refid="class_l_c_d_rotary_menu_item_1a544d255c452210555955f2a946f590a3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="class_l_c_d_rotary_menu_item_1a544d255c452210555955f2a946f590a3" kindref="member">getText</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"></highlight></codeline>
+<codeline lineno="170" refid="class_l_c_d_rotary_menu_item_1a0016145fb4302700465c7f873530d64f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="class_l_c_d_rotary_menu_item_1a0016145fb4302700465c7f873530d64f" kindref="member">getPrefix</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"></highlight></codeline>
+<codeline lineno="175" refid="class_l_c_d_rotary_menu_item_1a92afd4c054c7eddc60e77c526d98ea52" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_l_c_d_rotary_menu_item_1a92afd4c054c7eddc60e77c526d98ea52" kindref="member">onSelect</ref>(<ref refid="lcd-rotary-menuitem_8h_1a7c4e2ce235fd4be87d06bc7434627e7d" kindref="member">LCDRotaryMenuItemCB</ref><sp/>cb);</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"></highlight></codeline>
+<codeline lineno="181" refid="class_l_c_d_rotary_menu_item_1a905bb35998be67a482456a8e9e182b75" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_l_c_d_rotary_menu_item_1a905bb35998be67a482456a8e9e182b75" kindref="member">select</ref>();</highlight></codeline>
+<codeline lineno="182"><highlight class="normal"></highlight></codeline>
+<codeline lineno="186" refid="class_l_c_d_rotary_menu_item_1a4aa93da6c52e62e8201f73332d1c1d5f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_l_c_d_rotary_menu_item_1a4aa93da6c52e62e8201f73332d1c1d5f" kindref="member">back</ref>();</highlight></codeline>
+<codeline lineno="187"><highlight class="normal"></highlight></codeline>
+<codeline lineno="193" refid="class_l_c_d_rotary_menu_item_1a7d4d5e38c134e5026b7b3f3d59f4d743" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="class_l_c_d_rotary_menu_item_1a7d4d5e38c134e5026b7b3f3d59f4d743" kindref="member">getTag</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="194"><highlight class="normal"></highlight></codeline>
+<codeline lineno="195" refid="class_l_c_d_rotary_menu_item_1a78c4bfe4e26f9e2e509b081f637cbe2d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*<ref refid="class_l_c_d_rotary_menu_item_1a78c4bfe4e26f9e2e509b081f637cbe2d" kindref="member">getCustom</ref>();</highlight></codeline>
+<codeline lineno="196"><highlight class="normal"></highlight></codeline>
+<codeline lineno="197" refid="class_l_c_d_rotary_menu_item_1abd0fc68a95bcd603d39d6388a217c364" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_l_c_d_rotary_menu_item_1abd0fc68a95bcd603d39d6388a217c364" kindref="member">isDisplayed</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
 <codeline lineno="198"><highlight class="normal"></highlight></codeline>
-<codeline lineno="199"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*getCustom();</highlight></codeline>
+<codeline lineno="199" refid="class_l_c_d_rotary_menu_item_1a0ca03274ca8e4f5469c1f11df3cfff12" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_l_c_d_rotary_menu_item_1a0ca03274ca8e4f5469c1f11df3cfff12" kindref="member">setMode</ref>(<ref refid="lcd-rotary-menuitem_8h_1a00ff890573c8811278937b2bd185f7a6" kindref="member">LCDRotaryMenuItemModeEnum</ref><sp/>newMode);</highlight></codeline>
 <codeline lineno="200"><highlight class="normal"></highlight></codeline>
-<codeline lineno="201"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>isDisplayed()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="201" refid="class_l_c_d_rotary_menu_item_1a6027aa0a75de2a8425e69c09bba06cb6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_l_c_d_rotary_menu_item_1a6027aa0a75de2a8425e69c09bba06cb6" kindref="member">setTextMaskCharset</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*textMask);</highlight></codeline>
 <codeline lineno="202"><highlight class="normal"></highlight></codeline>
-<codeline lineno="203"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setMode(<ref refid="lcd-rotary-menuitem_8h_1a00ff890573c8811278937b2bd185f7a6" kindref="member">LCDRotaryMenuItemModeEnum</ref><sp/>newMode);</highlight></codeline>
+<codeline lineno="203" refid="class_l_c_d_rotary_menu_item_1a68c2b182651112089491f52f59e38230" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="lcd-rotary-menuitem_8h_1a00ff890573c8811278937b2bd185f7a6" kindref="member">LCDRotaryMenuItemModeEnum</ref><sp/><ref refid="class_l_c_d_rotary_menu_item_1a68c2b182651112089491f52f59e38230" kindref="member">getMode</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
 <codeline lineno="204"><highlight class="normal"></highlight></codeline>
-<codeline lineno="208"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setMultiRollOver(</highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>rollOver);</highlight></codeline>
+<codeline lineno="208" refid="class_l_c_d_rotary_menu_item_1a0d534d99a048ac4de681c1bba78a7fe2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_l_c_d_rotary_menu_item_1a0d534d99a048ac4de681c1bba78a7fe2" kindref="member">setScrollRowPos</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>scrollRow);</highlight></codeline>
 <codeline lineno="209"><highlight class="normal"></highlight></codeline>
-<codeline lineno="210"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="lcd-rotary-menuitem_8h_1a00ff890573c8811278937b2bd185f7a6" kindref="member">LCDRotaryMenuItemModeEnum</ref><sp/>getMode()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="210" refid="class_l_c_d_rotary_menu_item_1a6c60a805a782d845e4fedd683b173989" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="class_l_c_d_rotary_menu_item_1a6c60a805a782d845e4fedd683b173989" kindref="member">getScrollRowPos</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>scrollRowPos;<sp/>}</highlight></codeline>
 <codeline lineno="211"><highlight class="normal"></highlight></codeline>
-<codeline lineno="215"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setScrollRowPos(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>scrollRow);</highlight></codeline>
-<codeline lineno="216"><highlight class="normal"></highlight></codeline>
-<codeline lineno="220"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setCollapsed(</highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>collapsed);</highlight></codeline>
+<codeline lineno="212"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>--<sp/>flags<sp/>[get]</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="213"><highlight class="normal"></highlight></codeline>
+<codeline lineno="214" refid="class_l_c_d_rotary_menu_item_1a09ad5b20d99fcc886b3f441cbb85f95f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_l_c_d_rotary_menu_item_1a09ad5b20d99fcc886b3f441cbb85f95f" kindref="member">isBack</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>(flags<sp/>&amp;<sp/><ref refid="lcd-rotary-menuitem_8h_1a9ac010775316488f11041bf5d2fdc636" kindref="member">RMI_FLAG_IS_BACK</ref>)<sp/>!=<sp/>0;<sp/>}</highlight></codeline>
+<codeline lineno="215"><highlight class="normal"></highlight></codeline>
+<codeline lineno="216" refid="class_l_c_d_rotary_menu_item_1a4be7f3e6d64e7d3daa311943690952e5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_l_c_d_rotary_menu_item_1a4be7f3e6d64e7d3daa311943690952e5" kindref="member">isEditing</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>(flags<sp/>&amp;<sp/><ref refid="lcd-rotary-menuitem_8h_1ab8b74be8192b3ceb7b3548353bcec4d2" kindref="member">RMI_FLAG_IS_EDITING</ref>)<sp/>!=<sp/>0;<sp/>}</highlight></codeline>
+<codeline lineno="217"><highlight class="normal"></highlight></codeline>
+<codeline lineno="218" refid="class_l_c_d_rotary_menu_item_1a7815dbe7d0b850b3a010cc903bda70f4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_l_c_d_rotary_menu_item_1a7815dbe7d0b850b3a010cc903bda70f4" kindref="member">isEditingCol</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>(flags<sp/>&amp;<sp/><ref refid="lcd-rotary-menuitem_8h_1a3f95f4dbf063eb08bd8e5a650deedb53" kindref="member">RMI_FLAG_IS_EDITING_COL</ref>)<sp/>!=<sp/>0;<sp/>}</highlight></codeline>
+<codeline lineno="219"><highlight class="normal"></highlight></codeline>
+<codeline lineno="220" refid="class_l_c_d_rotary_menu_item_1a7c14379451479a2cf36eb9bdd6750cd0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_l_c_d_rotary_menu_item_1a7c14379451479a2cf36eb9bdd6750cd0" kindref="member">isCollapsed</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>(flags<sp/>&amp;<sp/><ref refid="lcd-rotary-menuitem_8h_1aeb803c0b15bd693d0b5cbe651b9d1b1c" kindref="member">RMI_FLAG_IS_COLLAPSED</ref>)<sp/>!=<sp/>0;<sp/>}</highlight></codeline>
 <codeline lineno="221"><highlight class="normal"></highlight></codeline>
-<codeline lineno="225"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>getCollapsed()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="226"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="222" refid="class_l_c_d_rotary_menu_item_1abff513717e5006e3062c693ab83e5f39" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_l_c_d_rotary_menu_item_1abff513717e5006e3062c693ab83e5f39" kindref="member">getMultiRollOver</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>(flags<sp/>&amp;<sp/><ref refid="lcd-rotary-menuitem_8h_1a7b2676fd343622ef447ba12a0e990997" kindref="member">RMI_FLAG_MULTI_ROLLOVER</ref>)<sp/>!=<sp/>0;<sp/>}</highlight></codeline>
+<codeline lineno="223"><highlight class="normal"></highlight></codeline>
+<codeline lineno="224"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>--<sp/>flags<sp/>[set]</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="225"><highlight class="normal"></highlight></codeline>
+<codeline lineno="226" refid="class_l_c_d_rotary_menu_item_1a4c44ddf91c6da2a06fdf0bcd8e577c07" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_l_c_d_rotary_menu_item_1a4c44ddf91c6da2a06fdf0bcd8e577c07" kindref="member">setIsEditing</ref>(</highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>val);</highlight></codeline>
 <codeline lineno="227"><highlight class="normal"></highlight></codeline>
-<codeline lineno="228"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="228" refid="class_l_c_d_rotary_menu_item_1a25fc98b6be0caaf0dd3fa834040e3df8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_l_c_d_rotary_menu_item_1a25fc98b6be0caaf0dd3fa834040e3df8" kindref="member">setIsEditingCol</ref>(</highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>val);</highlight></codeline>
 <codeline lineno="229"><highlight class="normal"></highlight></codeline>
-<codeline lineno="230"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+<codeline lineno="230" refid="class_l_c_d_rotary_menu_item_1adb96cff691d8cb5c25fa3b4d573f2340" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_l_c_d_rotary_menu_item_1adb96cff691d8cb5c25fa3b4d573f2340" kindref="member">setIsCollapsed</ref>(</highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>collapsed);</highlight></codeline>
+<codeline lineno="231"><highlight class="normal"></highlight></codeline>
+<codeline lineno="235" refid="class_l_c_d_rotary_menu_item_1ad548f661dbc9bf892fd56af9da0ecf3a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_l_c_d_rotary_menu_item_1ad548f661dbc9bf892fd56af9da0ecf3a" kindref="member">setMultiRollOver</ref>(</highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>rollOver);</highlight></codeline>
+<codeline lineno="236"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="237"><highlight class="normal"></highlight></codeline>
+<codeline lineno="238"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="239"><highlight class="normal"></highlight></codeline>
+<codeline lineno="240"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
     </programlisting>
     <location file="include/lcd-rotary-menuitem.h"/>
   </compounddef>

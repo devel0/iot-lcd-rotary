@@ -40,24 +40,31 @@ title: LCDRotaryMenuItem
 | [LCDRotaryMenuItem](https://github.com/devel0/iot-lcd-rotary/tree/main/data/api/Classes/class_l_c_d_rotary_menu_item.md) * | **[getParent](https://github.com/devel0/iot-lcd-rotary/tree/main/data/api/Classes/class_l_c_d_rotary_menu_item.md#function-getparent)**() <br>parent of this menu item  |
 | [LCDRotaryMenuItem](https://github.com/devel0/iot-lcd-rotary/tree/main/data/api/Classes/class_l_c_d_rotary_menu_item.md) * | **[getSelectedChild](https://github.com/devel0/iot-lcd-rotary/tree/main/data/api/Classes/class_l_c_d_rotary_menu_item.md#function-getselectedchild)**() <br>currently selected menu item child  |
 | void | **[setSelectedChild](https://github.com/devel0/iot-lcd-rotary/tree/main/data/api/Classes/class_l_c_d_rotary_menu_item.md#function-setselectedchild)**([LCDRotaryMenuItem](https://github.com/devel0/iot-lcd-rotary/tree/main/data/api/Classes/class_l_c_d_rotary_menu_item.md) * child) <br>change currently selected menu item child  |
-| vector< [LCDRotaryMenuItem](https://github.com/devel0/iot-lcd-rotary/tree/main/data/api/Classes/class_l_c_d_rotary_menu_item.md) * > | **[getChildren](https://github.com/devel0/iot-lcd-rotary/tree/main/data/api/Classes/class_l_c_d_rotary_menu_item.md#function-getchildren)**() <br>retrieve list of children menu items  |
+| vector< [LCDRotaryMenuItem](https://github.com/devel0/iot-lcd-rotary/tree/main/data/api/Classes/class_l_c_d_rotary_menu_item.md) * > & | **[getChildren](https://github.com/devel0/iot-lcd-rotary/tree/main/data/api/Classes/class_l_c_d_rotary_menu_item.md#function-getchildren)**() <br>retrieve list of children menu items  |
 | void | **[setText](https://github.com/devel0/iot-lcd-rotary/tree/main/data/api/Classes/class_l_c_d_rotary_menu_item.md#function-settext)**(string menuText) <br>change menu item text ( value )  |
 | void | **[setPrefix](https://github.com/devel0/iot-lcd-rotary/tree/main/data/api/Classes/class_l_c_d_rotary_menu_item.md#function-setprefix)**(string menuPrefixText) <br>change menu item prefix ( useful for numeric or multiselect types )  |
-| const string & | **[getText](https://github.com/devel0/iot-lcd-rotary/tree/main/data/api/Classes/class_l_c_d_rotary_menu_item.md#function-gettext)**() const <br>retrieve menu item text ( value )  |
-| const string & | **[getPrefix](https://github.com/devel0/iot-lcd-rotary/tree/main/data/api/Classes/class_l_c_d_rotary_menu_item.md#function-getprefix)**() const <br>retrieve menu item prefix  |
+| const char * | **[getText](https://github.com/devel0/iot-lcd-rotary/tree/main/data/api/Classes/class_l_c_d_rotary_menu_item.md#function-gettext)**() const <br>retrieve menu item text ( value )  |
+| const char * | **[getPrefix](https://github.com/devel0/iot-lcd-rotary/tree/main/data/api/Classes/class_l_c_d_rotary_menu_item.md#function-getprefix)**() const <br>retrieve menu item prefix  |
 | void | **[onSelect](https://github.com/devel0/iot-lcd-rotary/tree/main/data/api/Classes/class_l_c_d_rotary_menu_item.md#function-onselect)**([LCDRotaryMenuItemCB](https://github.com/devel0/iot-lcd-rotary/tree/main/data/api/Files/lcd-rotary-menuitem_8h.md#typedef-lcdrotarymenuitemcb) cb) <br>set callback on select this item  |
-| void | **[onSelect](https://github.com/devel0/iot-lcd-rotary/tree/main/data/api/Classes/class_l_c_d_rotary_menu_item.md#function-onselect)**(void(*)() cb)  |
 | void | **[select](https://github.com/devel0/iot-lcd-rotary/tree/main/data/api/Classes/class_l_c_d_rotary_menu_item.md#function-select)**() <br>enter this menuitem (if children) selecting last child of it selected or first if never entered before it also apply onSelect callback action  |
 | void | **[back](https://github.com/devel0/iot-lcd-rotary/tree/main/data/api/Classes/class_l_c_d_rotary_menu_item.md#function-back)**() <br>exit this menu and go back  |
 | int | **[getTag](https://github.com/devel0/iot-lcd-rotary/tree/main/data/api/Classes/class_l_c_d_rotary_menu_item.md#function-gettag)**() const <br>retrieve user tag associated to this menuitem ( useful when manage with single callback that switch on menuitem tag )  |
 | void * | **[getCustom](https://github.com/devel0/iot-lcd-rotary/tree/main/data/api/Classes/class_l_c_d_rotary_menu_item.md#function-getcustom)**()  |
 | bool | **[isDisplayed](https://github.com/devel0/iot-lcd-rotary/tree/main/data/api/Classes/class_l_c_d_rotary_menu_item.md#function-isdisplayed)**() const  |
 | void | **[setMode](https://github.com/devel0/iot-lcd-rotary/tree/main/data/api/Classes/class_l_c_d_rotary_menu_item.md#function-setmode)**([LCDRotaryMenuItemModeEnum](https://github.com/devel0/iot-lcd-rotary/tree/main/data/api/Files/lcd-rotary-menuitem_8h.md#enum-lcdrotarymenuitemmodeenum) newMode)  |
-| void | **[setMultiRollOver](https://github.com/devel0/iot-lcd-rotary/tree/main/data/api/Classes/class_l_c_d_rotary_menu_item.md#function-setmultirollover)**(bool rollOver) <br>if true, for multiselect menuitem type, when rotary reach end or begin of the list restarts from other side  |
+| void | **[setTextMaskCharset](https://github.com/devel0/iot-lcd-rotary/tree/main/data/api/Classes/class_l_c_d_rotary_menu_item.md#function-settextmaskcharset)**(const char * textMask)  |
 | [LCDRotaryMenuItemModeEnum](https://github.com/devel0/iot-lcd-rotary/tree/main/data/api/Files/lcd-rotary-menuitem_8h.md#enum-lcdrotarymenuitemmodeenum) | **[getMode](https://github.com/devel0/iot-lcd-rotary/tree/main/data/api/Classes/class_l_c_d_rotary_menu_item.md#function-getmode)**() const  |
 | void | **[setScrollRowPos](https://github.com/devel0/iot-lcd-rotary/tree/main/data/api/Classes/class_l_c_d_rotary_menu_item.md#function-setscrollrowpos)**(int scrollRow) <br>set the given row as the toplevel of the lcd  |
-| void | **[setCollapsed](https://github.com/devel0/iot-lcd-rotary/tree/main/data/api/Classes/class_l_c_d_rotary_menu_item.md#function-setcollapsed)**(bool collapsed) <br>collapsed this menu item  |
-| bool | **[getCollapsed](https://github.com/devel0/iot-lcd-rotary/tree/main/data/api/Classes/class_l_c_d_rotary_menu_item.md#function-getcollapsed)**() const <br>retrieve collapsed value of this menu item  |
+| int | **[getScrollRowPos](https://github.com/devel0/iot-lcd-rotary/tree/main/data/api/Classes/class_l_c_d_rotary_menu_item.md#function-getscrollrowpos)**() const  |
+| bool | **[isBack](https://github.com/devel0/iot-lcd-rotary/tree/main/data/api/Classes/class_l_c_d_rotary_menu_item.md#function-isback)**() const  |
+| bool | **[isEditing](https://github.com/devel0/iot-lcd-rotary/tree/main/data/api/Classes/class_l_c_d_rotary_menu_item.md#function-isediting)**() const  |
+| bool | **[isEditingCol](https://github.com/devel0/iot-lcd-rotary/tree/main/data/api/Classes/class_l_c_d_rotary_menu_item.md#function-iseditingcol)**() const  |
+| bool | **[isCollapsed](https://github.com/devel0/iot-lcd-rotary/tree/main/data/api/Classes/class_l_c_d_rotary_menu_item.md#function-iscollapsed)**() const  |
+| bool | **[getMultiRollOver](https://github.com/devel0/iot-lcd-rotary/tree/main/data/api/Classes/class_l_c_d_rotary_menu_item.md#function-getmultirollover)**() const  |
+| void | **[setIsEditing](https://github.com/devel0/iot-lcd-rotary/tree/main/data/api/Classes/class_l_c_d_rotary_menu_item.md#function-setisediting)**(bool val)  |
+| void | **[setIsEditingCol](https://github.com/devel0/iot-lcd-rotary/tree/main/data/api/Classes/class_l_c_d_rotary_menu_item.md#function-setiseditingcol)**(bool val)  |
+| void | **[setIsCollapsed](https://github.com/devel0/iot-lcd-rotary/tree/main/data/api/Classes/class_l_c_d_rotary_menu_item.md#function-setiscollapsed)**(bool collapsed)  |
+| void | **[setMultiRollOver](https://github.com/devel0/iot-lcd-rotary/tree/main/data/api/Classes/class_l_c_d_rotary_menu_item.md#function-setmultirollover)**(bool rollOver) <br>if true, for multiselect menuitem type, when rotary reach end or begin of the list restarts from other side  |
 
 
 
@@ -441,7 +448,7 @@ change currently selected menu item child
 ### function getChildren
 
 ```cpp
-vector< LCDRotaryMenuItem * > getChildren()
+vector< LCDRotaryMenuItem * > & getChildren()
 ```
 
 retrieve list of children menu items 
@@ -550,7 +557,7 @@ change menu item prefix ( useful for numeric or multiselect types )
 ### function getText
 
 ```cpp
-const string & getText() const
+const char * getText() const
 ```
 
 retrieve menu item text ( value ) 
@@ -585,7 +592,7 @@ retrieve menu item text ( value )
 ### function getPrefix
 
 ```cpp
-const string & getPrefix() const
+const char * getPrefix() const
 ```
 
 retrieve menu item prefix 
@@ -626,42 +633,6 @@ void onSelect(
 ```
 
 set callback on select this item 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-### function onSelect
-
-```cpp
-void onSelect(
-    void(*)() cb
-)
-```
-
 
 
 
@@ -900,15 +871,14 @@ void setMode(
 
 
 
-### function setMultiRollOver
+### function setTextMaskCharset
 
 ```cpp
-void setMultiRollOver(
-    bool rollOver
+void setTextMaskCharset(
+    const char * textMask
 )
 ```
 
-if true, for multiselect menuitem type, when rotary reach end or begin of the list restarts from other side 
 
 
 
@@ -1008,15 +978,290 @@ set the given row as the toplevel of the lcd
 
 
 
-### function setCollapsed
+### function getScrollRowPos
 
 ```cpp
-void setCollapsed(
+inline int getScrollRowPos() const
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+### function isBack
+
+```cpp
+inline bool isBack() const
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+### function isEditing
+
+```cpp
+inline bool isEditing() const
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+### function isEditingCol
+
+```cpp
+inline bool isEditingCol() const
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+### function isCollapsed
+
+```cpp
+inline bool isCollapsed() const
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+### function getMultiRollOver
+
+```cpp
+inline bool getMultiRollOver() const
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+### function setIsEditing
+
+```cpp
+void setIsEditing(
+    bool val
+)
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+### function setIsEditingCol
+
+```cpp
+void setIsEditingCol(
+    bool val
+)
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+### function setIsCollapsed
+
+```cpp
+void setIsCollapsed(
     bool collapsed
 )
 ```
 
-collapsed this menu item 
 
 
 
@@ -1045,13 +1290,15 @@ collapsed this menu item
 
 
 
-### function getCollapsed
+### function setMultiRollOver
 
 ```cpp
-bool getCollapsed() const
+void setMultiRollOver(
+    bool rollOver
+)
 ```
 
-retrieve collapsed value of this menu item 
+if true, for multiselect menuitem type, when rotary reach end or begin of the list restarts from other side 
 
 
 
@@ -1091,7 +1338,9 @@ retrieve collapsed value of this menu item
 ### friend LCDRotaryMenu
 
 ```cpp
-friend class LCDRotaryMenu;
+friend class LCDRotaryMenu(
+    LCDRotaryMenu 
+);
 ```
 
 

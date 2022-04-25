@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.8.17">
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.9.1" xml:lang="en-US">
   <compound refid="class_l_c_d_rotary_menu" kind="class"><name>LCDRotaryMenu</name>
     <member refid="class_l_c_d_rotary_menu_1ae83390abf1ed9c051a14500c41acc39d" kind="friend"><name>LCDRotaryMenuItem</name></member>
     <member refid="class_l_c_d_rotary_menu_1ad0d601e91512fcba9a508452fc375047" kind="variable"><name>cols</name></member>
@@ -31,6 +31,12 @@
     <member refid="class_l_c_d_rotary_menu_1a54f5fe8dc335283a944e6b0294ebc2b1" kind="variable"><name>busyMode</name></member>
     <member refid="class_l_c_d_rotary_menu_1acb96e62deff697763ea20eb6da0c07aa" kind="variable"><name>editOn</name></member>
     <member refid="class_l_c_d_rotary_menu_1a0e67699a9d9d5d96ad1d95568a409d43" kind="variable"><name>editOnRow</name></member>
+    <member refid="class_l_c_d_rotary_menu_1ae18c94f98740e5042a46937ffaf908ba" kind="variable"><name>m_inhibit</name></member>
+    <member refid="class_l_c_d_rotary_menu_1ad4f9011ad3e9d830823e5fce92d30df4" kind="variable"><name>inhibit_on</name></member>
+    <member refid="class_l_c_d_rotary_menu_1a2634b421392da195e579b468919f8360" kind="variable"><name>lastPressCount</name></member>
+    <member refid="class_l_c_d_rotary_menu_1ac389f343947542939bea08a3e6baa56f" kind="variable"><name>lastRotPos</name></member>
+    <member refid="class_l_c_d_rotary_menu_1ae45c7b4c19f496d5b09de18bd738a74b" kind="variable"><name>editChar</name></member>
+    <member refid="class_l_c_d_rotary_menu_1ac5ac8dd32c60061d6ae842a45702ca17" kind="variable"><name>editRowChar</name></member>
     <member refid="class_l_c_d_rotary_menu_1a854dfd1512fbd600691274ac78929cad" kind="variable"><name>options</name></member>
     <member refid="class_l_c_d_rotary_menu_1a76c308685afec31de40341f5ccd9e2ec" kind="function"><name>displayMenu</name></member>
     <member refid="class_l_c_d_rotary_menu_1a69449fbc33ffdf4b1d6029d73aa293c7" kind="function"><name>move</name></member>
@@ -48,10 +54,11 @@
     <member refid="class_l_c_d_rotary_menu_1ae927803ed98909ed04b277f2e1a55da5" kind="function"><name>loop</name></member>
     <member refid="class_l_c_d_rotary_menu_1ad24ac1f3c4e2263a393b98a475e165ab" kind="function"><name>getRoot</name></member>
     <member refid="class_l_c_d_rotary_menu_1acecff8856990b6c405f5e9f531f532d6" kind="function"><name>getSelected</name></member>
-    <member refid="class_l_c_d_rotary_menu_1a6f26f6dffe18d5a1b6e94ebc070f3bc1" kind="function"><name>setSelected</name></member>
+    <member refid="class_l_c_d_rotary_menu_1a1d1521a110af8f03c008a5ec13a77afd" kind="function"><name>setSelected</name></member>
     <member refid="class_l_c_d_rotary_menu_1a4009b20491d256c9127a31d01a0d9889" kind="function"><name>setCustomLine</name></member>
     <member refid="class_l_c_d_rotary_menu_1a42a5df48f6c099f08a18ae25510c373a" kind="function"><name>setCustomLine2</name></member>
     <member refid="class_l_c_d_rotary_menu_1a4ddfcf0c099fb241249750936ee8cc5a" kind="function"><name>unsetCustomLine</name></member>
+    <member refid="class_l_c_d_rotary_menu_1ac5f936b12abb56fe9de045a3ffd59955" kind="function"><name>inhibit</name></member>
     <member refid="class_l_c_d_rotary_menu_1a25597c254042ac27cb4164dcdb2bb108" kind="function"><name>getLCD</name></member>
     <member refid="class_l_c_d_rotary_menu_1a364949b3f32f8a19aad0c358594f0cd1" kind="function"><name>setBusyLine</name></member>
     <member refid="class_l_c_d_rotary_menu_1ae2bd36e42489b84fa356524972f16604" kind="function"><name>unsetBusy</name></member>
@@ -61,22 +68,19 @@
     <member refid="class_l_c_d_rotary_menu_item_1a3f7911fe9beee7b54b684fab8638326d" kind="variable"><name>menu</name></member>
     <member refid="class_l_c_d_rotary_menu_item_1a7accb3e29e2117d062f2fe2740fc7b69" kind="variable"><name>parent</name></member>
     <member refid="class_l_c_d_rotary_menu_item_1aaf717d336529108f26ca612d839d3748" kind="variable"><name>children</name></member>
-    <member refid="class_l_c_d_rotary_menu_item_1a029578c7dcd7be0a9657ae0b2d6f3605" kind="variable"><name>text</name></member>
-    <member refid="class_l_c_d_rotary_menu_item_1ac008480699ff656244208fb005678de7" kind="variable"><name>prefix</name></member>
+    <member refid="class_l_c_d_rotary_menu_item_1a069fa320b4a1991d354ebe778a66c5bb" kind="variable"><name>text</name></member>
+    <member refid="class_l_c_d_rotary_menu_item_1aca58762c9dea700e3a3da427da01b087" kind="variable"><name>prefix</name></member>
     <member refid="class_l_c_d_rotary_menu_item_1a9e6864faa209815b235e500d32f47dc4" kind="variable"><name>scrollRowPos</name></member>
     <member refid="class_l_c_d_rotary_menu_item_1a4813fe9aa55a237d860717e4845dbbb3" kind="variable"><name>selectedChild</name></member>
     <member refid="class_l_c_d_rotary_menu_item_1a12c3dd7194b776cafc8dc3564cd55df0" kind="variable"><name>selectCb</name></member>
-    <member refid="class_l_c_d_rotary_menu_item_1a2366c0ba9455df79250f34eab37414e3" kind="variable"><name>selectCb2</name></member>
-    <member refid="class_l_c_d_rotary_menu_item_1a9c0bb2400d2c604608dbf6b0c957f4ef" kind="variable"><name>isBack</name></member>
     <member refid="class_l_c_d_rotary_menu_item_1aff2d20277ce48a3c997738a06173eee7" kind="variable"><name>tag</name></member>
     <member refid="class_l_c_d_rotary_menu_item_1a8bec5b9b88f73598020b4ac0608054d1" kind="variable"><name>customPtr</name></member>
     <member refid="class_l_c_d_rotary_menu_item_1af669d90436bf19255d1c3025e5a82a95" kind="variable"><name>mode</name></member>
-    <member refid="class_l_c_d_rotary_menu_item_1abd16b789e915c659aa2779c145b72877" kind="variable"><name>multiRollOver</name></member>
-    <member refid="class_l_c_d_rotary_menu_item_1a9899df06ef59206e233360d86121c719" kind="variable"><name>isEditing</name></member>
-    <member refid="class_l_c_d_rotary_menu_item_1a53f8ebe5011597dc523b3d1b7a290e97" kind="variable"><name>isEditingCol</name></member>
     <member refid="class_l_c_d_rotary_menu_item_1a2009d91b8da47ed2d33d760b8a402499" kind="variable"><name>editingCol</name></member>
     <member refid="class_l_c_d_rotary_menu_item_1a3d88e6b65184403f705441387bc9b967" kind="variable"><name>beginEditingCol</name></member>
-    <member refid="class_l_c_d_rotary_menu_item_1ad7804a3f742e759c2a00c2c540949434" kind="variable"><name>isCollapsed</name></member>
+    <member refid="class_l_c_d_rotary_menu_item_1a85d04fae187b16e2ccef4f30c4f01acf" kind="variable"><name>textMaskCharset</name></member>
+    <member refid="class_l_c_d_rotary_menu_item_1a78cae04cbfe089d1b413512d4902592f" kind="variable"><name>flags</name></member>
+    <member refid="class_l_c_d_rotary_menu_item_1a86c2f9ec4e2033d0a938377be5ba3c87" kind="variable"><name>DEFAULT_textMaskCharset</name></member>
     <member refid="class_l_c_d_rotary_menu_item_1af17f35ca099e15bdedbdd563c8e246f2" kind="function"><name>LCDRotaryMenuItem</name></member>
     <member refid="class_l_c_d_rotary_menu_item_1ab40aaa5d5a233631b80b8f59ab228ddb" kind="function"><name>~LCDRotaryMenuItem</name></member>
     <member refid="class_l_c_d_rotary_menu_item_1a9fcd505d7bde102f0552c4b8fcd4aa6c" kind="function"><name>clear</name></member>
@@ -87,24 +91,31 @@
     <member refid="class_l_c_d_rotary_menu_item_1a3728951e866fa1fa956d8eb344f03ff6" kind="function"><name>getParent</name></member>
     <member refid="class_l_c_d_rotary_menu_item_1aef4b9d42743271a6fc4d5df4cf4fce5b" kind="function"><name>getSelectedChild</name></member>
     <member refid="class_l_c_d_rotary_menu_item_1aef8564188d687c949b82478906ce810c" kind="function"><name>setSelectedChild</name></member>
-    <member refid="class_l_c_d_rotary_menu_item_1afa4fcb1d1bbf1202e828d07589b188e1" kind="function"><name>getChildren</name></member>
+    <member refid="class_l_c_d_rotary_menu_item_1a848962fa1247072f4ea8edf38796a64c" kind="function"><name>getChildren</name></member>
     <member refid="class_l_c_d_rotary_menu_item_1a7857286f7a6b2d36105e0cc7c328df2e" kind="function"><name>setText</name></member>
     <member refid="class_l_c_d_rotary_menu_item_1aa883e4abe796a3d61522c3280e0c53cc" kind="function"><name>setPrefix</name></member>
-    <member refid="class_l_c_d_rotary_menu_item_1ab74efd266806afbdfd232d8f8b53f41a" kind="function"><name>getText</name></member>
-    <member refid="class_l_c_d_rotary_menu_item_1ab1653fb97f6b5e9b350c5045eda7d78b" kind="function"><name>getPrefix</name></member>
+    <member refid="class_l_c_d_rotary_menu_item_1a544d255c452210555955f2a946f590a3" kind="function"><name>getText</name></member>
+    <member refid="class_l_c_d_rotary_menu_item_1a0016145fb4302700465c7f873530d64f" kind="function"><name>getPrefix</name></member>
     <member refid="class_l_c_d_rotary_menu_item_1a92afd4c054c7eddc60e77c526d98ea52" kind="function"><name>onSelect</name></member>
-    <member refid="class_l_c_d_rotary_menu_item_1af38418f8e775b5829f3ae4066bb6edc0" kind="function"><name>onSelect</name></member>
     <member refid="class_l_c_d_rotary_menu_item_1a905bb35998be67a482456a8e9e182b75" kind="function"><name>select</name></member>
     <member refid="class_l_c_d_rotary_menu_item_1a4aa93da6c52e62e8201f73332d1c1d5f" kind="function"><name>back</name></member>
     <member refid="class_l_c_d_rotary_menu_item_1a7d4d5e38c134e5026b7b3f3d59f4d743" kind="function"><name>getTag</name></member>
     <member refid="class_l_c_d_rotary_menu_item_1a78c4bfe4e26f9e2e509b081f637cbe2d" kind="function"><name>getCustom</name></member>
     <member refid="class_l_c_d_rotary_menu_item_1abd0fc68a95bcd603d39d6388a217c364" kind="function"><name>isDisplayed</name></member>
     <member refid="class_l_c_d_rotary_menu_item_1a0ca03274ca8e4f5469c1f11df3cfff12" kind="function"><name>setMode</name></member>
-    <member refid="class_l_c_d_rotary_menu_item_1ad548f661dbc9bf892fd56af9da0ecf3a" kind="function"><name>setMultiRollOver</name></member>
+    <member refid="class_l_c_d_rotary_menu_item_1a6027aa0a75de2a8425e69c09bba06cb6" kind="function"><name>setTextMaskCharset</name></member>
     <member refid="class_l_c_d_rotary_menu_item_1a68c2b182651112089491f52f59e38230" kind="function"><name>getMode</name></member>
     <member refid="class_l_c_d_rotary_menu_item_1a0d534d99a048ac4de681c1bba78a7fe2" kind="function"><name>setScrollRowPos</name></member>
-    <member refid="class_l_c_d_rotary_menu_item_1a0302bebd33e08ac7a408b28a83d50bd2" kind="function"><name>setCollapsed</name></member>
-    <member refid="class_l_c_d_rotary_menu_item_1a28a6e691be2cfc6595a9fefd99f8ca03" kind="function"><name>getCollapsed</name></member>
+    <member refid="class_l_c_d_rotary_menu_item_1a6c60a805a782d845e4fedd683b173989" kind="function"><name>getScrollRowPos</name></member>
+    <member refid="class_l_c_d_rotary_menu_item_1a09ad5b20d99fcc886b3f441cbb85f95f" kind="function"><name>isBack</name></member>
+    <member refid="class_l_c_d_rotary_menu_item_1a4be7f3e6d64e7d3daa311943690952e5" kind="function"><name>isEditing</name></member>
+    <member refid="class_l_c_d_rotary_menu_item_1a7815dbe7d0b850b3a010cc903bda70f4" kind="function"><name>isEditingCol</name></member>
+    <member refid="class_l_c_d_rotary_menu_item_1a7c14379451479a2cf36eb9bdd6750cd0" kind="function"><name>isCollapsed</name></member>
+    <member refid="class_l_c_d_rotary_menu_item_1abff513717e5006e3062c693ab83e5f39" kind="function"><name>getMultiRollOver</name></member>
+    <member refid="class_l_c_d_rotary_menu_item_1a4c44ddf91c6da2a06fdf0bcd8e577c07" kind="function"><name>setIsEditing</name></member>
+    <member refid="class_l_c_d_rotary_menu_item_1a25fc98b6be0caaf0dd3fa834040e3df8" kind="function"><name>setIsEditingCol</name></member>
+    <member refid="class_l_c_d_rotary_menu_item_1adb96cff691d8cb5c25fa3b4d573f2340" kind="function"><name>setIsCollapsed</name></member>
+    <member refid="class_l_c_d_rotary_menu_item_1ad548f661dbc9bf892fd56af9da0ecf3a" kind="function"><name>setMultiRollOver</name></member>
   </compound>
   <compound refid="struct_l_c_d_rotary_menu_options" kind="struct"><name>LCDRotaryMenuOptions</name>
     <member refid="struct_l_c_d_rotary_menu_options_1a2e73220ff857ce2a95f4f1c1bdb0b02d" kind="variable"><name>subMenuPostChar</name></member>
@@ -115,11 +126,17 @@
   <compound refid="lcd-rotary-menu_8h" kind="file"><name>lcd-rotary-menu.h</name>
   </compound>
   <compound refid="lcd-rotary-menuitem_8h" kind="file"><name>lcd-rotary-menuitem.h</name>
+    <member refid="lcd-rotary-menuitem_8h_1a9ac010775316488f11041bf5d2fdc636" kind="define"><name>RMI_FLAG_IS_BACK</name></member>
+    <member refid="lcd-rotary-menuitem_8h_1a7b2676fd343622ef447ba12a0e990997" kind="define"><name>RMI_FLAG_MULTI_ROLLOVER</name></member>
+    <member refid="lcd-rotary-menuitem_8h_1ab8b74be8192b3ceb7b3548353bcec4d2" kind="define"><name>RMI_FLAG_IS_EDITING</name></member>
+    <member refid="lcd-rotary-menuitem_8h_1a3f95f4dbf063eb08bd8e5a650deedb53" kind="define"><name>RMI_FLAG_IS_EDITING_COL</name></member>
+    <member refid="lcd-rotary-menuitem_8h_1aeb803c0b15bd693d0b5cbe651b9d1b1c" kind="define"><name>RMI_FLAG_IS_COLLAPSED</name></member>
     <member refid="lcd-rotary-menuitem_8h_1a00ff890573c8811278937b2bd185f7a6" kind="enum"><name>LCDRotaryMenuItemModeEnum</name></member>
     <member refid="lcd-rotary-menuitem_8h_1a00ff890573c8811278937b2bd185f7a6a5a18717b22fcbb476cbc435bfec2bf6d" kind="enumvalue"><name>MI_Normal</name></member>
     <member refid="lcd-rotary-menuitem_8h_1a00ff890573c8811278937b2bd185f7a6a4429410da53b1a789455a53fd9f87d64" kind="enumvalue"><name>MI_MultiSelect</name></member>
     <member refid="lcd-rotary-menuitem_8h_1a00ff890573c8811278937b2bd185f7a6afb7b879435701b19cb7513e885fd257d" kind="enumvalue"><name>MI_NumericInput</name></member>
-    <member refid="lcd-rotary-menuitem_8h_1a1fe9ce9741dcc6b7fc7051d0467ccf7e" kind="typedef"><name>LCDRotaryMenuItemCB</name></member>
+    <member refid="lcd-rotary-menuitem_8h_1a00ff890573c8811278937b2bd185f7a6a7050143224e2baf76dff63428988db9f" kind="enumvalue"><name>MI_TextInput</name></member>
+    <member refid="lcd-rotary-menuitem_8h_1a7c4e2ce235fd4be87d06bc7434627e7d" kind="typedef"><name>LCDRotaryMenuItemCB</name></member>
   </compound>
   <compound refid="dir_d44c64559bbebec7f509842c48db8b23" kind="dir"><name>include</name>
   </compound>

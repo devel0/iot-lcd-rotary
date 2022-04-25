@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="struct_l_c_d_rotary_menu_options" kind="struct" language="C++" prot="public">
     <compoundname>LCDRotaryMenuOptions</compoundname>
     <includes refid="lcd-rotary-menu_8h" local="no">lcd-rotary-menu.h</includes>
@@ -37,7 +37,7 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="include/lcd-rotary-menu.h" line="15" column="1" bodyfile="include/lcd-rotary-menu.h" bodystart="14" bodyend="26"/>
+    <location file="include/lcd-rotary-menu.h" line="14" column="1" bodyfile="include/lcd-rotary-menu.h" bodystart="15" bodyend="26"/>
     <listofallmembers>
       <member refid="struct_l_c_d_rotary_menu_options_1a76958f473f0b395faa2dcad0eee66438" prot="public" virt="non-virtual"><scope>LCDRotaryMenuOptions</scope><name>backString</name></member>
       <member refid="struct_l_c_d_rotary_menu_options_1a2e73220ff857ce2a95f4f1c1bdb0b02d" prot="public" virt="non-virtual"><scope>LCDRotaryMenuOptions</scope><name>subMenuPostChar</name></member>

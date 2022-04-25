@@ -81,7 +81,7 @@ class LCDRotaryMenu
 
     LCDRotaryMenuItem *root;
     LCDRotaryMenuItem *selectedItem;
-    bool invalidated;
+    bool invalidated;    
 
     char **rowsBuf;
     char **rowsBuf2;
@@ -105,6 +105,14 @@ class LCDRotaryMenu
 
     LCDRotaryMenuItem *editOn = NULL;
     int editOnRow = 0;
+    uint32_t m_inhibit = 0UL;
+    uint32_t inhibit_on = 0UL;
+
+    int lastPressCount = 0;
+    int lastRotPos = 0;
+
+    static const uint8_t editChar = 232 + 3;
+    static const uint8_t editRowChar = '=';
 
 protected:
     void displayMenu();
@@ -140,11 +148,13 @@ public:
 
     LCDRotaryMenuItem *getSelected();
 
-    void setSelected(LCDRotaryMenuItem &item);
+    void setSelected(LCDRotaryMenuItem &item, bool scrollTo = false, int customScrollRowPos = -1);
 
     void setCustomLine(const char *customLine, short rowIdx);
     void setCustomLine2(const char *customLine2, short rowIdx);
     void unsetCustomLine();
+
+    void inhibit(uint32_t timeout_ms);
 
     LiquidCrystal_I2C &getLCD();
 
