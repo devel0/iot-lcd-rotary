@@ -31,7 +31,10 @@
         "titleBar.activeBackground": "#6f34ef",
         "titleBar.activeForeground": "#e7e7e7",
         "titleBar.inactiveBackground": "#6f34ef99",
-        "titleBar.inactiveForeground": "#e7e7e799"
+        "titleBar.inactiveForeground": "#e7e7e799",
+        "commandCenter.border": "#e7e7e799"
     },
-    "peacock.color": "#6f34ef"
+    "peacock.color": "#6f34ef",
+    "stm32-for-vscode.openOCDPath": false,
+    "stm32-for-vscode.armToolchainPath": false
 }
